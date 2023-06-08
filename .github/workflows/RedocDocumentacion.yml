@@ -25,6 +25,7 @@ jobs:
         npm install -g openapi-snippet-cli
         openapi-snippet ./swagger.json -o ./swagger.yaml
         openapi-snippet ./swagger.yaml -e json -o ./swagger.json
+        $ openapi-snippet ./swagger.yaml -t java -t c# -t php -o ./swagger.json
     - name: Actualizar rama main
       run: |
           git checkout main
