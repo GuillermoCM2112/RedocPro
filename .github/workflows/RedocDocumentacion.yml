@@ -23,8 +23,8 @@ jobs:
     - name: snippet
       run: |
         npm install -g openapi-snippet-cli
-        openapi-snippet ../swagger.json -o ../swagger.yaml
-        openapi-snippet ../schema.yaml -e json -o ../schema.json
+        openapi-snippet ./swagger.json -o ./swagger.yaml
+        openapi-snippet ./schema.yaml -e json -o ./swagger.json
     - name: Actualizar rama main
       run: |
           git checkout main
