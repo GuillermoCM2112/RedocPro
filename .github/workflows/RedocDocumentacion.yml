@@ -25,10 +25,13 @@ jobs:
           git checkout main
           git config user.name "Guillermo Coba Montoya"
           git config user.email "guillermo.coba@digitalfemsa.com"
-          git add .
-          git commit -m "Actualizar archivo JSON"
-          git push origin main
-          
+          if [[ -n $(git status -s) ]]; then
+            git add .
+            git commit -m "Actualizar archivo JSON"
+            git push origin main
+          else
+            echo "No hay cambios para actualizar en la rama main"
+          fin
     - name: Instalacion de Redoc CLI y Deploy
       run: |
         npm install -g redoc-cli@latest
