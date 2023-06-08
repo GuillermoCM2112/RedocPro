@@ -1,344 +1,244 @@
-{
-  "openapi": "3.0.1",
-  "info": {
-    "title": "Swagger Demo Documentation",
-    "description": "# RedocPro\n\nImplementación del servicio Customer Identity and Access Management (CIAM)  \n\n## Endpoints\n\nHasta el momento, se cuentan con los siguientes endpoints:\n- `Login`: \n- `Signup`:\n- `RefreshToken`: \n- `ChangeUserPassword`: \n- `ChangeUserProperty`: \n- `UserValidation`: \n- `RevokeRefreshToken`:\n\n## Ejecución local\nPara ejecutar de forma local, se pueden seguir los siguientes pasos:\n1. Instalar la versión más reciente de Visual Studio.\n2. Descargar el `.zip` de la rama `main` del repositorio.\n3. Abrir el proyecto\n4. Agregar en el [`appsettings.Development.json`]\n5. Ahora, puedes hacer click en la ejecutar el proyecto, o bien, en \"Depurar > Iniciar depuración\".\n\nDonde puedes interactuar con los endpoints de CIAM. Si no se abre la ventana, puedes ingresar a esta por medio del siguiente enlace: [https://localhost:7009/swagger/index.html](https://localhost:7009/swagger/index.html).\n\n## Como contribuir al repositorio\nPara contribuir al repositorio se te deben otorgar permisos de escritura y seguir los siguientes pasos. \n\n1. Asociar un nuevo SSH con tu cuenta de GitHub institucional.\n\n    En esta ocasión, no basta con descargar el `.zip` del repositorio. Debes configurar tu dispositivo para conectar tu cuenta de GitHub mediante SSH, puedes seguir el siguiente [tutorial de GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) para añadir una SSH a tu cuenta. Además, debes darle permisos para acceder a `digitaltitransversal`, sigue el siguiente [tutorial](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on) para dar dichos permisos.\n\n2. Teniendo ya el SSH configurado, debes clonar el repositorio en la carpeta de tu preferencia. Como sugerencia, puedes crear una carpeta `~/Projects` para mantener todos los proyectos en un sólo lugar.\n\n    En la terminal, corre el siguiente comando:\n    ```\n    git clone git@github.com:\n    ```\n\n    Debería aparecer una salida parecida a:\n    ```\n    remote: Enumerating objects: 542, done.\n    remote: Counting objects: 100% (314/314), done.\n    remote: Compressing objects: 100% (177/177), done.\n    remote: Total 542 (delta 196), reused 178 (delta 122), pack-reused 228\n    Receiving objects: 100% (542/542), 110.60 KiB | 1.44 MiB/s, done.\n    Resolving deltas: 100% (271/271), done.\n    ```\n\n3. En este punto, se pueden seguir los pasos que se describieron para la ejecución local.\n\n4. Si se quiere agregar nuevos cambios, debes crear tu propia rama.\n    ```\n    git branch rama-de-ejemplo\n    ```\n\n5. Para empezar a trabajar sobre la rama creada, puedes ejecutar el siguiente comando:\n\n    ```\n    git checkout rama-de-ejemplo\n    ```\n\n    En este punto ya puedes comenzar a hacer tus cambios. Si no haces el `checkout` a tu rama, puede que afectes a otras ramas e interrumpir el trabajo de los demás. Recuerda que no te dejará hacer `push` a `main`. \n\n6. Después de hacer tus cambios, haz pruebas unitarias e\n\n7. Se checa de manera automática que se cumpla ciertas reglas de sintaxis. Algunas de estas reglas son necesarias para tener una sintaxis consistente en todo el repositorio. La mayoría de las reglas se pueden aplicar de manera automática corriendo el siguiente comando:\n    ```\n    dotnet format\n    ```\n    En caso de enviar tus cambios y todavía tener pendientes de sintaxis, tendrás que checar de forma manual cómo arreglarlo. Te puedes guiar de la [documentación de StyleCop](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/tree/master/documentation) y pedir ayuda al equipo. Para checar de forma local la sintaxis, puedes correr el siguiente comando:\n\n    ```\n    dotnet format --verify-no-changes --verbosity m --severity warn\n    ```\n\n",
-    "contact": {
-      "name": "test",
-      "email": "someemail@somedomain.com"
-    },
-    "version": "v1",
-    "x-logo": {
-      "url": "https://www.femsa.com/wp-content/uploads/2022/05/digital-at-femsa-logotype-h-blk-2048x550.png",
-      "altText": "Your logo alt text here"
-    }
-  },
-  "paths": {
-    "/api/Health": {
-      "get": {
-        "tags": [
-          "Health"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        },
-        "x-codeSamples": [
-          {
-            "lang": "C + Libcurl",
-            "source": "CURL *hnd = curl_easy_init();\n\ncurl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, \"GET\");\ncurl_easy_setopt(hnd, CURLOPT_URL, \"http://undefinedundefined/api/Health\");\n\nCURLcode ret = curl_easy_perform(hnd);"
-          },
-          {
-            "lang": "Csharp + Restsharp",
-            "source": "var client = new RestClient(\"http://undefinedundefined/api/Health\");\nvar request = new RestRequest(Method.GET);\nIRestResponse response = client.Execute(request);"
-          },
-          {
-            "lang": "Go + Native",
-            "source": "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"http://undefinedundefined/api/Health\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
-          },
-          {
-            "lang": "Java + Okhttp",
-            "source": "OkHttpClient client = new OkHttpClient();\n\nRequest request = new Request.Builder()\n  .url(\"http://undefinedundefined/api/Health\")\n  .get()\n  .build();\n\nResponse response = client.newCall(request).execute();"
-          },
-          {
-            "lang": "Java + Unirest",
-            "source": "HttpResponse<String> response = Unirest.get(\"http://undefinedundefined/api/Health\")\n  .asString();"
-          },
-          {
-            "lang": "Javascript + Jquery",
-            "source": "const settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://undefinedundefined/api/Health\",\n  \"method\": \"GET\",\n  \"headers\": {}\n};\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});"
-          },
-          {
-            "lang": "Javascript + Xhr",
-            "source": "const data = null;\n\nconst xhr = new XMLHttpRequest();\nxhr.withCredentials = true;\n\nxhr.addEventListener(\"readystatechange\", function () {\n  if (this.readyState === this.DONE) {\n    console.log(this.responseText);\n  }\n});\n\nxhr.open(\"GET\", \"http://undefinedundefined/api/Health\");\n\nxhr.send(data);"
-          },
-          {
-            "lang": "Javascript + Jquery",
-            "source": "const settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://undefinedundefined/api/Health\",\n  \"method\": \"GET\",\n  \"headers\": {}\n};\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});"
-          },
-          {
-            "lang": "Node + Native",
-            "source": "const http = require(\"http\");\n\nconst options = {\n  \"method\": \"GET\",\n  \"hostname\": \"undefinedundefined\",\n  \"port\": null,\n  \"path\": \"/api/Health\",\n  \"headers\": {}\n};\n\nconst req = http.request(options, function (res) {\n  const chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    const body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.end();"
-          },
-          {
-            "lang": "Node + Request",
-            "source": "const request = require('request');\n\nconst options = {method: 'GET', url: 'http://undefinedundefined/api/Health'};\n\nrequest(options, function (error, response, body) {\n  if (error) throw new Error(error);\n\n  console.log(body);\n});\n"
-          },
-          {
-            "lang": "Node + Unirest",
-            "source": "const unirest = require(\"unirest\");\n\nconst req = unirest(\"GET\", \"http://undefinedundefined/api/Health\");\n\nreq.end(function (res) {\n  if (res.error) throw new Error(res.error);\n\n  console.log(res.body);\n});\n"
-          },
-          {
-            "lang": "Objc + Nsurlsession",
-            "source": "#import <Foundation/Foundation.h>\n\nNSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@\"http://undefinedundefined/api/Health\"]\n                                                       cachePolicy:NSURLRequestUseProtocolCachePolicy\n                                                   timeoutInterval:10.0];\n[request setHTTPMethod:@\"GET\"];\n\nNSURLSession *session = [NSURLSession sharedSession];\nNSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request\n                                            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {\n                                                if (error) {\n                                                    NSLog(@\"%@\", error);\n                                                } else {\n                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;\n                                                    NSLog(@\"%@\", httpResponse);\n                                                }\n                                            }];\n[dataTask resume];"
-          },
-          {
-            "lang": "Ocaml + Cohttp",
-            "source": "open Cohttp_lwt_unix\nopen Cohttp\nopen Lwt\n\nlet uri = Uri.of_string \"http://undefinedundefined/api/Health\" in\n\nClient.call `GET uri\n>>= fun (res, body_stream) ->\n  (* Do stuff with the result *)"
-          },
-          {
-            "lang": "Php + Curl",
-            "source": "<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, [\n  CURLOPT_URL => \"http://undefinedundefined/api/Health\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"GET\",\n]);\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}"
-          },
-          {
-            "lang": "Php + Http1",
-            "source": "<?php\n\n$request = new HttpRequest();\n$request->setUrl('http://undefinedundefined/api/Health');\n$request->setMethod(HTTP_METH_GET);\n\ntry {\n  $response = $request->send();\n\n  echo $response->getBody();\n} catch (HttpException $ex) {\n  echo $ex;\n}"
-          },
-          {
-            "lang": "Php + Http2",
-            "source": "<?php\n\n$client = new http\\Client;\n$request = new http\\Client\\Request;\n\n$request->setRequestUrl('http://undefinedundefined/api/Health');\n$request->setRequestMethod('GET');\n$client->enqueue($request)->send();\n$response = $client->getResponse();\n\necho $response->getBody();"
-          },
-          {
-            "lang": "Python + Python3",
-            "source": "import http.client\n\nconn = http.client.HTTPConnection(\"undefinedundefined\")\n\nconn.request(\"GET\", \"/api/Health\")\n\nres = conn.getresponse()\ndata = res.read()\n\nprint(data.decode(\"utf-8\"))"
-          },
-          {
-            "lang": "Python + Requests",
-            "source": "import requests\n\nurl = \"http://undefinedundefined/api/Health\"\n\nresponse = requests.request(\"GET\", url)\n\nprint(response.text)"
-          },
-          {
-            "lang": "Ruby + Native",
-            "source": "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://undefinedundefined/api/Health\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Get.new(url)\n\nresponse = http.request(request)\nputs response.read_body"
-          },
-          {
-            "lang": "Shell + Curl",
-            "source": "curl --request GET \\\n  --url http://undefinedundefined/api/Health"
-          },
-          {
-            "lang": "Shell + Httpie",
-            "source": "http GET http://undefinedundefined/api/Health"
-          },
-          {
-            "lang": "Shell + Wget",
-            "source": "wget --quiet \\\n  --method GET \\\n  --output-document \\\n  - http://undefinedundefined/api/Health"
-          },
-          {
-            "lang": "Swift + Nsurlsession",
-            "source": "import Foundation\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"http://undefinedundefined/api/Health\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"GET\"\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
-          }
-        ]
-      }
-    },
-    "/WeatherForecast": {
-      "get": {
-        "tags": [
-          "WeatherForecast"
-        ],
-        "operationId": "GetWeatherForecast",
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "date": {
-                        "type": "string",
-                        "format": "date"
-                      },
-                      "temperatureC": {
-                        "type": "integer",
-                        "format": "int32"
-                      },
-                      "temperatureF": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                      },
-                      "summary": {
-                        "type": "string",
-                        "nullable": true
-                      }
-                    },
-                    "additionalProperties": false
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "date": {
-                        "type": "string",
-                        "format": "date"
-                      },
-                      "temperatureC": {
-                        "type": "integer",
-                        "format": "int32"
-                      },
-                      "temperatureF": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                      },
-                      "summary": {
-                        "type": "string",
-                        "nullable": true
-                      }
-                    },
-                    "additionalProperties": false
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "date": {
-                        "type": "string",
-                        "format": "date"
-                      },
-                      "temperatureC": {
-                        "type": "integer",
-                        "format": "int32"
-                      },
-                      "temperatureF": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                      },
-                      "summary": {
-                        "type": "string",
-                        "nullable": true
-                      }
-                    },
-                    "additionalProperties": false
-                  }
-                }
-              }
+openapi: 3.0.1
+info:
+  title: Swagger Demo Documentation
+  description: >+
+    # RedocPro
+
+
+    Implementación del servicio Customer Identity and Access Management (CIAM)  
+
+
+    ## Endpoints
+
+
+    Hasta el momento, se cuentan con los siguientes endpoints:
+
+    - `Login`: 
+
+    - `Signup`:
+
+    - `RefreshToken`: 
+
+    - `ChangeUserPassword`: 
+
+    - `ChangeUserProperty`: 
+
+    - `UserValidation`: 
+
+    - `RevokeRefreshToken`:
+
+
+    ## Ejecución local
+
+    Para ejecutar de forma local, se pueden seguir los siguientes pasos:
+
+    1. Instalar la versión más reciente de Visual Studio.
+
+    2. Descargar el `.zip` de la rama `main` del repositorio.
+
+    3. Abrir el proyecto
+
+    4. Agregar en el [`appsettings.Development.json`]
+
+    5. Ahora, puedes hacer click en la ejecutar el proyecto, o bien, en "Depurar
+    > Iniciar depuración".
+
+
+    Donde puedes interactuar con los endpoints de CIAM. Si no se abre la
+    ventana, puedes ingresar a esta por medio del siguiente enlace:
+    [https://localhost:7009/swagger/index.html](https://localhost:7009/swagger/index.html).
+
+
+    ## Como contribuir al repositorio
+
+    Para contribuir al repositorio se te deben otorgar permisos de escritura y
+    seguir los siguientes pasos. 
+
+
+    1. Asociar un nuevo SSH con tu cuenta de GitHub institucional.
+
+        En esta ocasión, no basta con descargar el `.zip` del repositorio. Debes configurar tu dispositivo para conectar tu cuenta de GitHub mediante SSH, puedes seguir el siguiente [tutorial de GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) para añadir una SSH a tu cuenta. Además, debes darle permisos para acceder a `digitaltitransversal`, sigue el siguiente [tutorial](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on) para dar dichos permisos.
+
+    2. Teniendo ya el SSH configurado, debes clonar el repositorio en la carpeta
+    de tu preferencia. Como sugerencia, puedes crear una carpeta `~/Projects`
+    para mantener todos los proyectos en un sólo lugar.
+
+        En la terminal, corre el siguiente comando:
+        ```
+        git clone git@github.com:
+        ```
+
+        Debería aparecer una salida parecida a:
+        ```
+        remote: Enumerating objects: 542, done.
+        remote: Counting objects: 100% (314/314), done.
+        remote: Compressing objects: 100% (177/177), done.
+        remote: Total 542 (delta 196), reused 178 (delta 122), pack-reused 228
+        Receiving objects: 100% (542/542), 110.60 KiB | 1.44 MiB/s, done.
+        Resolving deltas: 100% (271/271), done.
+        ```
+
+    3. En este punto, se pueden seguir los pasos que se describieron para la
+    ejecución local.
+
+
+    4. Si se quiere agregar nuevos cambios, debes crear tu propia rama.
+        ```
+        git branch rama-de-ejemplo
+        ```
+
+    5. Para empezar a trabajar sobre la rama creada, puedes ejecutar el
+    siguiente comando:
+
+        ```
+        git checkout rama-de-ejemplo
+        ```
+
+        En este punto ya puedes comenzar a hacer tus cambios. Si no haces el `checkout` a tu rama, puede que afectes a otras ramas e interrumpir el trabajo de los demás. Recuerda que no te dejará hacer `push` a `main`. 
+
+    6. Después de hacer tus cambios, haz pruebas unitarias e
+
+
+    7. Se checa de manera automática que se cumpla ciertas reglas de sintaxis.
+    Algunas de estas reglas son necesarias para tener una sintaxis consistente
+    en todo el repositorio. La mayoría de las reglas se pueden aplicar de manera
+    automática corriendo el siguiente comando:
+        ```
+        dotnet format
+        ```
+        En caso de enviar tus cambios y todavía tener pendientes de sintaxis, tendrás que checar de forma manual cómo arreglarlo. Te puedes guiar de la [documentación de StyleCop](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/tree/master/documentation) y pedir ayuda al equipo. Para checar de forma local la sintaxis, puedes correr el siguiente comando:
+
+        ```
+        dotnet format --verify-no-changes --verbosity m --severity warn
+        ```
+
+  contact:
+    name: test
+    email: someemail@somedomain.com
+  version: v1
+  x-logo:
+    url: >-
+      https://www.femsa.com/wp-content/uploads/2022/05/digital-at-femsa-logotype-h-blk-2048x550.png
+    altText: Your logo alt text here
+paths:
+  /api/Health:
+    get:
+      tags:
+        - Health
+      responses:
+        '200':
+          description: Success
+      x-codeSamples:
+        - lang: Java + Okhttp
+          source: |-
+            OkHttpClient client = new OkHttpClient();
+
+            Request request = new Request.Builder()
+              .url("http://undefinedundefined/api/Health")
+              .get()
+              .build();
+
+            Response response = client.newCall(request).execute();
+        - lang: Php + Curl
+          source: |-
+            <?php
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, [
+              CURLOPT_URL => "http://undefinedundefined/api/Health",
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => "",
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "GET",
+            ]);
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              echo $response;
             }
-          }
-        },
-        "x-codeSamples": [
-          {
-            "lang": "C + Libcurl",
-            "source": "CURL *hnd = curl_easy_init();\n\ncurl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, \"GET\");\ncurl_easy_setopt(hnd, CURLOPT_URL, \"http://undefinedundefined/WeatherForecast\");\n\nCURLcode ret = curl_easy_perform(hnd);"
-          },
-          {
-            "lang": "Csharp + Restsharp",
-            "source": "var client = new RestClient(\"http://undefinedundefined/WeatherForecast\");\nvar request = new RestRequest(Method.GET);\nIRestResponse response = client.Execute(request);"
-          },
-          {
-            "lang": "Go + Native",
-            "source": "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"http://undefinedundefined/WeatherForecast\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
-          },
-          {
-            "lang": "Java + Okhttp",
-            "source": "OkHttpClient client = new OkHttpClient();\n\nRequest request = new Request.Builder()\n  .url(\"http://undefinedundefined/WeatherForecast\")\n  .get()\n  .build();\n\nResponse response = client.newCall(request).execute();"
-          },
-          {
-            "lang": "Java + Unirest",
-            "source": "HttpResponse<String> response = Unirest.get(\"http://undefinedundefined/WeatherForecast\")\n  .asString();"
-          },
-          {
-            "lang": "Javascript + Jquery",
-            "source": "const settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://undefinedundefined/WeatherForecast\",\n  \"method\": \"GET\",\n  \"headers\": {}\n};\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});"
-          },
-          {
-            "lang": "Javascript + Xhr",
-            "source": "const data = null;\n\nconst xhr = new XMLHttpRequest();\nxhr.withCredentials = true;\n\nxhr.addEventListener(\"readystatechange\", function () {\n  if (this.readyState === this.DONE) {\n    console.log(this.responseText);\n  }\n});\n\nxhr.open(\"GET\", \"http://undefinedundefined/WeatherForecast\");\n\nxhr.send(data);"
-          },
-          {
-            "lang": "Javascript + Jquery",
-            "source": "const settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://undefinedundefined/WeatherForecast\",\n  \"method\": \"GET\",\n  \"headers\": {}\n};\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});"
-          },
-          {
-            "lang": "Node + Native",
-            "source": "const http = require(\"http\");\n\nconst options = {\n  \"method\": \"GET\",\n  \"hostname\": \"undefinedundefined\",\n  \"port\": null,\n  \"path\": \"/WeatherForecast\",\n  \"headers\": {}\n};\n\nconst req = http.request(options, function (res) {\n  const chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    const body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.end();"
-          },
-          {
-            "lang": "Node + Request",
-            "source": "const request = require('request');\n\nconst options = {method: 'GET', url: 'http://undefinedundefined/WeatherForecast'};\n\nrequest(options, function (error, response, body) {\n  if (error) throw new Error(error);\n\n  console.log(body);\n});\n"
-          },
-          {
-            "lang": "Node + Unirest",
-            "source": "const unirest = require(\"unirest\");\n\nconst req = unirest(\"GET\", \"http://undefinedundefined/WeatherForecast\");\n\nreq.end(function (res) {\n  if (res.error) throw new Error(res.error);\n\n  console.log(res.body);\n});\n"
-          },
-          {
-            "lang": "Objc + Nsurlsession",
-            "source": "#import <Foundation/Foundation.h>\n\nNSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@\"http://undefinedundefined/WeatherForecast\"]\n                                                       cachePolicy:NSURLRequestUseProtocolCachePolicy\n                                                   timeoutInterval:10.0];\n[request setHTTPMethod:@\"GET\"];\n\nNSURLSession *session = [NSURLSession sharedSession];\nNSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request\n                                            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {\n                                                if (error) {\n                                                    NSLog(@\"%@\", error);\n                                                } else {\n                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;\n                                                    NSLog(@\"%@\", httpResponse);\n                                                }\n                                            }];\n[dataTask resume];"
-          },
-          {
-            "lang": "Ocaml + Cohttp",
-            "source": "open Cohttp_lwt_unix\nopen Cohttp\nopen Lwt\n\nlet uri = Uri.of_string \"http://undefinedundefined/WeatherForecast\" in\n\nClient.call `GET uri\n>>= fun (res, body_stream) ->\n  (* Do stuff with the result *)"
-          },
-          {
-            "lang": "Php + Curl",
-            "source": "<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, [\n  CURLOPT_URL => \"http://undefinedundefined/WeatherForecast\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"GET\",\n]);\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}"
-          },
-          {
-            "lang": "Php + Http1",
-            "source": "<?php\n\n$request = new HttpRequest();\n$request->setUrl('http://undefinedundefined/WeatherForecast');\n$request->setMethod(HTTP_METH_GET);\n\ntry {\n  $response = $request->send();\n\n  echo $response->getBody();\n} catch (HttpException $ex) {\n  echo $ex;\n}"
-          },
-          {
-            "lang": "Php + Http2",
-            "source": "<?php\n\n$client = new http\\Client;\n$request = new http\\Client\\Request;\n\n$request->setRequestUrl('http://undefinedundefined/WeatherForecast');\n$request->setRequestMethod('GET');\n$client->enqueue($request)->send();\n$response = $client->getResponse();\n\necho $response->getBody();"
-          },
-          {
-            "lang": "Python + Python3",
-            "source": "import http.client\n\nconn = http.client.HTTPConnection(\"undefinedundefined\")\n\nconn.request(\"GET\", \"/WeatherForecast\")\n\nres = conn.getresponse()\ndata = res.read()\n\nprint(data.decode(\"utf-8\"))"
-          },
-          {
-            "lang": "Python + Requests",
-            "source": "import requests\n\nurl = \"http://undefinedundefined/WeatherForecast\"\n\nresponse = requests.request(\"GET\", url)\n\nprint(response.text)"
-          },
-          {
-            "lang": "Ruby + Native",
-            "source": "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://undefinedundefined/WeatherForecast\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Get.new(url)\n\nresponse = http.request(request)\nputs response.read_body"
-          },
-          {
-            "lang": "Shell + Curl",
-            "source": "curl --request GET \\\n  --url http://undefinedundefined/WeatherForecast"
-          },
-          {
-            "lang": "Shell + Httpie",
-            "source": "http GET http://undefinedundefined/WeatherForecast"
-          },
-          {
-            "lang": "Shell + Wget",
-            "source": "wget --quiet \\\n  --method GET \\\n  --output-document \\\n  - http://undefinedundefined/WeatherForecast"
-          },
-          {
-            "lang": "Swift + Nsurlsession",
-            "source": "import Foundation\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"http://undefinedundefined/WeatherForecast\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"GET\"\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
-          }
-        ]
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "WeatherForecast": {
-        "type": "object",
-        "properties": {
-          "date": {
-            "type": "string",
-            "format": "date"
-          },
-          "temperatureC": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "temperatureF": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "summary": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      }
-    }
-  }
-}
+  /WeatherForecast:
+    get:
+      tags:
+        - WeatherForecast
+      operationId: GetWeatherForecast
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items: &ref_0
+                  type: object
+                  properties:
+                    date:
+                      type: string
+                      format: date
+                    temperatureC:
+                      type: integer
+                      format: int32
+                    temperatureF:
+                      type: integer
+                      format: int32
+                      readOnly: true
+                    summary:
+                      type: string
+                      nullable: true
+                  additionalProperties: false
+            application/json:
+              schema:
+                type: array
+                items: *ref_0
+            text/json:
+              schema:
+                type: array
+                items: *ref_0
+      x-codeSamples:
+        - lang: Java + Okhttp
+          source: |-
+            OkHttpClient client = new OkHttpClient();
+
+            Request request = new Request.Builder()
+              .url("http://undefinedundefined/WeatherForecast")
+              .get()
+              .build();
+
+            Response response = client.newCall(request).execute();
+        - lang: Php + Curl
+          source: |-
+            <?php
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, [
+              CURLOPT_URL => "http://undefinedundefined/WeatherForecast",
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => "",
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "GET",
+            ]);
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              echo $response;
+            }
+components:
+  schemas:
+    WeatherForecast: *ref_0
