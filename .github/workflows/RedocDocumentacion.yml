@@ -20,6 +20,18 @@ jobs:
           dotnet restore
           dotnet build --configuration Debug
           timeout -k 5s 6s dotnet run --project ./RedocPro/RedocPro.csproj  -- output ./openapi-snippet || true          
+    - name: Actualizar rama main
+      run: |
+            git checkout main
+            git config user.name "user"
+            git config user.email "email"
+            if [[ -n $(git status -s) ]]; then
+                git add .
+                git commit -m "Actualizar archivo JSON"
+               git push origin main
+            else
+               echo "No hay cambios para actualizar en la rama main"
+            fi
     - name: Instalacion de Redoc CLI y Deploy
       run: |
         npm install -g redoc-cli@latest
