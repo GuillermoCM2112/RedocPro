@@ -118,7 +118,7 @@ info:
   version: v1
   x-logo:
     url: >-
-      https://www.femsa.com/wp-content/uploads/2022/05/digital-at-femsa-logotype-h-blk-2048x550.png
+      https://img.freepik.com/vector-premium/diseno-logotipo-agua-hexagonal-listo-usar_94202-237.jpg?w=360
     altText: Your logo alt text here
 paths:
   /api/Health:
