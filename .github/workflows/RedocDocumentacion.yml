@@ -18,28 +18,15 @@ jobs:
     - name: Restaurar paquetes, compilar y ejecutar proyecto 
       run: |
           dotnet restore
-          dotnet build --configuration Debug
-          timeout -k 5s 6s dotnet run --project ./RedocPro/RedocPro.csproj  --configuration Debug || true          
-    - name: Actualizar rama main
-      run: |
-          git checkout main
-          git config user.name "Guillermo Coba Montoya"
-          git config user.email "guillermo.coba@digitalfemsa.com"
-          if [[ -n $(git status -s) ]]; then
-              git add .
-              git commit -m "Actualizar archivo JSON"
-              git push origin main
-          else
-              echo "No hay cambios para actualizar en la rama main"
-          fi
+          dotnet build --configuration
+          timeout -k 5s 6s dotnet run --project ./RedocPro/RedocPro.csproj  -- output ./openapi-snippet || true          
     - name: Instalacion de Redoc CLI y Deploy
       run: |
         npm install -g redoc-cli@latest
-        redoc-cli bundle ./swagger.json --output ./index.html
-    - name: Deploy en GitHub Pages
+        redoc-cli bundle ./openapi-snippet -o ./index.html
+    - name: Desplegar documentación en Redoc
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: .
+        personal_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./redoc-static
         exclude_assets: '.github,.vs,RedocPro,RedocPro.sln,.gitignore'
-        force_orphan: true
