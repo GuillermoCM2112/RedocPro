@@ -19,7 +19,7 @@ jobs:
       run: |
           dotnet restore
           dotnet build --configuration Debug
-          timeout -k 5s 6s dotnet run --project ./RedocPro/RedocPro.csproj  -- output ./openapi-snippet || true          
+          timeout -k 5s 6s dotnet run --project ./RedocPro/RedocPro.csproj  -- output ./RedocPro/openapi-snippet || true          
     - name: Actualizar rama main
       run: |
             git checkout main
