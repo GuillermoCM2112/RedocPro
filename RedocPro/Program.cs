@@ -34,7 +34,7 @@ public class Program
                     {
                       {"x-logo", new OpenApiObject
                         {
-                           {"url", new OpenApiString("https://www.femsa.com/wp-content/uploads/2022/05/digital-at-femsa-logotype-h-blk-2048x550.png")},
+                           {"url", new OpenApiString("https://img.freepik.com/vector-premium/diseno-logotipo-agua-hexagonal-listo-usar_94202-237.jpg?w=360")},
                            { "altText", new OpenApiString("Your logo alt text here")}
                         }
                       }
