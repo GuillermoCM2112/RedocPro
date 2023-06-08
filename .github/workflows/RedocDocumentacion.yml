@@ -18,7 +18,7 @@ jobs:
     - name: Restaurar paquetes, compilar y ejecutar proyecto 
       run: |
           dotnet restore
-          dotnet build --configuration
+          dotnet build --configuration Debug
           timeout -k 5s 6s dotnet run --project ./RedocPro/RedocPro.csproj  -- output ./openapi-snippet || true          
     - name: Instalacion de Redoc CLI y Deploy
       run: |
