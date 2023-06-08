@@ -23,7 +23,101 @@
           "200": {
             "description": "Success"
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "C + Libcurl",
+            "source": "CURL *hnd = curl_easy_init();\n\ncurl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, \"GET\");\ncurl_easy_setopt(hnd, CURLOPT_URL, \"http://undefinedundefined/api/Health\");\n\nCURLcode ret = curl_easy_perform(hnd);"
+          },
+          {
+            "lang": "Csharp + Restsharp",
+            "source": "var client = new RestClient(\"http://undefinedundefined/api/Health\");\nvar request = new RestRequest(Method.GET);\nIRestResponse response = client.Execute(request);"
+          },
+          {
+            "lang": "Go + Native",
+            "source": "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"http://undefinedundefined/api/Health\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+          },
+          {
+            "lang": "Java + Okhttp",
+            "source": "OkHttpClient client = new OkHttpClient();\n\nRequest request = new Request.Builder()\n  .url(\"http://undefinedundefined/api/Health\")\n  .get()\n  .build();\n\nResponse response = client.newCall(request).execute();"
+          },
+          {
+            "lang": "Java + Unirest",
+            "source": "HttpResponse<String> response = Unirest.get(\"http://undefinedundefined/api/Health\")\n  .asString();"
+          },
+          {
+            "lang": "Javascript + Jquery",
+            "source": "const settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://undefinedundefined/api/Health\",\n  \"method\": \"GET\",\n  \"headers\": {}\n};\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});"
+          },
+          {
+            "lang": "Javascript + Xhr",
+            "source": "const data = null;\n\nconst xhr = new XMLHttpRequest();\nxhr.withCredentials = true;\n\nxhr.addEventListener(\"readystatechange\", function () {\n  if (this.readyState === this.DONE) {\n    console.log(this.responseText);\n  }\n});\n\nxhr.open(\"GET\", \"http://undefinedundefined/api/Health\");\n\nxhr.send(data);"
+          },
+          {
+            "lang": "Javascript + Jquery",
+            "source": "const settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://undefinedundefined/api/Health\",\n  \"method\": \"GET\",\n  \"headers\": {}\n};\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});"
+          },
+          {
+            "lang": "Node + Native",
+            "source": "const http = require(\"http\");\n\nconst options = {\n  \"method\": \"GET\",\n  \"hostname\": \"undefinedundefined\",\n  \"port\": null,\n  \"path\": \"/api/Health\",\n  \"headers\": {}\n};\n\nconst req = http.request(options, function (res) {\n  const chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    const body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.end();"
+          },
+          {
+            "lang": "Node + Request",
+            "source": "const request = require('request');\n\nconst options = {method: 'GET', url: 'http://undefinedundefined/api/Health'};\n\nrequest(options, function (error, response, body) {\n  if (error) throw new Error(error);\n\n  console.log(body);\n});\n"
+          },
+          {
+            "lang": "Node + Unirest",
+            "source": "const unirest = require(\"unirest\");\n\nconst req = unirest(\"GET\", \"http://undefinedundefined/api/Health\");\n\nreq.end(function (res) {\n  if (res.error) throw new Error(res.error);\n\n  console.log(res.body);\n});\n"
+          },
+          {
+            "lang": "Objc + Nsurlsession",
+            "source": "#import <Foundation/Foundation.h>\n\nNSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@\"http://undefinedundefined/api/Health\"]\n                                                       cachePolicy:NSURLRequestUseProtocolCachePolicy\n                                                   timeoutInterval:10.0];\n[request setHTTPMethod:@\"GET\"];\n\nNSURLSession *session = [NSURLSession sharedSession];\nNSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request\n                                            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {\n                                                if (error) {\n                                                    NSLog(@\"%@\", error);\n                                                } else {\n                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;\n                                                    NSLog(@\"%@\", httpResponse);\n                                                }\n                                            }];\n[dataTask resume];"
+          },
+          {
+            "lang": "Ocaml + Cohttp",
+            "source": "open Cohttp_lwt_unix\nopen Cohttp\nopen Lwt\n\nlet uri = Uri.of_string \"http://undefinedundefined/api/Health\" in\n\nClient.call `GET uri\n>>= fun (res, body_stream) ->\n  (* Do stuff with the result *)"
+          },
+          {
+            "lang": "Php + Curl",
+            "source": "<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, [\n  CURLOPT_URL => \"http://undefinedundefined/api/Health\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"GET\",\n]);\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}"
+          },
+          {
+            "lang": "Php + Http1",
+            "source": "<?php\n\n$request = new HttpRequest();\n$request->setUrl('http://undefinedundefined/api/Health');\n$request->setMethod(HTTP_METH_GET);\n\ntry {\n  $response = $request->send();\n\n  echo $response->getBody();\n} catch (HttpException $ex) {\n  echo $ex;\n}"
+          },
+          {
+            "lang": "Php + Http2",
+            "source": "<?php\n\n$client = new http\\Client;\n$request = new http\\Client\\Request;\n\n$request->setRequestUrl('http://undefinedundefined/api/Health');\n$request->setRequestMethod('GET');\n$client->enqueue($request)->send();\n$response = $client->getResponse();\n\necho $response->getBody();"
+          },
+          {
+            "lang": "Python + Python3",
+            "source": "import http.client\n\nconn = http.client.HTTPConnection(\"undefinedundefined\")\n\nconn.request(\"GET\", \"/api/Health\")\n\nres = conn.getresponse()\ndata = res.read()\n\nprint(data.decode(\"utf-8\"))"
+          },
+          {
+            "lang": "Python + Requests",
+            "source": "import requests\n\nurl = \"http://undefinedundefined/api/Health\"\n\nresponse = requests.request(\"GET\", url)\n\nprint(response.text)"
+          },
+          {
+            "lang": "Ruby + Native",
+            "source": "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://undefinedundefined/api/Health\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Get.new(url)\n\nresponse = http.request(request)\nputs response.read_body"
+          },
+          {
+            "lang": "Shell + Curl",
+            "source": "curl --request GET \\\n  --url http://undefinedundefined/api/Health"
+          },
+          {
+            "lang": "Shell + Httpie",
+            "source": "http GET http://undefinedundefined/api/Health"
+          },
+          {
+            "lang": "Shell + Wget",
+            "source": "wget --quiet \\\n  --method GET \\\n  --output-document \\\n  - http://undefinedundefined/api/Health"
+          },
+          {
+            "lang": "Swift + Nsurlsession",
+            "source": "import Foundation\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"http://undefinedundefined/api/Health\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"GET\"\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
+          }
+        ]
       }
     },
     "/WeatherForecast": {
@@ -40,7 +134,27 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
+                    "type": "object",
+                    "properties": {
+                      "date": {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      "temperatureC": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "temperatureF": {
+                        "type": "integer",
+                        "format": "int32",
+                        "readOnly": true
+                      },
+                      "summary": {
+                        "type": "string",
+                        "nullable": true
+                      }
+                    },
+                    "additionalProperties": false
                   }
                 }
               },
@@ -48,7 +162,27 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
+                    "type": "object",
+                    "properties": {
+                      "date": {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      "temperatureC": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "temperatureF": {
+                        "type": "integer",
+                        "format": "int32",
+                        "readOnly": true
+                      },
+                      "summary": {
+                        "type": "string",
+                        "nullable": true
+                      }
+                    },
+                    "additionalProperties": false
                   }
                 }
               },
@@ -56,13 +190,127 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
+                    "type": "object",
+                    "properties": {
+                      "date": {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      "temperatureC": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "temperatureF": {
+                        "type": "integer",
+                        "format": "int32",
+                        "readOnly": true
+                      },
+                      "summary": {
+                        "type": "string",
+                        "nullable": true
+                      }
+                    },
+                    "additionalProperties": false
                   }
                 }
               }
             }
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "C + Libcurl",
+            "source": "CURL *hnd = curl_easy_init();\n\ncurl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, \"GET\");\ncurl_easy_setopt(hnd, CURLOPT_URL, \"http://undefinedundefined/WeatherForecast\");\n\nCURLcode ret = curl_easy_perform(hnd);"
+          },
+          {
+            "lang": "Csharp + Restsharp",
+            "source": "var client = new RestClient(\"http://undefinedundefined/WeatherForecast\");\nvar request = new RestRequest(Method.GET);\nIRestResponse response = client.Execute(request);"
+          },
+          {
+            "lang": "Go + Native",
+            "source": "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"http://undefinedundefined/WeatherForecast\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+          },
+          {
+            "lang": "Java + Okhttp",
+            "source": "OkHttpClient client = new OkHttpClient();\n\nRequest request = new Request.Builder()\n  .url(\"http://undefinedundefined/WeatherForecast\")\n  .get()\n  .build();\n\nResponse response = client.newCall(request).execute();"
+          },
+          {
+            "lang": "Java + Unirest",
+            "source": "HttpResponse<String> response = Unirest.get(\"http://undefinedundefined/WeatherForecast\")\n  .asString();"
+          },
+          {
+            "lang": "Javascript + Jquery",
+            "source": "const settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://undefinedundefined/WeatherForecast\",\n  \"method\": \"GET\",\n  \"headers\": {}\n};\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});"
+          },
+          {
+            "lang": "Javascript + Xhr",
+            "source": "const data = null;\n\nconst xhr = new XMLHttpRequest();\nxhr.withCredentials = true;\n\nxhr.addEventListener(\"readystatechange\", function () {\n  if (this.readyState === this.DONE) {\n    console.log(this.responseText);\n  }\n});\n\nxhr.open(\"GET\", \"http://undefinedundefined/WeatherForecast\");\n\nxhr.send(data);"
+          },
+          {
+            "lang": "Javascript + Jquery",
+            "source": "const settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://undefinedundefined/WeatherForecast\",\n  \"method\": \"GET\",\n  \"headers\": {}\n};\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});"
+          },
+          {
+            "lang": "Node + Native",
+            "source": "const http = require(\"http\");\n\nconst options = {\n  \"method\": \"GET\",\n  \"hostname\": \"undefinedundefined\",\n  \"port\": null,\n  \"path\": \"/WeatherForecast\",\n  \"headers\": {}\n};\n\nconst req = http.request(options, function (res) {\n  const chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    const body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.end();"
+          },
+          {
+            "lang": "Node + Request",
+            "source": "const request = require('request');\n\nconst options = {method: 'GET', url: 'http://undefinedundefined/WeatherForecast'};\n\nrequest(options, function (error, response, body) {\n  if (error) throw new Error(error);\n\n  console.log(body);\n});\n"
+          },
+          {
+            "lang": "Node + Unirest",
+            "source": "const unirest = require(\"unirest\");\n\nconst req = unirest(\"GET\", \"http://undefinedundefined/WeatherForecast\");\n\nreq.end(function (res) {\n  if (res.error) throw new Error(res.error);\n\n  console.log(res.body);\n});\n"
+          },
+          {
+            "lang": "Objc + Nsurlsession",
+            "source": "#import <Foundation/Foundation.h>\n\nNSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@\"http://undefinedundefined/WeatherForecast\"]\n                                                       cachePolicy:NSURLRequestUseProtocolCachePolicy\n                                                   timeoutInterval:10.0];\n[request setHTTPMethod:@\"GET\"];\n\nNSURLSession *session = [NSURLSession sharedSession];\nNSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request\n                                            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {\n                                                if (error) {\n                                                    NSLog(@\"%@\", error);\n                                                } else {\n                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;\n                                                    NSLog(@\"%@\", httpResponse);\n                                                }\n                                            }];\n[dataTask resume];"
+          },
+          {
+            "lang": "Ocaml + Cohttp",
+            "source": "open Cohttp_lwt_unix\nopen Cohttp\nopen Lwt\n\nlet uri = Uri.of_string \"http://undefinedundefined/WeatherForecast\" in\n\nClient.call `GET uri\n>>= fun (res, body_stream) ->\n  (* Do stuff with the result *)"
+          },
+          {
+            "lang": "Php + Curl",
+            "source": "<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, [\n  CURLOPT_URL => \"http://undefinedundefined/WeatherForecast\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"GET\",\n]);\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}"
+          },
+          {
+            "lang": "Php + Http1",
+            "source": "<?php\n\n$request = new HttpRequest();\n$request->setUrl('http://undefinedundefined/WeatherForecast');\n$request->setMethod(HTTP_METH_GET);\n\ntry {\n  $response = $request->send();\n\n  echo $response->getBody();\n} catch (HttpException $ex) {\n  echo $ex;\n}"
+          },
+          {
+            "lang": "Php + Http2",
+            "source": "<?php\n\n$client = new http\\Client;\n$request = new http\\Client\\Request;\n\n$request->setRequestUrl('http://undefinedundefined/WeatherForecast');\n$request->setRequestMethod('GET');\n$client->enqueue($request)->send();\n$response = $client->getResponse();\n\necho $response->getBody();"
+          },
+          {
+            "lang": "Python + Python3",
+            "source": "import http.client\n\nconn = http.client.HTTPConnection(\"undefinedundefined\")\n\nconn.request(\"GET\", \"/WeatherForecast\")\n\nres = conn.getresponse()\ndata = res.read()\n\nprint(data.decode(\"utf-8\"))"
+          },
+          {
+            "lang": "Python + Requests",
+            "source": "import requests\n\nurl = \"http://undefinedundefined/WeatherForecast\"\n\nresponse = requests.request(\"GET\", url)\n\nprint(response.text)"
+          },
+          {
+            "lang": "Ruby + Native",
+            "source": "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://undefinedundefined/WeatherForecast\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Get.new(url)\n\nresponse = http.request(request)\nputs response.read_body"
+          },
+          {
+            "lang": "Shell + Curl",
+            "source": "curl --request GET \\\n  --url http://undefinedundefined/WeatherForecast"
+          },
+          {
+            "lang": "Shell + Httpie",
+            "source": "http GET http://undefinedundefined/WeatherForecast"
+          },
+          {
+            "lang": "Shell + Wget",
+            "source": "wget --quiet \\\n  --method GET \\\n  --output-document \\\n  - http://undefinedundefined/WeatherForecast"
+          },
+          {
+            "lang": "Swift + Nsurlsession",
+            "source": "import Foundation\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"http://undefinedundefined/WeatherForecast\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"GET\"\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
+          }
+        ]
       }
     }
   },
