@@ -2,8 +2,6 @@
 
 Implementación del servicio Customer Identity and Access Management (CIAM)  
 
-Si deseas tener más contexto, puedes checar el siguiente [documento de Notion](https://www.notion.so/CIAM-bfb7d5aac4ad46b1af9c0083a78749a3).
-
 ## Endpoints
 
 Hasta el momento, se cuentan con los siguientes endpoints:
