@@ -139,6 +139,11 @@ paths:
               .build();
 
             Response response = client.newCall(request).execute();
+        - lang: Csharp + Restsharp
+          source: |-
+            var client = new RestClient("http://undefinedundefined/api/Health");
+            var request = new RestRequest(Method.GET);
+            IRestResponse response = client.Execute(request);
         - lang: Php + Curl
           source: |-
             <?php
@@ -213,6 +218,14 @@ paths:
               .build();
 
             Response response = client.newCall(request).execute();
+        - lang: Csharp + Restsharp
+          source: >-
+            var client = new
+            RestClient("http://undefinedundefined/WeatherForecast");
+
+            var request = new RestRequest(Method.GET);
+
+            IRestResponse response = client.Execute(request);
         - lang: Php + Curl
           source: |-
             <?php
