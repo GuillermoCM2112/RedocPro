@@ -45,32 +45,27 @@ public class Program
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
             options.IncludeXmlComments(xmlPath);*/
 
-
         });
 
         var app = builder.Build();
         if (app.Environment.IsDevelopment())
         {
+            app.UseSwagger();
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Swagger Demo Documentation v1");
+            });
 
+            app.UseReDoc(options =>
+            {
+                options.DocumentTitle = "Swagger Demo Documentation";
+                options.SpecUrl = "/swagger/v1/swagger.json";
+                options.HideDownloadButton();
+            });
         }
 
-        app.UseSwagger();
-        app.UseSwaggerUI(options =>
-        {
-            options.SwaggerEndpoint("/swagger/v1/swagger.json",
-        "Swagger Demo Documentation v1");
-        });
-
-        app.UseReDoc(options =>
-        {
-            options.DocumentTitle = "Swagger Demo Documentation";
-            options.SpecUrl = "/swagger/v1/swagger.json";
-        });
-
-        var swaggerProvider = app.Services.GetRequiredService<ISwaggerProvider>();
-        var swagger = swaggerProvider.GetSwagger("v1");
         var stringWriter = new StringWriter();
-        swagger.SerializeAsV3(new OpenApiJsonWriter(stringWriter));
+        app.Services.GetRequiredService<ISwaggerProvider>().GetSwagger("v1").SerializeAsV3(new OpenApiJsonWriter(stringWriter));
         var swaggerJson = stringWriter.ToString();
         var filePath = "../swagger.json";
         if (!File.Exists(filePath))

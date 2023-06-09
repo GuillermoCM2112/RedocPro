@@ -11,28 +11,40 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+
     - name: Configurar entorno de .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '7.0'
+
     - name: Restaurar paquetes, compilar y ejecutar proyecto 
       run: |
           dotnet restore
           dotnet build --configuration Debug
-          timeout -k 5s 6s dotnet run --project ./RedocPro/RedocPro.csproj  --configuration Debug || true          
+          timeout -k 5s 6s dotnet run --project ./RedocPro/RedocPro.csproj  --configuration Debug || true   
+          
+    - name: Configuracion Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+
+    - name: Generacion de Postman
+      run: |
+        npm i -g openapi-to-postmanv2
+        openapi2postmanv2 -s ./swagger.json -o ./postman_collection.json
+    
     - name: Creacion de Snippets
       run: |
         npm install -g openapi-snippet-cli
         openapi-snippet ./swagger.json -o ./swagger.yaml
         openapi-snippet ./swagger.yaml -e json -o ./swagger.json
+
     - name: Actualizar rama main
       run: |
           git checkout main
-          git config user.name "Guillermo Coba Montoya"
-          git config user.email "guillermo.coba@digitalfemsa.com"
           if [[ -n $(git status -s) ]]; then
               git add .
-              git commit -m "Actualizar archivo JSON"
+              git -c user.name="Guillermo Coba Montoy" -c user.email="guillermo.coba@digitalfemsa.com" commit -m "Actualizar archivo JSON"
              git push origin main
           else
              echo "No hay cambios para actualizar en la rama main"
@@ -42,6 +54,7 @@ jobs:
       run: |
         npm install -g redoc-cli@latest
         redoc-cli bundle ./swagger.json --output ./index.html
+
     - name: Deploy en GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
