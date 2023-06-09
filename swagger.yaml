@@ -28,6 +28,10 @@ info:
     - `RevokeRefreshToken`:
 
 
+    Para descargar la colección de Postman puede hacer <a
+    href="postman_collection.json" download>click aquí</a>
+
+
     ## Ejecución local
 
     Para ejecutar de forma local, se pueden seguir los siguientes pasos:
