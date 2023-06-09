@@ -35,7 +35,7 @@ jobs:
     - name: Update Postman Collection
       run: |
           npm install -g newman
-          curl -X PUT -H "Content-Type: application/json" -H "X-Api-Key: ${{ secrets.POSTMAN_API_KEY }}" -d @./postman_collection.json https://api.postman.com/collections/27712020-db7469c0-0df4-4bb8-bf0f-c04c59dde495
+          curl -X PUT -H "Content-Type: application/json" -H "X-Api-Key: ${{ secrets.SECRETKEY }}" -d @./postman_collection.json https://api.postman.com/collections/27712020-db7469c0-0df4-4bb8-bf0f-c04c59dde495
     
     - name: Creacion de Snippets
       run: |
