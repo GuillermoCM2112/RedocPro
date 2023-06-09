@@ -37,7 +37,7 @@ jobs:
       run: |
           npm install -g newman
           collection_id=$(curl -X GET -H "X-Api-Key: ${{ secrets.POSTMAN_API_KEY }}" https://api.getpostman.com/collections?apikey=${{ secrets.POSTMAN_API_KEY }} | jq -r '.collections[0].uid')
-          curl -X PUT -H "Content-Type: application/json" -H "X-Api-Key: ${{ secrets.POSTMAN_API_KEY  }}" -d @./postman_collection.json https://api.postman.com/collections/$collection_id
+          curl -X PUT -H "Content-Type: application/json" -H "X-Api-Key: ${{ secrets.POSTMAN_API_KEY  }}" -d @./postman_collection.json "https://api.postman.com/collections/$collection_id"
     
     - name: Creacion de Snippets
       run: |
