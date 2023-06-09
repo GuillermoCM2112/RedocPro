@@ -32,6 +32,12 @@ info:
     href="postman_collection.json" download>click aquí</a>
 
 
+
+
+    Para descargar las variables de entorno de Postman puede hacer <a
+    href="test_environment.json" download>click aquí</a>
+
+
     ## Ejecución local
 
     Para ejecutar de forma local, se pueden seguir los siguientes pasos:
