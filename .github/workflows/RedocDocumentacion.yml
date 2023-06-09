@@ -44,7 +44,7 @@ jobs:
           git checkout main
           if [[ -n $(git status -s) ]]; then
               git add .
-              git -c user.name="Guillermo Coba Montoy" -c user.email="guillermo.coba@digitalfemsa.com" commit -m "Actualizar archivo JSON"
+              git -c user.name="Guillermo Coba Montoy" -c user.email="guillermo.coba@digitalfemsa.com" commit -S -m "Actualizar archivo JSON"
              git push origin main
           else
              echo "No hay cambios para actualizar en la rama main"
