@@ -15,6 +15,10 @@ Hasta el momento, se cuentan con los siguientes endpoints:
 
 Para descargar la colección de Postman puede hacer <a href="postman_collection.json" download>click aquí</a>
 
+
+
+Para descargar las variables de entorno de Postman puede hacer <a href="test_environment.json" download>click aquí</a>
+
 ## Ejecución local
 Para ejecutar de forma local, se pueden seguir los siguientes pasos:
 1. Instalar la versión más reciente de Visual Studio.

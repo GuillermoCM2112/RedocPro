@@ -4,6 +4,7 @@ using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Interfaces;
 using Microsoft.OpenApi.Models;
 using Microsoft.OpenApi.Writers;
+using RedocPro.Environments;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
@@ -73,6 +74,7 @@ public class Program
             File.Create(filePath).Close();
         }
         File.WriteAllText(filePath, swaggerJson);
+        File.WriteAllText("../test_environment.json", TestEnvironment.GenerateTestEnvironment());
 
         app.UseHttpsRedirection();
 
