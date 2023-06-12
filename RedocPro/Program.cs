@@ -42,10 +42,10 @@ public class Program
                     }
                 });
 
-            /*var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-            options.IncludeXmlComments(xmlPath);*/
-
+            options.IncludeXmlComments(xmlPath);
+            options.EnableAnnotations();
         });
 
         var app = builder.Build();
