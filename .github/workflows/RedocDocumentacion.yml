@@ -30,10 +30,10 @@ jobs:
 
     - name: Generacion de Postman
       run: |
-          npm install
-          npx openapi2postmanv2 -s ./swagger.json -o ./postman_collection.json
-          sed -i '1s/^/{"collection":/' postman_collection.json
-          echo '}' >> postman_collection.json
+         npm i -g openapi-to-postmanv2
+         openapi2postmanv2 -s ./swagger.json -o ./postman_collection.json
+         sed -i '1s/^/{"collection":/' postman_collection.json
+         echo '}' >> postman_collection.json
         
     - name: Update Postman Collection
       run: |
