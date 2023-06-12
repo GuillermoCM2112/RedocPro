@@ -38,8 +38,12 @@ namespace RedocPro.Controllers
         {
             return this.Ok("0.1.5");
         }
-
-
+        [HttpPost]
+        [ProducesResponseType(200, Type = typeof(JsonContent))]
+        public async Task<IActionResult> NethoneRecommendationPay()
+        {
+            return this.Ok("0.1.5");
+        }
 
     }
 }
