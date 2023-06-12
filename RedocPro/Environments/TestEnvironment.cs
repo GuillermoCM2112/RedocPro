@@ -19,7 +19,7 @@ namespace RedocPro.Environments
 							new PostmanVariable()
 							{
 								key = "baseUrl_dev",
-								value = "https://dev.petstore.swagger"
+								value = "https://dev.petstore.swaggers"
 							},
 							new PostmanVariable()
 							{
