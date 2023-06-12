@@ -23,7 +23,7 @@ public class Program
             options.SwaggerDoc("v1",
                 new OpenApiInfo
                 {
-                    Title = "Swagger Demo Documentation",
+                    Title = "CIAM Demo Documentation",
                     Version = "v1",
                     Description = File.ReadAllText("../README.md", Encoding.UTF8),
                     Contact = new OpenApiContact
@@ -41,11 +41,11 @@ public class Program
                       }
                     }
                 });
+
             var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
             options.IncludeXmlComments(xmlPath);
             options.EnableAnnotations();
-
         });
 
         var app = builder.Build();
@@ -54,12 +54,12 @@ public class Program
             app.UseSwagger();
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Swagger Demo Documentation v1");
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "CIAM Demo Documentation");
             });
 
             app.UseReDoc(options =>
             {
-                options.DocumentTitle = "Swagger Demo Documentation";
+                options.DocumentTitle = "CIAM Demo Documentation";
                 options.SpecUrl = "/swagger/v1/swagger.json";
                 options.HideDownloadButton();
             });
