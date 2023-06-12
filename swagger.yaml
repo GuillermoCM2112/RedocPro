@@ -429,6 +429,351 @@ paths:
 
 
             dataTask.resume()
+  '/api/Products/nombre/{id}':
+    get:
+      tags:
+        - Products
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+      x-codeSamples:
+        - lang: C + Libcurl
+          source: >-
+            CURL *hnd = curl_easy_init();
+
+
+            curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "GET");
+
+            curl_easy_setopt(hnd, CURLOPT_URL,
+            "http://undefinedundefined/api/Products/nombre/%7Bid%7D");
+
+
+            CURLcode ret = curl_easy_perform(hnd);
+        - lang: Csharp + Restsharp
+          source: >-
+            var client = new
+            RestClient("http://undefinedundefined/api/Products/nombre/%7Bid%7D");
+
+            var request = new RestRequest(Method.GET);
+
+            IRestResponse response = client.Execute(request);
+        - lang: Go + Native
+          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"http://undefinedundefined/api/Products/nombre/%7Bid%7D\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+        - lang: Java + Okhttp
+          source: |-
+            OkHttpClient client = new OkHttpClient();
+
+            Request request = new Request.Builder()
+              .url("http://undefinedundefined/api/Products/nombre/%7Bid%7D")
+              .get()
+              .build();
+
+            Response response = client.newCall(request).execute();
+        - lang: Java + Unirest
+          source: >-
+            HttpResponse<String> response =
+            Unirest.get("http://undefinedundefined/api/Products/nombre/%7Bid%7D")
+              .asString();
+        - lang: Javascript + Jquery
+          source: |-
+            const settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "http://undefinedundefined/api/Products/nombre/%7Bid%7D",
+              "method": "GET",
+              "headers": {}
+            };
+
+            $.ajax(settings).done(function (response) {
+              console.log(response);
+            });
+        - lang: Javascript + Xhr
+          source: >-
+            const data = null;
+
+
+            const xhr = new XMLHttpRequest();
+
+            xhr.withCredentials = true;
+
+
+            xhr.addEventListener("readystatechange", function () {
+              if (this.readyState === this.DONE) {
+                console.log(this.responseText);
+              }
+            });
+
+
+            xhr.open("GET",
+            "http://undefinedundefined/api/Products/nombre/%7Bid%7D");
+
+
+            xhr.send(data);
+        - lang: Javascript + Jquery
+          source: |-
+            const settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "http://undefinedundefined/api/Products/nombre/%7Bid%7D",
+              "method": "GET",
+              "headers": {}
+            };
+
+            $.ajax(settings).done(function (response) {
+              console.log(response);
+            });
+        - lang: Node + Native
+          source: |-
+            const http = require("http");
+
+            const options = {
+              "method": "GET",
+              "hostname": "undefinedundefined",
+              "port": null,
+              "path": "/api/Products/nombre/%7Bid%7D",
+              "headers": {}
+            };
+
+            const req = http.request(options, function (res) {
+              const chunks = [];
+
+              res.on("data", function (chunk) {
+                chunks.push(chunk);
+              });
+
+              res.on("end", function () {
+                const body = Buffer.concat(chunks);
+                console.log(body.toString());
+              });
+            });
+
+            req.end();
+        - lang: Node + Request
+          source: >
+            const request = require('request');
+
+
+            const options = {method: 'GET', url:
+            'http://undefinedundefined/api/Products/nombre/%7Bid%7D'};
+
+
+            request(options, function (error, response, body) {
+              if (error) throw new Error(error);
+
+              console.log(body);
+            });
+        - lang: Node + Unirest
+          source: >
+            const unirest = require("unirest");
+
+
+            const req = unirest("GET",
+            "http://undefinedundefined/api/Products/nombre/%7Bid%7D");
+
+
+            req.end(function (res) {
+              if (res.error) throw new Error(res.error);
+
+              console.log(res.body);
+            });
+        - lang: Objc + Nsurlsession
+          source: >-
+            #import <Foundation/Foundation.h>
+
+
+            NSMutableURLRequest *request = [NSMutableURLRequest
+            requestWithURL:[NSURL
+            URLWithString:@"http://undefinedundefined/api/Products/nombre/%7Bid%7D"]
+                                                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                               timeoutInterval:10.0];
+            [request setHTTPMethod:@"GET"];
+
+
+            NSURLSession *session = [NSURLSession sharedSession];
+
+            NSURLSessionDataTask *dataTask = [session
+            dataTaskWithRequest:request
+                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                            if (error) {
+                                                                NSLog(@"%@", error);
+                                                            } else {
+                                                                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                                                                NSLog(@"%@", httpResponse);
+                                                            }
+                                                        }];
+            [dataTask resume];
+        - lang: Ocaml + Cohttp
+          source: >-
+            open Cohttp_lwt_unix
+
+            open Cohttp
+
+            open Lwt
+
+
+            let uri = Uri.of_string
+            "http://undefinedundefined/api/Products/nombre/%7Bid%7D" in
+
+
+            Client.call `GET uri
+
+            >>= fun (res, body_stream) ->
+              (* Do stuff with the result *)
+        - lang: Php + Curl
+          source: |-
+            <?php
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, [
+              CURLOPT_URL => "http://undefinedundefined/api/Products/nombre/%7Bid%7D",
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => "",
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "GET",
+            ]);
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              echo $response;
+            }
+        - lang: Php + Http1
+          source: >-
+            <?php
+
+
+            $request = new HttpRequest();
+
+            $request->setUrl('http://undefinedundefined/api/Products/nombre/%7Bid%7D');
+
+            $request->setMethod(HTTP_METH_GET);
+
+
+            try {
+              $response = $request->send();
+
+              echo $response->getBody();
+            } catch (HttpException $ex) {
+              echo $ex;
+            }
+        - lang: Php + Http2
+          source: >-
+            <?php
+
+
+            $client = new http\Client;
+
+            $request = new http\Client\Request;
+
+
+            $request->setRequestUrl('http://undefinedundefined/api/Products/nombre/%7Bid%7D');
+
+            $request->setRequestMethod('GET');
+
+            $client->enqueue($request)->send();
+
+            $response = $client->getResponse();
+
+
+            echo $response->getBody();
+        - lang: Python + Python3
+          source: |-
+            import http.client
+
+            conn = http.client.HTTPConnection("undefinedundefined")
+
+            conn.request("GET", "/api/Products/nombre/%7Bid%7D")
+
+            res = conn.getresponse()
+            data = res.read()
+
+            print(data.decode("utf-8"))
+        - lang: Python + Requests
+          source: |-
+            import requests
+
+            url = "http://undefinedundefined/api/Products/nombre/%7Bid%7D"
+
+            response = requests.request("GET", url)
+
+            print(response.text)
+        - lang: Ruby + Native
+          source: |-
+            require 'uri'
+            require 'net/http'
+
+            url = URI("http://undefinedundefined/api/Products/nombre/%7Bid%7D")
+
+            http = Net::HTTP.new(url.host, url.port)
+
+            request = Net::HTTP::Get.new(url)
+
+            response = http.request(request)
+            puts response.read_body
+        - lang: Shell + Curl
+          source: |-
+            curl --request GET \
+              --url http://undefinedundefined/api/Products/nombre/%7Bid%7D
+        - lang: Shell + Httpie
+          source: 'http GET http://undefinedundefined/api/Products/nombre/%7Bid%7D'
+        - lang: Shell + Wget
+          source: |-
+            wget --quiet \
+              --method GET \
+              --output-document \
+              - http://undefinedundefined/api/Products/nombre/%7Bid%7D
+        - lang: Swift + Nsurlsession
+          source: >-
+            import Foundation
+
+
+            let request = NSMutableURLRequest(url: NSURL(string:
+            "http://undefinedundefined/api/Products/nombre/%7Bid%7D")! as URL,
+                                                    cachePolicy: .useProtocolCachePolicy,
+                                                timeoutInterval: 10.0)
+            request.httpMethod = "GET"
+
+
+            let session = URLSession.shared
+
+            let dataTask = session.dataTask(with: request as URLRequest,
+            completionHandler: { (data, response, error) -> Void in
+              if (error != nil) {
+                print(error)
+              } else {
+                let httpResponse = response as? HTTPURLResponse
+                print(httpResponse)
+              }
+            })
+
+
+            dataTask.resume()
   /api/Values:
     get:
       tags:
