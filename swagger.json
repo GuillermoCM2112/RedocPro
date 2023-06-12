@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Swagger Demo Documentation",
+    "title": "CIAM Demo Documentation",
     "description": "# RedocPro\n\nImplementación del servicio Customer Identity and Access Management (CIAM)  \n\n## Endpoints\n\nHasta el momento, se cuentan con los siguientes endpoints:\n- `Login`: \n- `Signup`:\n- `RefreshToken`: \n- `ChangeUserPassword`: \n- `ChangeUserProperty`: \n- `UserValidation`: \n- `RevokeRefreshToken`:\n\nPara descargar la colección de Postman puede hacer <a href=\"postman_collection.json\" download>click aquí</a>\n\n\n\nPara descargar las variables de entorno de Postman puede hacer <a href=\"test_environment.json\" download>click aquí</a>\n\n## Ejecución local\nPara ejecutar de forma local, se pueden seguir los siguientes pasos:\n1. Instalar la versión más reciente de Visual Studio.\n2. Descargar el `.zip` de la rama `main` del repositorio.\n3. Abrir el proyecto\n4. Agregar en el [`appsettings.Development.json`]\n5. Ahora, puedes hacer click en la ejecutar el proyecto, o bien, en \"Depurar > Iniciar depuración\".\n\nDonde puedes interactuar con los endpoints de CIAM. Si no se abre la ventana, puedes ingresar a esta por medio del siguiente enlace: [https://localhost:7009/swagger/index.html](https://localhost:7009/swagger/index.html).\n\n## Como contribuir al repositorio\nPara contribuir al repositorio se te deben otorgar permisos de escritura y seguir los siguientes pasos. \n\n1. Asociar un nuevo SSH con tu cuenta de GitHub institucional.\n\n    En esta ocasión, no basta con descargar el `.zip` del repositorio. Debes configurar tu dispositivo para conectar tu cuenta de GitHub mediante SSH, puedes seguir el siguiente [tutorial de GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) para añadir una SSH a tu cuenta. Además, debes darle permisos para acceder a `digitaltitransversal`, sigue el siguiente [tutorial](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on) para dar dichos permisos.\n\n2. Teniendo ya el SSH configurado, debes clonar el repositorio en la carpeta de tu preferencia. Como sugerencia, puedes crear una carpeta `~/Projects` para mantener todos los proyectos en un sólo lugar.\n\n    En la terminal, corre el siguiente comando:\n    ```\n    git clone git@github.com:\n    ```\n\n    Debería aparecer una salida parecida a:\n    ```\n    remote: Enumerating objects: 542, done.\n    remote: Counting objects: 100% (314/314), done.\n    remote: Compressing objects: 100% (177/177), done.\n    remote: Total 542 (delta 196), reused 178 (delta 122), pack-reused 228\n    Receiving objects: 100% (542/542), 110.60 KiB | 1.44 MiB/s, done.\n    Resolving deltas: 100% (271/271), done.\n    ```\n\n3. En este punto, se pueden seguir los pasos que se describieron para la ejecución local.\n\n4. Si se quiere agregar nuevos cambios, debes crear tu propia rama.\n    ```\n    git branch rama-de-ejemplo\n    ```\n\n5. Para empezar a trabajar sobre la rama creada, puedes ejecutar el siguiente comando:\n\n    ```\n    git checkout rama-de-ejemplo\n    ```\n\n    En este punto ya puedes comenzar a hacer tus cambios. Si no haces el `checkout` a tu rama, puede que afectes a otras ramas e interrumpir el trabajo de los demás. Recuerda que no te dejará hacer `push` a `main`. \n\n6. Después de hacer tus cambios, haz pruebas unitarias e\n\n7. Se checa de manera automática que se cumpla ciertas reglas de sintaxis. Algunas de estas reglas son necesarias para tener una sintaxis consistente en todo el repositorio. La mayoría de las reglas se pueden aplicar de manera automática corriendo el siguiente comando:\n    ```\n    dotnet format\n    ```\n    En caso de enviar tus cambios y todavía tener pendientes de sintaxis, tendrás que checar de forma manual cómo arreglarlo. Te puedes guiar de la [documentación de StyleCop](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/tree/master/documentation) y pedir ayuda al equipo. Para checar de forma local la sintaxis, puedes correr el siguiente comando:\n\n    ```\n    dotnet format --verify-no-changes --verbosity m --severity warn\n    ```\n\n",
     "contact": {
       "name": "test",
@@ -14,6 +14,183 @@
     }
   },
   "paths": {
+    "/api/Auth/ChangeUserPassword": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Change User Password",
+        "description": "This endpoint will change the password of the user.",
+        "operationId": "ChangeUserPassword",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePasswordRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePasswordRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePasswordRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserChangeResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserChangeResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserChangeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Auth/ChangeUserProperty": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Change User Property",
+        "description": "This endpoint will change the property of the user.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns a 200 if the user property change.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserChangeResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserChangeResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserChangeResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unhandled error, validate the error log."
+          }
+        }
+      }
+    },
+    "/api/Auth/UserValidation": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "User Validation",
+        "description": "This endpoint will validate if the user has any of the following states: \r\n<ul><li>NotRegistered = 0</li><li>PreRegistered = 1</li><li>Registered = 2</li><li>OTPRequired = 3</li><li>SoftBlock = 4</li><li>HardBlock = 5</li><li>CancelledAccount = 8</li><li>FirstLoginOxxo = 20</li></ul>",
+        "parameters": [
+          {
+            "name": "PhoneNumber",
+            "in": "query",
+            "description": "The phone of user.",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "maxLength": 14,
+              "minLength": 10,
+              "type": "string",
+              "example": "+515555555555"
+            },
+            "example": "+515555555555"
+          },
+          {
+            "name": "DeviceId",
+            "in": "query",
+            "description": "Device Id of user.",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "example": "x1234ABCD"
+            },
+            "example": "x1234ABCD"
+          },
+          {
+            "name": "AttemptReference",
+            "in": "query",
+            "description": "Attempt Reference.",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "example": "A1B2C3D4E5"
+            },
+            "example": "A1B2C3D4E5"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a status of the user.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserValidationResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserValidationResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserValidationResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unhandled error, validate the error log."
+          }
+        }
+      }
+    },
     "/api/Health": {
       "get": {
         "tags": [
@@ -21,565 +198,685 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Returns a 200 if the API is online."
+          },
+          "500": {
+            "description": "Unhandled error, validate the error log."
           }
-        },
-        "x-codeSamples": [
-          {
-            "lang": "C + Libcurl",
-            "source": "CURL *hnd = curl_easy_init();\n\ncurl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, \"GET\");\ncurl_easy_setopt(hnd, CURLOPT_URL, \"http://undefinedundefined/api/Health\");\n\nCURLcode ret = curl_easy_perform(hnd);"
-          },
-          {
-            "lang": "Csharp + Restsharp",
-            "source": "var client = new RestClient(\"http://undefinedundefined/api/Health\");\nvar request = new RestRequest(Method.GET);\nIRestResponse response = client.Execute(request);"
-          },
-          {
-            "lang": "Go + Native",
-            "source": "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"http://undefinedundefined/api/Health\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
-          },
-          {
-            "lang": "Java + Okhttp",
-            "source": "OkHttpClient client = new OkHttpClient();\n\nRequest request = new Request.Builder()\n  .url(\"http://undefinedundefined/api/Health\")\n  .get()\n  .build();\n\nResponse response = client.newCall(request).execute();"
-          },
-          {
-            "lang": "Java + Unirest",
-            "source": "HttpResponse<String> response = Unirest.get(\"http://undefinedundefined/api/Health\")\n  .asString();"
-          },
-          {
-            "lang": "Javascript + Jquery",
-            "source": "const settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://undefinedundefined/api/Health\",\n  \"method\": \"GET\",\n  \"headers\": {}\n};\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});"
-          },
-          {
-            "lang": "Javascript + Xhr",
-            "source": "const data = null;\n\nconst xhr = new XMLHttpRequest();\nxhr.withCredentials = true;\n\nxhr.addEventListener(\"readystatechange\", function () {\n  if (this.readyState === this.DONE) {\n    console.log(this.responseText);\n  }\n});\n\nxhr.open(\"GET\", \"http://undefinedundefined/api/Health\");\n\nxhr.send(data);"
-          },
-          {
-            "lang": "Javascript + Jquery",
-            "source": "const settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://undefinedundefined/api/Health\",\n  \"method\": \"GET\",\n  \"headers\": {}\n};\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});"
-          },
-          {
-            "lang": "Node + Native",
-            "source": "const http = require(\"http\");\n\nconst options = {\n  \"method\": \"GET\",\n  \"hostname\": \"undefinedundefined\",\n  \"port\": null,\n  \"path\": \"/api/Health\",\n  \"headers\": {}\n};\n\nconst req = http.request(options, function (res) {\n  const chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    const body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.end();"
-          },
-          {
-            "lang": "Node + Request",
-            "source": "const request = require('request');\n\nconst options = {method: 'GET', url: 'http://undefinedundefined/api/Health'};\n\nrequest(options, function (error, response, body) {\n  if (error) throw new Error(error);\n\n  console.log(body);\n});\n"
-          },
-          {
-            "lang": "Node + Unirest",
-            "source": "const unirest = require(\"unirest\");\n\nconst req = unirest(\"GET\", \"http://undefinedundefined/api/Health\");\n\nreq.end(function (res) {\n  if (res.error) throw new Error(res.error);\n\n  console.log(res.body);\n});\n"
-          },
-          {
-            "lang": "Objc + Nsurlsession",
-            "source": "#import <Foundation/Foundation.h>\n\nNSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@\"http://undefinedundefined/api/Health\"]\n                                                       cachePolicy:NSURLRequestUseProtocolCachePolicy\n                                                   timeoutInterval:10.0];\n[request setHTTPMethod:@\"GET\"];\n\nNSURLSession *session = [NSURLSession sharedSession];\nNSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request\n                                            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {\n                                                if (error) {\n                                                    NSLog(@\"%@\", error);\n                                                } else {\n                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;\n                                                    NSLog(@\"%@\", httpResponse);\n                                                }\n                                            }];\n[dataTask resume];"
-          },
-          {
-            "lang": "Ocaml + Cohttp",
-            "source": "open Cohttp_lwt_unix\nopen Cohttp\nopen Lwt\n\nlet uri = Uri.of_string \"http://undefinedundefined/api/Health\" in\n\nClient.call `GET uri\n>>= fun (res, body_stream) ->\n  (* Do stuff with the result *)"
-          },
-          {
-            "lang": "Php + Curl",
-            "source": "<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, [\n  CURLOPT_URL => \"http://undefinedundefined/api/Health\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"GET\",\n]);\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}"
-          },
-          {
-            "lang": "Php + Http1",
-            "source": "<?php\n\n$request = new HttpRequest();\n$request->setUrl('http://undefinedundefined/api/Health');\n$request->setMethod(HTTP_METH_GET);\n\ntry {\n  $response = $request->send();\n\n  echo $response->getBody();\n} catch (HttpException $ex) {\n  echo $ex;\n}"
-          },
-          {
-            "lang": "Php + Http2",
-            "source": "<?php\n\n$client = new http\\Client;\n$request = new http\\Client\\Request;\n\n$request->setRequestUrl('http://undefinedundefined/api/Health');\n$request->setRequestMethod('GET');\n$client->enqueue($request)->send();\n$response = $client->getResponse();\n\necho $response->getBody();"
-          },
-          {
-            "lang": "Python + Python3",
-            "source": "import http.client\n\nconn = http.client.HTTPConnection(\"undefinedundefined\")\n\nconn.request(\"GET\", \"/api/Health\")\n\nres = conn.getresponse()\ndata = res.read()\n\nprint(data.decode(\"utf-8\"))"
-          },
-          {
-            "lang": "Python + Requests",
-            "source": "import requests\n\nurl = \"http://undefinedundefined/api/Health\"\n\nresponse = requests.request(\"GET\", url)\n\nprint(response.text)"
-          },
-          {
-            "lang": "Ruby + Native",
-            "source": "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://undefinedundefined/api/Health\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Get.new(url)\n\nresponse = http.request(request)\nputs response.read_body"
-          },
-          {
-            "lang": "Shell + Curl",
-            "source": "curl --request GET \\\n  --url http://undefinedundefined/api/Health"
-          },
-          {
-            "lang": "Shell + Httpie",
-            "source": "http GET http://undefinedundefined/api/Health"
-          },
-          {
-            "lang": "Shell + Wget",
-            "source": "wget --quiet \\\n  --method GET \\\n  --output-document \\\n  - http://undefinedundefined/api/Health"
-          },
-          {
-            "lang": "Swift + Nsurlsession",
-            "source": "import Foundation\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"http://undefinedundefined/api/Health\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"GET\"\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
-          }
-        ]
+        }
       }
     },
-    "/api/Products/nombre/{id}": {
-      "get": {
+    "/ciam/api/Nethone/NethoneTransactionConfirm": {
+      "put": {
         "tags": [
-          "Products"
+          "Nethone"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "string"
-                }
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FlagsNethoneConfirm"
               }
             }
           }
         },
-        "x-codeSamples": [
-          {
-            "lang": "C + Libcurl",
-            "source": "CURL *hnd = curl_easy_init();\n\ncurl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, \"GET\");\ncurl_easy_setopt(hnd, CURLOPT_URL, \"http://undefinedundefined/api/Products/nombre/%7Bid%7D\");\n\nCURLcode ret = curl_easy_perform(hnd);"
-          },
-          {
-            "lang": "Csharp + Restsharp",
-            "source": "var client = new RestClient(\"http://undefinedundefined/api/Products/nombre/%7Bid%7D\");\nvar request = new RestRequest(Method.GET);\nIRestResponse response = client.Execute(request);"
-          },
-          {
-            "lang": "Go + Native",
-            "source": "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"http://undefinedundefined/api/Products/nombre/%7Bid%7D\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
-          },
-          {
-            "lang": "Java + Okhttp",
-            "source": "OkHttpClient client = new OkHttpClient();\n\nRequest request = new Request.Builder()\n  .url(\"http://undefinedundefined/api/Products/nombre/%7Bid%7D\")\n  .get()\n  .build();\n\nResponse response = client.newCall(request).execute();"
-          },
-          {
-            "lang": "Java + Unirest",
-            "source": "HttpResponse<String> response = Unirest.get(\"http://undefinedundefined/api/Products/nombre/%7Bid%7D\")\n  .asString();"
-          },
-          {
-            "lang": "Javascript + Jquery",
-            "source": "const settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://undefinedundefined/api/Products/nombre/%7Bid%7D\",\n  \"method\": \"GET\",\n  \"headers\": {}\n};\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});"
-          },
-          {
-            "lang": "Javascript + Xhr",
-            "source": "const data = null;\n\nconst xhr = new XMLHttpRequest();\nxhr.withCredentials = true;\n\nxhr.addEventListener(\"readystatechange\", function () {\n  if (this.readyState === this.DONE) {\n    console.log(this.responseText);\n  }\n});\n\nxhr.open(\"GET\", \"http://undefinedundefined/api/Products/nombre/%7Bid%7D\");\n\nxhr.send(data);"
-          },
-          {
-            "lang": "Javascript + Jquery",
-            "source": "const settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://undefinedundefined/api/Products/nombre/%7Bid%7D\",\n  \"method\": \"GET\",\n  \"headers\": {}\n};\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});"
-          },
-          {
-            "lang": "Node + Native",
-            "source": "const http = require(\"http\");\n\nconst options = {\n  \"method\": \"GET\",\n  \"hostname\": \"undefinedundefined\",\n  \"port\": null,\n  \"path\": \"/api/Products/nombre/%7Bid%7D\",\n  \"headers\": {}\n};\n\nconst req = http.request(options, function (res) {\n  const chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    const body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.end();"
-          },
-          {
-            "lang": "Node + Request",
-            "source": "const request = require('request');\n\nconst options = {method: 'GET', url: 'http://undefinedundefined/api/Products/nombre/%7Bid%7D'};\n\nrequest(options, function (error, response, body) {\n  if (error) throw new Error(error);\n\n  console.log(body);\n});\n"
-          },
-          {
-            "lang": "Node + Unirest",
-            "source": "const unirest = require(\"unirest\");\n\nconst req = unirest(\"GET\", \"http://undefinedundefined/api/Products/nombre/%7Bid%7D\");\n\nreq.end(function (res) {\n  if (res.error) throw new Error(res.error);\n\n  console.log(res.body);\n});\n"
-          },
-          {
-            "lang": "Objc + Nsurlsession",
-            "source": "#import <Foundation/Foundation.h>\n\nNSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@\"http://undefinedundefined/api/Products/nombre/%7Bid%7D\"]\n                                                       cachePolicy:NSURLRequestUseProtocolCachePolicy\n                                                   timeoutInterval:10.0];\n[request setHTTPMethod:@\"GET\"];\n\nNSURLSession *session = [NSURLSession sharedSession];\nNSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request\n                                            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {\n                                                if (error) {\n                                                    NSLog(@\"%@\", error);\n                                                } else {\n                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;\n                                                    NSLog(@\"%@\", httpResponse);\n                                                }\n                                            }];\n[dataTask resume];"
-          },
-          {
-            "lang": "Ocaml + Cohttp",
-            "source": "open Cohttp_lwt_unix\nopen Cohttp\nopen Lwt\n\nlet uri = Uri.of_string \"http://undefinedundefined/api/Products/nombre/%7Bid%7D\" in\n\nClient.call `GET uri\n>>= fun (res, body_stream) ->\n  (* Do stuff with the result *)"
-          },
-          {
-            "lang": "Php + Curl",
-            "source": "<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, [\n  CURLOPT_URL => \"http://undefinedundefined/api/Products/nombre/%7Bid%7D\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"GET\",\n]);\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}"
-          },
-          {
-            "lang": "Php + Http1",
-            "source": "<?php\n\n$request = new HttpRequest();\n$request->setUrl('http://undefinedundefined/api/Products/nombre/%7Bid%7D');\n$request->setMethod(HTTP_METH_GET);\n\ntry {\n  $response = $request->send();\n\n  echo $response->getBody();\n} catch (HttpException $ex) {\n  echo $ex;\n}"
-          },
-          {
-            "lang": "Php + Http2",
-            "source": "<?php\n\n$client = new http\\Client;\n$request = new http\\Client\\Request;\n\n$request->setRequestUrl('http://undefinedundefined/api/Products/nombre/%7Bid%7D');\n$request->setRequestMethod('GET');\n$client->enqueue($request)->send();\n$response = $client->getResponse();\n\necho $response->getBody();"
-          },
-          {
-            "lang": "Python + Python3",
-            "source": "import http.client\n\nconn = http.client.HTTPConnection(\"undefinedundefined\")\n\nconn.request(\"GET\", \"/api/Products/nombre/%7Bid%7D\")\n\nres = conn.getresponse()\ndata = res.read()\n\nprint(data.decode(\"utf-8\"))"
-          },
-          {
-            "lang": "Python + Requests",
-            "source": "import requests\n\nurl = \"http://undefinedundefined/api/Products/nombre/%7Bid%7D\"\n\nresponse = requests.request(\"GET\", url)\n\nprint(response.text)"
-          },
-          {
-            "lang": "Ruby + Native",
-            "source": "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://undefinedundefined/api/Products/nombre/%7Bid%7D\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Get.new(url)\n\nresponse = http.request(request)\nputs response.read_body"
-          },
-          {
-            "lang": "Shell + Curl",
-            "source": "curl --request GET \\\n  --url http://undefinedundefined/api/Products/nombre/%7Bid%7D"
-          },
-          {
-            "lang": "Shell + Httpie",
-            "source": "http GET http://undefinedundefined/api/Products/nombre/%7Bid%7D"
-          },
-          {
-            "lang": "Shell + Wget",
-            "source": "wget --quiet \\\n  --method GET \\\n  --output-document \\\n  - http://undefinedundefined/api/Products/nombre/%7Bid%7D"
-          },
-          {
-            "lang": "Swift + Nsurlsession",
-            "source": "import Foundation\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"http://undefinedundefined/api/Products/nombre/%7Bid%7D\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"GET\"\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
-          }
-        ]
-      }
-    },
-    "/api/Values": {
-      "get": {
-        "tags": [
-          "Values"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        },
-        "x-codeSamples": [
-          {
-            "lang": "C + Libcurl",
-            "source": "CURL *hnd = curl_easy_init();\n\ncurl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, \"GET\");\ncurl_easy_setopt(hnd, CURLOPT_URL, \"http://undefinedundefined/api/Values\");\n\nCURLcode ret = curl_easy_perform(hnd);"
-          },
-          {
-            "lang": "Csharp + Restsharp",
-            "source": "var client = new RestClient(\"http://undefinedundefined/api/Values\");\nvar request = new RestRequest(Method.GET);\nIRestResponse response = client.Execute(request);"
-          },
-          {
-            "lang": "Go + Native",
-            "source": "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"http://undefinedundefined/api/Values\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
-          },
-          {
-            "lang": "Java + Okhttp",
-            "source": "OkHttpClient client = new OkHttpClient();\n\nRequest request = new Request.Builder()\n  .url(\"http://undefinedundefined/api/Values\")\n  .get()\n  .build();\n\nResponse response = client.newCall(request).execute();"
-          },
-          {
-            "lang": "Java + Unirest",
-            "source": "HttpResponse<String> response = Unirest.get(\"http://undefinedundefined/api/Values\")\n  .asString();"
-          },
-          {
-            "lang": "Javascript + Jquery",
-            "source": "const settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://undefinedundefined/api/Values\",\n  \"method\": \"GET\",\n  \"headers\": {}\n};\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});"
-          },
-          {
-            "lang": "Javascript + Xhr",
-            "source": "const data = null;\n\nconst xhr = new XMLHttpRequest();\nxhr.withCredentials = true;\n\nxhr.addEventListener(\"readystatechange\", function () {\n  if (this.readyState === this.DONE) {\n    console.log(this.responseText);\n  }\n});\n\nxhr.open(\"GET\", \"http://undefinedundefined/api/Values\");\n\nxhr.send(data);"
-          },
-          {
-            "lang": "Javascript + Jquery",
-            "source": "const settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://undefinedundefined/api/Values\",\n  \"method\": \"GET\",\n  \"headers\": {}\n};\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});"
-          },
-          {
-            "lang": "Node + Native",
-            "source": "const http = require(\"http\");\n\nconst options = {\n  \"method\": \"GET\",\n  \"hostname\": \"undefinedundefined\",\n  \"port\": null,\n  \"path\": \"/api/Values\",\n  \"headers\": {}\n};\n\nconst req = http.request(options, function (res) {\n  const chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    const body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.end();"
-          },
-          {
-            "lang": "Node + Request",
-            "source": "const request = require('request');\n\nconst options = {method: 'GET', url: 'http://undefinedundefined/api/Values'};\n\nrequest(options, function (error, response, body) {\n  if (error) throw new Error(error);\n\n  console.log(body);\n});\n"
-          },
-          {
-            "lang": "Node + Unirest",
-            "source": "const unirest = require(\"unirest\");\n\nconst req = unirest(\"GET\", \"http://undefinedundefined/api/Values\");\n\nreq.end(function (res) {\n  if (res.error) throw new Error(res.error);\n\n  console.log(res.body);\n});\n"
-          },
-          {
-            "lang": "Objc + Nsurlsession",
-            "source": "#import <Foundation/Foundation.h>\n\nNSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@\"http://undefinedundefined/api/Values\"]\n                                                       cachePolicy:NSURLRequestUseProtocolCachePolicy\n                                                   timeoutInterval:10.0];\n[request setHTTPMethod:@\"GET\"];\n\nNSURLSession *session = [NSURLSession sharedSession];\nNSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request\n                                            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {\n                                                if (error) {\n                                                    NSLog(@\"%@\", error);\n                                                } else {\n                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;\n                                                    NSLog(@\"%@\", httpResponse);\n                                                }\n                                            }];\n[dataTask resume];"
-          },
-          {
-            "lang": "Ocaml + Cohttp",
-            "source": "open Cohttp_lwt_unix\nopen Cohttp\nopen Lwt\n\nlet uri = Uri.of_string \"http://undefinedundefined/api/Values\" in\n\nClient.call `GET uri\n>>= fun (res, body_stream) ->\n  (* Do stuff with the result *)"
-          },
-          {
-            "lang": "Php + Curl",
-            "source": "<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, [\n  CURLOPT_URL => \"http://undefinedundefined/api/Values\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"GET\",\n]);\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}"
-          },
-          {
-            "lang": "Php + Http1",
-            "source": "<?php\n\n$request = new HttpRequest();\n$request->setUrl('http://undefinedundefined/api/Values');\n$request->setMethod(HTTP_METH_GET);\n\ntry {\n  $response = $request->send();\n\n  echo $response->getBody();\n} catch (HttpException $ex) {\n  echo $ex;\n}"
-          },
-          {
-            "lang": "Php + Http2",
-            "source": "<?php\n\n$client = new http\\Client;\n$request = new http\\Client\\Request;\n\n$request->setRequestUrl('http://undefinedundefined/api/Values');\n$request->setRequestMethod('GET');\n$client->enqueue($request)->send();\n$response = $client->getResponse();\n\necho $response->getBody();"
-          },
-          {
-            "lang": "Python + Python3",
-            "source": "import http.client\n\nconn = http.client.HTTPConnection(\"undefinedundefined\")\n\nconn.request(\"GET\", \"/api/Values\")\n\nres = conn.getresponse()\ndata = res.read()\n\nprint(data.decode(\"utf-8\"))"
-          },
-          {
-            "lang": "Python + Requests",
-            "source": "import requests\n\nurl = \"http://undefinedundefined/api/Values\"\n\nresponse = requests.request(\"GET\", url)\n\nprint(response.text)"
-          },
-          {
-            "lang": "Ruby + Native",
-            "source": "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://undefinedundefined/api/Values\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Get.new(url)\n\nresponse = http.request(request)\nputs response.read_body"
-          },
-          {
-            "lang": "Shell + Curl",
-            "source": "curl --request GET \\\n  --url http://undefinedundefined/api/Values"
-          },
-          {
-            "lang": "Shell + Httpie",
-            "source": "http GET http://undefinedundefined/api/Values"
-          },
-          {
-            "lang": "Shell + Wget",
-            "source": "wget --quiet \\\n  --method GET \\\n  --output-document \\\n  - http://undefinedundefined/api/Values"
-          },
-          {
-            "lang": "Swift + Nsurlsession",
-            "source": "import Foundation\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"http://undefinedundefined/api/Values\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"GET\"\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
-          }
-        ]
-      }
-    },
-    "/WeatherForecast": {
-      "get": {
-        "tags": [
-          "WeatherForecast"
-        ],
-        "operationId": "GetWeatherForecast",
         "responses": {
           "200": {
             "description": "Success",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "date": {
-                        "type": "string",
-                        "format": "date"
-                      },
-                      "temperatureC": {
-                        "type": "integer",
-                        "format": "int32"
-                      },
-                      "temperatureF": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                      },
-                      "summary": {
-                        "type": "string",
-                        "nullable": true
-                      }
-                    },
-                    "additionalProperties": false
-                  }
-                }
-              },
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "date": {
-                        "type": "string",
-                        "format": "date"
-                      },
-                      "temperatureC": {
-                        "type": "integer",
-                        "format": "int32"
-                      },
-                      "temperatureF": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                      },
-                      "summary": {
-                        "type": "string",
-                        "nullable": true
-                      }
-                    },
-                    "additionalProperties": false
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "date": {
-                        "type": "string",
-                        "format": "date"
-                      },
-                      "temperatureC": {
-                        "type": "integer",
-                        "format": "int32"
-                      },
-                      "temperatureF": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                      },
-                      "summary": {
-                        "type": "string",
-                        "nullable": true
-                      }
-                    },
-                    "additionalProperties": false
-                  }
+                  "$ref": "#/components/schemas/NethoneResponseConfirm"
                 }
               }
             }
           }
-        },
-        "x-codeSamples": [
-          {
-            "lang": "C + Libcurl",
-            "source": "CURL *hnd = curl_easy_init();\n\ncurl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, \"GET\");\ncurl_easy_setopt(hnd, CURLOPT_URL, \"http://undefinedundefined/WeatherForecast\");\n\nCURLcode ret = curl_easy_perform(hnd);"
-          },
-          {
-            "lang": "Csharp + Restsharp",
-            "source": "var client = new RestClient(\"http://undefinedundefined/WeatherForecast\");\nvar request = new RestRequest(Method.GET);\nIRestResponse response = client.Execute(request);"
-          },
-          {
-            "lang": "Go + Native",
-            "source": "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"http://undefinedundefined/WeatherForecast\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
-          },
-          {
-            "lang": "Java + Okhttp",
-            "source": "OkHttpClient client = new OkHttpClient();\n\nRequest request = new Request.Builder()\n  .url(\"http://undefinedundefined/WeatherForecast\")\n  .get()\n  .build();\n\nResponse response = client.newCall(request).execute();"
-          },
-          {
-            "lang": "Java + Unirest",
-            "source": "HttpResponse<String> response = Unirest.get(\"http://undefinedundefined/WeatherForecast\")\n  .asString();"
-          },
-          {
-            "lang": "Javascript + Jquery",
-            "source": "const settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://undefinedundefined/WeatherForecast\",\n  \"method\": \"GET\",\n  \"headers\": {}\n};\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});"
-          },
-          {
-            "lang": "Javascript + Xhr",
-            "source": "const data = null;\n\nconst xhr = new XMLHttpRequest();\nxhr.withCredentials = true;\n\nxhr.addEventListener(\"readystatechange\", function () {\n  if (this.readyState === this.DONE) {\n    console.log(this.responseText);\n  }\n});\n\nxhr.open(\"GET\", \"http://undefinedundefined/WeatherForecast\");\n\nxhr.send(data);"
-          },
-          {
-            "lang": "Javascript + Jquery",
-            "source": "const settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"http://undefinedundefined/WeatherForecast\",\n  \"method\": \"GET\",\n  \"headers\": {}\n};\n\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});"
-          },
-          {
-            "lang": "Node + Native",
-            "source": "const http = require(\"http\");\n\nconst options = {\n  \"method\": \"GET\",\n  \"hostname\": \"undefinedundefined\",\n  \"port\": null,\n  \"path\": \"/WeatherForecast\",\n  \"headers\": {}\n};\n\nconst req = http.request(options, function (res) {\n  const chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function () {\n    const body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n});\n\nreq.end();"
-          },
-          {
-            "lang": "Node + Request",
-            "source": "const request = require('request');\n\nconst options = {method: 'GET', url: 'http://undefinedundefined/WeatherForecast'};\n\nrequest(options, function (error, response, body) {\n  if (error) throw new Error(error);\n\n  console.log(body);\n});\n"
-          },
-          {
-            "lang": "Node + Unirest",
-            "source": "const unirest = require(\"unirest\");\n\nconst req = unirest(\"GET\", \"http://undefinedundefined/WeatherForecast\");\n\nreq.end(function (res) {\n  if (res.error) throw new Error(res.error);\n\n  console.log(res.body);\n});\n"
-          },
-          {
-            "lang": "Objc + Nsurlsession",
-            "source": "#import <Foundation/Foundation.h>\n\nNSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@\"http://undefinedundefined/WeatherForecast\"]\n                                                       cachePolicy:NSURLRequestUseProtocolCachePolicy\n                                                   timeoutInterval:10.0];\n[request setHTTPMethod:@\"GET\"];\n\nNSURLSession *session = [NSURLSession sharedSession];\nNSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request\n                                            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {\n                                                if (error) {\n                                                    NSLog(@\"%@\", error);\n                                                } else {\n                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;\n                                                    NSLog(@\"%@\", httpResponse);\n                                                }\n                                            }];\n[dataTask resume];"
-          },
-          {
-            "lang": "Ocaml + Cohttp",
-            "source": "open Cohttp_lwt_unix\nopen Cohttp\nopen Lwt\n\nlet uri = Uri.of_string \"http://undefinedundefined/WeatherForecast\" in\n\nClient.call `GET uri\n>>= fun (res, body_stream) ->\n  (* Do stuff with the result *)"
-          },
-          {
-            "lang": "Php + Curl",
-            "source": "<?php\n\n$curl = curl_init();\n\ncurl_setopt_array($curl, [\n  CURLOPT_URL => \"http://undefinedundefined/WeatherForecast\",\n  CURLOPT_RETURNTRANSFER => true,\n  CURLOPT_ENCODING => \"\",\n  CURLOPT_MAXREDIRS => 10,\n  CURLOPT_TIMEOUT => 30,\n  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,\n  CURLOPT_CUSTOMREQUEST => \"GET\",\n]);\n\n$response = curl_exec($curl);\n$err = curl_error($curl);\n\ncurl_close($curl);\n\nif ($err) {\n  echo \"cURL Error #:\" . $err;\n} else {\n  echo $response;\n}"
-          },
-          {
-            "lang": "Php + Http1",
-            "source": "<?php\n\n$request = new HttpRequest();\n$request->setUrl('http://undefinedundefined/WeatherForecast');\n$request->setMethod(HTTP_METH_GET);\n\ntry {\n  $response = $request->send();\n\n  echo $response->getBody();\n} catch (HttpException $ex) {\n  echo $ex;\n}"
-          },
-          {
-            "lang": "Php + Http2",
-            "source": "<?php\n\n$client = new http\\Client;\n$request = new http\\Client\\Request;\n\n$request->setRequestUrl('http://undefinedundefined/WeatherForecast');\n$request->setRequestMethod('GET');\n$client->enqueue($request)->send();\n$response = $client->getResponse();\n\necho $response->getBody();"
-          },
-          {
-            "lang": "Python + Python3",
-            "source": "import http.client\n\nconn = http.client.HTTPConnection(\"undefinedundefined\")\n\nconn.request(\"GET\", \"/WeatherForecast\")\n\nres = conn.getresponse()\ndata = res.read()\n\nprint(data.decode(\"utf-8\"))"
-          },
-          {
-            "lang": "Python + Requests",
-            "source": "import requests\n\nurl = \"http://undefinedundefined/WeatherForecast\"\n\nresponse = requests.request(\"GET\", url)\n\nprint(response.text)"
-          },
-          {
-            "lang": "Ruby + Native",
-            "source": "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://undefinedundefined/WeatherForecast\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Get.new(url)\n\nresponse = http.request(request)\nputs response.read_body"
-          },
-          {
-            "lang": "Shell + Curl",
-            "source": "curl --request GET \\\n  --url http://undefinedundefined/WeatherForecast"
-          },
-          {
-            "lang": "Shell + Httpie",
-            "source": "http GET http://undefinedundefined/WeatherForecast"
-          },
-          {
-            "lang": "Shell + Wget",
-            "source": "wget --quiet \\\n  --method GET \\\n  --output-document \\\n  - http://undefinedundefined/WeatherForecast"
-          },
-          {
-            "lang": "Swift + Nsurlsession",
-            "source": "import Foundation\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"http://undefinedundefined/WeatherForecast\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"GET\"\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
+        }
+      }
+    },
+    "/ciam/api/Nethone/NethoneTransaction": {
+      "post": {
+        "tags": [
+          "Nethone"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NethoneTransactionRequest"
+              }
+            }
           }
-        ]
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NethoneResponseConfirm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ciam/api/Nethone/NethoneRecommendation": {
+      "post": {
+        "tags": [
+          "Nethone"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewNethoneRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NethoneResponse"
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
   "components": {
     "schemas": {
-      "WeatherForecast": {
+      "Batterys": {
         "type": "object",
         "properties": {
-          "date": {
+          "battery_health": {
             "type": "string",
-            "format": "date"
+            "nullable": true
           },
-          "temperatureC": {
+          "extra_health": {
             "type": "integer",
             "format": "int32"
           },
-          "temperatureF": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
+          "levelextra_status": {
+            "type": "number",
+            "format": "double"
           },
-          "summary": {
+          "extra_level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "extra_scale_level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "battery": {
+            "type": "string",
+            "nullable": true
+          },
+          "extra_plugged": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "charging_state": {
+            "type": "string",
+            "nullable": true
+          },
+          "extra_status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "extra_present": {
+            "type": "boolean"
+          },
+          "extra_technology": {
+            "type": "string",
+            "nullable": true
+          },
+          "extra_temperature": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "extra_voltage": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Carrier": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "iso_country_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobile_country_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobile_network_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "allows_voip": {
+            "type": "boolean"
+          },
+          "icc_card": {
+            "type": "boolean"
+          },
+          "roaming": {
+            "type": "boolean"
+          },
+          "sim_state": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "radio_phone_type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "network_type": {
             "type": "string",
             "nullable": true
           }
         },
         "additionalProperties": false
+      },
+      "DeclaredIp": {
+        "type": "object",
+        "properties": {
+          "addr": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceInside": {
+        "type": "object",
+        "properties": {
+          "android_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "model": {
+            "type": "string",
+            "nullable": true
+          },
+          "manufacturer": {
+            "type": "string",
+            "nullable": true
+          },
+          "brand": {
+            "type": "string",
+            "nullable": true
+          },
+          "build_fingerprint": {
+            "type": "string",
+            "nullable": true
+          },
+          "product": {
+            "type": "string",
+            "nullable": true
+          },
+          "http_proxy": {
+            "type": "string",
+            "nullable": true
+          },
+          "wifi_on": {
+            "type": "boolean"
+          },
+          "bt_on": {
+            "type": "boolean"
+          },
+          "uptime_ms": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Devices": {
+        "type": "object",
+        "properties": {
+          "carrier": {
+            "$ref": "#/components/schemas/Carrier"
+          },
+          "disk": {
+            "$ref": "#/components/schemas/Disk"
+          },
+          "device": {
+            "$ref": "#/components/schemas/DeviceInside"
+          },
+          "battery": {
+            "$ref": "#/components/schemas/Batterys"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Disk": {
+        "type": "object",
+        "properties": {
+          "mobile_network_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "free_space_root": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Fingerprint": {
+        "type": "object",
+        "properties": {
+          "signals": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "profiling_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "attempt_reference": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_date": {
+            "type": "string",
+            "nullable": true
+          },
+          "ip": {
+            "type": "string",
+            "nullable": true
+          },
+          "network": {
+            "$ref": "#/components/schemas/Network"
+          },
+          "device": {
+            "$ref": "#/components/schemas/Devices"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FlagsNethoneConfirm": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "flags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FlagsNethoneProperties"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FlagsNethoneProperties": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Info": {
+        "type": "object",
+        "properties": {
+          "fingerprint": {
+            "$ref": "#/components/schemas/Fingerprint"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Rule"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NethoneResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "id_str": {
+            "type": "string",
+            "nullable": true
+          },
+          "advice": {
+            "type": "string",
+            "nullable": true
+          },
+          "info": {
+            "$ref": "#/components/schemas/Info"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NethoneResponseConfirm": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "id_str": {
+            "type": "string",
+            "nullable": true
+          },
+          "reference": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NethoneTransactionRequest": {
+        "type": "object",
+        "properties": {
+          "reference": {
+            "type": "string",
+            "nullable": true
+          },
+          "merchant_reference": {
+            "type": "string",
+            "nullable": true
+          },
+          "payment_method": {
+            "type": "string",
+            "nullable": true
+          },
+          "user_reference": {
+            "type": "string",
+            "nullable": true
+          },
+          "profiling_reference": {
+            "type": "string",
+            "nullable": true
+          },
+          "timestamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "string",
+            "nullable": true
+          },
+          "card_token": {
+            "type": "string",
+            "nullable": true
+          },
+          "flags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FlagsNethoneProperties"
+            },
+            "nullable": true
+          },
+          "inquiry_id": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Network": {
+        "type": "object",
+        "properties": {
+          "link_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "user_declared_ip": {
+            "$ref": "#/components/schemas/DeclaredIp"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NewNethoneRequest": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "attemptReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "inquiryType": {
+            "type": "string",
+            "nullable": true
+          },
+          "eventType": {
+            "type": "string",
+            "nullable": true
+          },
+          "deviceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "requiredEvent": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Rule": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "id_str": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "advice": {
+            "type": "string",
+            "nullable": true
+          },
+          "mode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdatePasswordRequest": {
+        "required": [
+          "newPassword",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User Id Auth0",
+            "example": "auth0|63af137d053f56ab291e7112"
+          },
+          "newPassword": {
+            "maxLength": 50,
+            "minLength": 8,
+            "type": "string",
+            "description": "New password",
+            "example": "th1sIsANew%%pwd"
+          },
+          "currentPassword": {
+            "maxLength": 50,
+            "minLength": 8,
+            "type": "string",
+            "description": "Current password",
+            "nullable": true,
+            "example": "th1sIsAOld%%pwd"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateUserRequest": {
+        "required": [
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User Id Auth0",
+            "example": "auth0|63b477d3b85540fe7e870500"
+          },
+          "email": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "description": "The email of user.",
+            "nullable": true,
+            "example": "examplemail@cool.domain.com"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "description": "The phone of user.",
+            "nullable": true,
+            "example": "+515555555555"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserChangeResponse": {
+        "required": [
+          "birthday",
+          "emailVerified",
+          "firstName",
+          "lastName",
+          "loyaltyId",
+          "phoneNumber",
+          "zipCode"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Returns email of the user",
+            "nullable": true,
+            "example": "examplemail@cool.domain.com"
+          },
+          "userName": {
+            "type": "string",
+            "description": "Returns user Name of the user",
+            "nullable": true,
+            "example": "+521234567890"
+          },
+          "firstName": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Returns First Name of the user",
+            "example": "Juan Antonio"
+          },
+          "lastName": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Return Last Name of the user",
+            "example": "Peréz Pérez"
+          },
+          "birthday": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Returns birthday of the user",
+            "example": "01/01/2000"
+          },
+          "phoneNumber": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Returns Phone of the user",
+            "example": "+525555555555"
+          },
+          "zipCode": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Returns Zip Code of the user",
+            "example": "64000"
+          },
+          "loyaltyId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Returns Loyalty Id of the user",
+            "example": "P1ATYGR"
+          },
+          "emailVerified": {
+            "type": "boolean",
+            "description": "Check if the user's email is verified",
+            "example": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserValidationResponse": {
+        "required": [
+          "codeUserStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "codeUserStatus": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Returns the current status of the user",
+            "example": "0"
+          }
+        },
+        "additionalProperties": false
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "List Auth endpoints."
+    }
+  ]
 }
