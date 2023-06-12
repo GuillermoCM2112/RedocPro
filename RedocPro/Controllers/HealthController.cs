@@ -10,7 +10,7 @@ namespace RedocPro.Controllers
     /// <remarks>
     /// Sample request:
     ///
-    ///     GET api/Health
+    ///     GET api/health
     ///
     /// </remarks>
     /// <response code="200">Returns a 200 if the API is online.</response>
