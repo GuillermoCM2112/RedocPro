@@ -47,29 +47,35 @@ jobs:
         openapi-snippet ./swagger.json -o ./swagger.yaml
         openapi-snippet ./swagger.yaml -e json -o ./swagger.json
     
-    - name: Import GPG key
-      id: import-gpg
-      uses: crazy-max/ghaction-import-gpg@v4
-      with:
-          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
-          git_user_signingkey: true
-          git_commit_gpgsign: true
-
-    - name: GPG user IDs
+    - name: Generate GPG key
       run: |
-          echo "fingerprint: ${{ steps.import-gpg.outputs.fingerprint }}"
-          echo "keyid:       ${{ steps.import-gpg.outputs.keyid }}"
-          echo "name:        ${{ steps.import-gpg.outputs.name }}"
-          echo "email:       ${{ steps.import-gpg.outputs.email }}"
+          gpg --batch --generate-key <<EOF
+          %echo Generating a GPG key
+          Key-Type: RSA
+          Key-Length: 4096
+          Name-Real: RakohpDF
+          Name-Email: cricardo.koh@digitalfemsa.com
+          Expire-Date: 0
+          %commit
+          %echo Done
+          EOF
+
+    - name: Private key
+      run: |
+          gpg --armor --export-secret-keys > private.key
+
+    - name: Import GPG key
+      run: |
+          echo "${{ secrets.GPG_PRIVATE_KEY }}" | base64 --decode | gpg --import
 
     - name: Actualizar rama main
       run: |
           git checkout main
           if [[ -n $(git status -s) ]]; then
               git add .
-              git config --global user.email "${{ steps.import-gpg.outputs.email }}"
-              git config --global user.name "${{ steps.import-gpg.outputs.name }}"
+              git config user.name "${{ secrets.GIT_USER_NAME }}"
+              git config user.email "${{ secrets.GIT_USER_EMAIL }}"
+              git config commit.gpgsign true
               NOW=$(date)
               git commit -m "Resources updated with date ${NOW}"
              git push origin main
