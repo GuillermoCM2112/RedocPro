@@ -47,37 +47,12 @@ jobs:
         openapi-snippet ./swagger.json -o ./swagger.yaml
         openapi-snippet ./swagger.yaml -e json -o ./swagger.json
     
-    - name: Generate GPG key
-      run: |
-          gpg --batch --generate-key <<EOF
-          %echo Generating a GPG key
-          Key-Type: RSA
-          Key-Length: 4096
-          Name-Real: RakohpDF
-          Name-Email: cricardo.koh@digitalfemsa.com
-          Expire-Date: 0
-          %commit
-          %echo Done
-          EOF
-
-    - name: Private key
-      run: |
-          gpg --armor --export-secret-keys > private.key
-
-    - name: Import GPG key
-      run: |
-          echo "${{ secrets.GPG_PRIVATE_KEY }}" | base64 --decode | gpg --import
-
     - name: Actualizar rama main
       run: |
           git checkout main
           if [[ -n $(git status -s) ]]; then
               git add .
-              git config user.name "${{ secrets.GIT_USER_NAME }}"
-              git config user.email "${{ secrets.GIT_USER_EMAIL }}"
-              git config commit.gpgsign true
-              NOW=$(date)
-              git commit -m "Resources updated with date ${NOW}"
+              git -c user.name="Guillermo Coba Montoya" -c user.email="guillermo.coba@digitalfemsa.com" commit -m "Actualizar archivo JSON"
              git push origin main
           else
              echo "No hay cambios para actualizar en la rama main"
