@@ -17,7 +17,11 @@ namespace RedocPro.Controllers
             this.logger = logger;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPut] 
         [ProducesResponseType(200, Type = typeof(NethoneResponseConfirm))]
         public async Task<IActionResult> NethoneTransactionConfirm([FromBody] FlagsNethoneConfirm request)
@@ -38,6 +42,10 @@ namespace RedocPro.Controllers
         {
             return this.Ok("0.1.5");
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(200, Type = typeof(JsonContent))]
         public async Task<IActionResult> NethoneRecommendationPay()
