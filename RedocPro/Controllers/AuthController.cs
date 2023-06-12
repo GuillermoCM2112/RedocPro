@@ -79,5 +79,25 @@ namespace RedocPro.Controllers
 		{
 			return this.Ok();
 		}
-	}
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        [HttpGet]
+        [ProducesResponseType(200)]
+        public IActionResult TokenValidator()
+        {
+            var token = this.HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last() ?? string.Empty;
+            var jwtToken = string.IsNullOrWhiteSpace(token) ? null : "";
+
+            if (jwtToken != null)
+            {
+                return this.Ok("Valid");
+            }
+
+            throw new Exception("Invalid");
+        }
+    }
 }
