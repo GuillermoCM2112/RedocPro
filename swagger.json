@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "CIAM Demo Documentation",
-    "description": "# RedocPro\n\nImplementación del servicio Customer Identity and Access Management (CIAM)  \n\n## Endpoints\n\nHasta el momento, se cuentan con los siguientes endpoints:\n- `Login`: \n- `Signup`:\n- `RefreshToken`: \n- `ChangeUserPassword`: \n- `ChangeUserProperty`: \n- `UserValidation`: \n- `RevokeRefreshToken`:\n\nPara descargar la colección de Postman puede hacer <a href=\"postman_collection.json\" download>click aquí</a>\n\n\n\nPara descargar las variables de entorno de Postman puede hacer <a href=\"test_environment.json\" download>click aquí</a>\n\n## Ejecución local\nPara ejecutar de forma local, se pueden seguir los siguientes pasos:\n1. Instalar la versión más reciente de Visual Studio.\n2. Descargar el `.zip` de la rama `main` del repositorio.\n3. Abrir el proyecto\n4. Agregar en el [`appsettings.Development.json`]\n5. Ahora, puedes hacer click en la ejecutar el proyecto, o bien, en \"Depurar > Iniciar depuración\".\n\nDonde puedes interactuar con los endpoints de CIAM. Si no se abre la ventana, puedes ingresar a esta por medio del siguiente enlace: [https://localhost:7009/swagger/index.html](https://localhost:7009/swagger/index.html).\n\n## Como contribuir al repositorio\nPara contribuir al repositorio se te deben otorgar permisos de escritura y seguir los siguientes pasos. \n\n1. Asociar un nuevo SSH con tu cuenta de GitHub institucional.\n\n    En esta ocasión, no basta con descargar el `.zip` del repositorio. Debes configurar tu dispositivo para conectar tu cuenta de GitHub mediante SSH, puedes seguir el siguiente [tutorial de GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) para añadir una SSH a tu cuenta. Además, debes darle permisos para acceder a `digitaltitransversal`, sigue el siguiente [tutorial](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on) para dar dichos permisos.\n\n2. Teniendo ya el SSH configurado, debes clonar el repositorio en la carpeta de tu preferencia. Como sugerencia, puedes crear una carpeta `~/Projects` para mantener todos los proyectos en un sólo lugar.\n\n    En la terminal, corre el siguiente comando:\n    ```\n    git clone git@github.com:\n    ```\n\n    Debería aparecer una salida parecida a:\n    ```\n    remote: Enumerating objects: 542, done.\n    remote: Counting objects: 100% (314/314), done.\n    remote: Compressing objects: 100% (177/177), done.\n    remote: Total 542 (delta 196), reused 178 (delta 122), pack-reused 228\n    Receiving objects: 100% (542/542), 110.60 KiB | 1.44 MiB/s, done.\n    Resolving deltas: 100% (271/271), done.\n    ```\n\n3. En este punto, se pueden seguir los pasos que se describieron para la ejecución local.\n\n4. Si se quiere agregar nuevos cambios, debes crear tu propia rama.\n    ```\n    git branch rama-de-ejemplo\n    ```\n\n5. Para empezar a trabajar sobre la rama creada, puedes ejecutar el siguiente comando:\n\n    ```\n    git checkout rama-de-ejemplo\n    ```\n\n    En este punto ya puedes comenzar a hacer tus cambios. Si no haces el `checkout` a tu rama, puede que afectes a otras ramas e interrumpir el trabajo de los demás. Recuerda que no te dejará hacer `push` a `main`. \n\n6. Después de hacer tus cambios, haz pruebas unitarias e\n\n7. Se checa de manera automática que se cumpla ciertas reglas de sintaxis. Algunas de estas reglas son necesarias para tener una sintaxis consistente en todo el repositorio. La mayoría de las reglas se pueden aplicar de manera automática corriendo el siguiente comando:\n    ```\n    dotnet format\n    ```\n    En caso de enviar tus cambios y todavía tener pendientes de sintaxis, tendrás que checar de forma manual cómo arreglarlo. Te puedes guiar de la [documentación de StyleCop](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/tree/master/documentation) y pedir ayuda al equipo. Para checar de forma local la sintaxis, puedes correr el siguiente comando:\n\n    ```\n    dotnet format --verify-no-changes --verbosity m --severity warn\n    ```\n\n",
+    "description": "# RedocPro\r\n\r\nImplementación del servicio Customer Identity and Access Management (CIAM)  \r\n\r\n## Endpoints\r\n\r\nHasta el momento, se cuentan con los siguientes endpoints:\r\n- `Login`: \r\n- `Signup`:\r\n- `RefreshToken`: \r\n- `ChangeUserPassword`: \r\n- `ChangeUserProperty`: \r\n- `UserValidation`: \r\n- `RevokeRefreshToken`:\r\n\r\nPara descargar la colección de Postman puede hacer <a href=\"postman_collection.json\" download>click aquí</a>\r\n\r\n\r\n\r\nPara descargar las variables de entorno de Postman puede hacer <a href=\"test_environment.json\" download>click aquí</a>\r\n\r\n## Ejecución local\r\nPara ejecutar de forma local, se pueden seguir los siguientes pasos:\r\n1. Instalar la versión más reciente de Visual Studio.\r\n2. Descargar el `.zip` de la rama `main` del repositorio.\r\n3. Abrir el proyecto\r\n4. Agregar en el [`appsettings.Development.json`]\r\n5. Ahora, puedes hacer click en la ejecutar el proyecto, o bien, en \"Depurar > Iniciar depuración\".\r\n\r\nDonde puedes interactuar con los endpoints de CIAM. Si no se abre la ventana, puedes ingresar a esta por medio del siguiente enlace: [https://localhost:7009/swagger/index.html](https://localhost:7009/swagger/index.html).\r\n\r\n## Como contribuir al repositorio\r\nPara contribuir al repositorio se te deben otorgar permisos de escritura y seguir los siguientes pasos. \r\n\r\n1. Asociar un nuevo SSH con tu cuenta de GitHub institucional.\r\n\r\n    En esta ocasión, no basta con descargar el `.zip` del repositorio. Debes configurar tu dispositivo para conectar tu cuenta de GitHub mediante SSH, puedes seguir el siguiente [tutorial de GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) para añadir una SSH a tu cuenta. Además, debes darle permisos para acceder a `digitaltitransversal`, sigue el siguiente [tutorial](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on) para dar dichos permisos.\r\n\r\n2. Teniendo ya el SSH configurado, debes clonar el repositorio en la carpeta de tu preferencia. Como sugerencia, puedes crear una carpeta `~/Projects` para mantener todos los proyectos en un sólo lugar.\r\n\r\n    En la terminal, corre el siguiente comando:\r\n    ```\r\n    git clone git@github.com:\r\n    ```\r\n\r\n    Debería aparecer una salida parecida a:\r\n    ```\r\n    remote: Enumerating objects: 542, done.\r\n    remote: Counting objects: 100% (314/314), done.\r\n    remote: Compressing objects: 100% (177/177), done.\r\n    remote: Total 542 (delta 196), reused 178 (delta 122), pack-reused 228\r\n    Receiving objects: 100% (542/542), 110.60 KiB | 1.44 MiB/s, done.\r\n    Resolving deltas: 100% (271/271), done.\r\n    ```\r\n\r\n3. En este punto, se pueden seguir los pasos que se describieron para la ejecución local.\r\n\r\n4. Si se quiere agregar nuevos cambios, debes crear tu propia rama.\r\n    ```\r\n    git branch rama-de-ejemplo\r\n    ```\r\n\r\n5. Para empezar a trabajar sobre la rama creada, puedes ejecutar el siguiente comando:\r\n\r\n    ```\r\n    git checkout rama-de-ejemplo\r\n    ```\r\n\r\n    En este punto ya puedes comenzar a hacer tus cambios. Si no haces el `checkout` a tu rama, puede que afectes a otras ramas e interrumpir el trabajo de los demás. Recuerda que no te dejará hacer `push` a `main`. \r\n\r\n6. Después de hacer tus cambios, haz pruebas unitarias e\r\n\r\n7. Se checa de manera automática que se cumpla ciertas reglas de sintaxis. Algunas de estas reglas son necesarias para tener una sintaxis consistente en todo el repositorio. La mayoría de las reglas se pueden aplicar de manera automática corriendo el siguiente comando:\r\n    ```\r\n    dotnet format\r\n    ```\r\n    En caso de enviar tus cambios y todavía tener pendientes de sintaxis, tendrás que checar de forma manual cómo arreglarlo. Te puedes guiar de la [documentación de StyleCop](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/tree/master/documentation) y pedir ayuda al equipo. Para checar de forma local la sintaxis, puedes correr el siguiente comando:\r\n\r\n    ```\r\n    dotnet format --verify-no-changes --verbosity m --severity warn\r\n    ```\r\n\r\n",
     "contact": {
       "name": "test",
       "email": "someemail@somedomain.com"
@@ -19,9 +19,9 @@
         "tags": [
           "Auth"
         ],
-        "summary": "Login",
-        "description": "Validates if you have permissions to login.",
+        "summary": "Validates if the user has permissions to log in.",
         "requestBody": {
+          "description": "The user credentials.",
           "content": {
             "application/json": {
               "schema": {
@@ -61,6 +61,66 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Client Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Unhandled error, validate the error log."
           }
@@ -72,9 +132,9 @@
         "tags": [
           "Auth"
         ],
-        "summary": "Signup",
-        "description": "Creates a user if meets the validations.",
+        "summary": "Creates a user if meets the validations.",
         "requestBody": {
+          "description": "The user information.",
           "content": {
             "application/json": {
               "schema": {
@@ -125,9 +185,9 @@
         "tags": [
           "Auth"
         ],
-        "summary": "RefreshToken",
-        "description": "Generates a new refresh token.",
+        "summary": "Generates a new refresh token.",
         "requestBody": {
+          "description": "The refresh token.",
           "content": {
             "application/json": {
               "schema": {
@@ -173,12 +233,11 @@
         }
       }
     },
-    "/api/Auth/ChangeUserPassword/ChangeUserPassword": {
+    "/api/Auth/ChangeUserPassword": {
       "post": {
         "tags": [
           "Auth"
         ],
-        "summary": "Change User Password",
         "description": "This endpoint will change the password of the user.",
         "operationId": "ChangeUserPassword",
         "requestBody": {
@@ -202,7 +261,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Response",
             "content": {
               "text/plain": {
                 "schema": {
@@ -220,17 +279,37 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "SPCI-404: User not found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       }
     },
-    "/api/Auth/ChangeUserProperty/ChangeUserProperty": {
+    "/api/Auth/ChangeUserProperty": {
       "post": {
         "tags": [
           "Auth"
         ],
-        "summary": "Change User Property",
         "description": "This endpoint will change the property of the user.",
+        "operationId": "ChangeUserProperty",
         "requestBody": {
           "content": {
             "application/json": {
@@ -252,38 +331,38 @@
         },
         "responses": {
           "200": {
-            "description": "Returns a 200 if the user property change.",
+            "description": "Returns a 200 if the user property change."
+          },
+          "404": {
+            "description": "SPCI-404: User not found",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserChangeResponse"
+                  "$ref": "#/components/schemas/Error"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserChangeResponse"
+                  "$ref": "#/components/schemas/Error"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserChangeResponse"
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
-          },
-          "500": {
-            "description": "Unhandled error, validate the error log."
           }
         }
       }
     },
-    "/api/Auth/UserValidation/UserValidation": {
+    "/api/Auth/UserValidation": {
       "get": {
         "tags": [
           "Auth"
         ],
-        "summary": "User Validation",
-        "description": "This endpoint will validate if the user has any of the following states: \r\n<ul><li>NotRegistered = 0</li><li>PreRegistered = 1</li><li>Registered = 2</li><li>OTPRequired = 3</li><li>SoftBlock = 4</li><li>HardBlock = 5</li><li>CancelledAccount = 8</li><li>FirstLoginOxxo = 20</li></ul>",
+        "description": "This endpoint will validate if the user has any of the following states: \r\n\t\t\t\t\t\t\t\t\t\t\t   <ul><li>NotRegistered = 0</li><li>PreRegistered = 1</li><li>Registered = 2</li>\r\n\t\t\t\t\t\t\t\t\t\t\t   <li>OTPRequired = 3</li><li>SoftBlock = 4</li><li>HardBlock = 5</li>\r\n\t\t\t\t\t\t\t\t\t\t\t   <li>CancelledAccount = 8</li><li>FirstLoginOxxo = 20</li></ul>",
+        "operationId": "UserValidation",
         "parameters": [
           {
             "name": "PhoneNumber",
@@ -325,7 +404,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a status of the user.",
+            "description": "Response",
             "content": {
               "text/plain": {
                 "schema": {
@@ -344,8 +423,25 @@
               }
             }
           },
-          "500": {
-            "description": "Unhandled error, validate the error log."
+          "404": {
+            "description": "SPCI-404: User not found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       }
@@ -2767,6 +2863,33 @@
         },
         "additionalProperties": false,
         "description": ""
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
       },
       "PropertyAttributes": {
         "enum": [
