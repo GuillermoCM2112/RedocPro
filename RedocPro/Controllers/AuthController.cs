@@ -153,9 +153,9 @@ namespace RedocPro.Controllers
         [SwaggerOperation(OperationId = nameof(UpdateUserProfile), Description = EndpointsDescriptions.UpdateUserProfileDescription)]
         [SwaggerResponse(200, EndpointsDescriptions.UpdateUserProfile200Description, type: typeof(CambiarCuentaRespuesta))]
         [SwaggerResponse(400, EndpointsDescriptions.UpdateUserProfile400Description, type: typeof(Error))]
-        [SwaggerResponse(401, EndpointsDescriptions.UpdateUserProfile401Description, type: typeof(ErrorResponse))]
+        [SwaggerResponse(401, EndpointsDescriptions.UpdateUserProfile401Description, type: typeof(Error))]
         [SwaggerResponse(409, EndpointsDescriptions.UpdateUserProfile409Description, type: typeof(Error))]
-        [SwaggerResponse(500, EndpointsDescriptions.UpdateUserProfile500Description, type: typeof(ErrorResponse))]
+        [SwaggerResponse(500, EndpointsDescriptions.UpdateUserProfile500Description, type: typeof(Error))]
         public IActionResult UpdateUserProfile([FromBody] PerfilUsuario user) => this.Ok(user);
         #endregion
 
@@ -167,8 +167,8 @@ namespace RedocPro.Controllers
         [SwaggerSchemaExample(nameof(RecuperarContrasena))]
         [SwaggerOperation(OperationId = nameof(RecoveryUserPassword), Description = EndpointsDescriptions.RecoveryUserPasswordDescription)]
         [SwaggerResponse(200, EndpointsDescriptions.RecoveryUserPassword200Description, type: typeof(CambiarCuentaRespuesta))]
-        [SwaggerResponse(401, EndpointsDescriptions.RecoveryUserPassword401Description, type: typeof(ErrorResponse))]
-        [SwaggerResponse(500, EndpointsDescriptions.RecoveryUserPassword500Description, type: typeof(ErrorResponse))]
+        [SwaggerResponse(401, EndpointsDescriptions.RecoveryUserPassword401Description, type: typeof(Error))]
+        [SwaggerResponse(500, EndpointsDescriptions.RecoveryUserPassword500Description, type: typeof(Error))]
         public IActionResult RecoveryUserPassword([FromBody] RecuperarContrasena user) => this.Ok(user);
         #endregion
 
@@ -181,8 +181,8 @@ namespace RedocPro.Controllers
         [SwaggerSchemaExample(nameof(CancelarCuenta))]
         [SwaggerOperation(OperationId = nameof(CancelUserAccount), Description = EndpointsDescriptions.CancelUserAccountDescription)]
         [SwaggerResponse(200, EndpointsDescriptions.CancelUserAccount200Description, type: typeof(CancelarCuentaRespuesta))]
-        [SwaggerResponse(401, EndpointsDescriptions.CancelUserAccount401Description, type: typeof(ErrorResponse))]
-        [SwaggerResponse(500, EndpointsDescriptions.CancelUserAccount500Description, type: typeof(ErrorResponse))]
+        [SwaggerResponse(401, EndpointsDescriptions.CancelUserAccount401Description, type: typeof(Error))]
+        [SwaggerResponse(500, EndpointsDescriptions.CancelUserAccount500Description, type: typeof(Error))]
         public IActionResult CancelUserAccount([FromBody] CancelarCuenta request) => this.Ok(request);
         #endregion
     }
