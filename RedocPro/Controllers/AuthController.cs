@@ -13,6 +13,51 @@ namespace RedocPro.Controllers
     [SwaggerTag("List Auth endpoints.")]
     public class AuthController : ControllerBase
     {
+        /// <summary>
+        /// Login
+        /// </summary>
+        /// <remarks>
+        /// Validates if you have permissions to login. 
+        /// </remarks>
+        /// <response code="200">Returns access token information.</response>
+        /// <response code="500">Unhandled error, validate the error log.</response>
+        [HttpPost]
+        [ProducesResponseType(200, Type = typeof(AccessResponse))]
+        public async Task<IActionResult> Login([FromBody] LoginRequest request)
+        {
+            return this.Ok();
+        }
+
+        /// <summary>
+        /// Signup
+        /// </summary>
+        /// <remarks>
+        /// Creates a user if meets the validations.
+        /// </remarks>
+        /// <response code="200">Returns access token information.</response>
+        /// <response code="500">Unhandled error, validate the error log.</response>
+        [HttpPost]
+        [ProducesResponseType(200, Type = typeof(AccessResponse))]
+        public async Task<IActionResult> Signup([FromBody] SignupRequest request)
+        {
+            return this.Ok();
+        }
+
+        /// <summary>
+        /// RefreshToken
+        /// </summary>
+        /// <remarks>
+        /// Generates a new refresh token.
+        /// </remarks>
+        /// <response code="200">Returns a status of the user.</response>
+        /// <response code="500">Unhandled error, validate the error log.</response>
+        [HttpPost]
+        [ProducesResponseType(200, Type = typeof(AccessResponse))]
+        public async Task<IActionResult> RefreshToken([FromBody] RefreshRequest request)
+        {
+            return this.Ok();
+        }
+
         [HttpPost("ChangeUserPassword")]
         [SwaggerOperation(
             Summary = "Change User Password",
