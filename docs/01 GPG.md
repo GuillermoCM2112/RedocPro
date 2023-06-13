@@ -74,7 +74,9 @@
     brew install pinentry-mac 
     gpg --full-generate-key 
 ```
+
    * Obten la key generada: 
+   
 ```
     gpg --list-keys
 ```
@@ -85,7 +87,9 @@ Actualiza la key en local
     git config --global gpg.program /usr/local/bin/gpg
     git config --global commit.gpgsign true
 ```
+
 Exporta tu Key a GitHub :
+
 ```
     gpg --armor --export <key> 
 ```
@@ -101,8 +105,8 @@ Si el error a un persiste ejecuta el siguiente comando:
 
 *NOTA: Si el error aun persiste:
 
-   * *Instala: https://gpgtools.org 
-   * *Firma la clave que utilizaste presionando "Sign" en la barra de menú: Key -> Sign.
+   * *Instala: https://gpgtools.org* 
+   * *Firma la clave que utilizaste presionando "Sign" en la barra de menú: Key -> Sign*.
 
 ## Generación con Windows
 
