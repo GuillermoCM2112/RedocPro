@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using RedocPro.Descriptions;
 using RedocPro.Entities.RequestPayloads;
@@ -128,11 +129,14 @@ namespace RedocPro.Controllers
 		}
 
         /// <summary>
-        /// 
+        /// TokenValidator: validates that the token sent is correct
         /// </summary>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
         [HttpGet]
+        [Route("TokenValidator")]
+        [Consumes("application/json")]
+        [Produces("application/json")]
         [ProducesResponseType(200)]
         public IActionResult TokenValidator()
         {

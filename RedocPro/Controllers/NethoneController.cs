@@ -43,7 +43,7 @@ namespace RedocPro.Controllers
             return this.Ok("0.1.5");
         }
         /// <summary>
-        /// check if the data has suspicious or fraudulent activity
+        /// NethoneRecommendationPay: check if the data has suspicious or fraudulent activity
         /// </summary>
         /// <param name="ObjNewCardRequest">Object with data new card</param>
         /// <returns>Check recommendation pay</returns>
