@@ -15,6 +15,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="6.5.0" />
+    <PackageReference Include="Auth0.AuthenticationApi" Version="7.20.0" />
   </ItemGroup>
 
 </Project>
