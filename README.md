@@ -1,6 +1,7 @@
 # RedocPro
 
 Implementación del servicio Customer Identity and Access Management (CIAM)  
+![Alt text](image.png)
 
 ## Endpoints
 
