@@ -182,7 +182,7 @@ namespace RedocPro.Models
         /// <example>+525555555555</example>
         [Required]
         public string PhoneNumber { get; set; } = string.Empty;
-        
+
         /// <summary>
         /// User zip code of address.
         /// </summary>
