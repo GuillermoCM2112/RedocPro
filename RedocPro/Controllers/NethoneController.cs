@@ -43,12 +43,13 @@ namespace RedocPro.Controllers
             return this.Ok("0.1.5");
         }
         /// <summary>
-        /// 
+        /// check if the data has suspicious or fraudulent activity
         /// </summary>
-        /// <returns></returns>
+        /// <param name="ObjNewCardRequest">Object with data new card</param>
+        /// <returns>Check recommendation pay</returns>
         [HttpPost]
         [ProducesResponseType(200, Type = typeof(JsonContent))]
-        public async Task<IActionResult> NethoneRecommendationPay()
+        public async Task<IActionResult> NethoneRecommendationPay(string ObjNewCardRequest)
         {
             return this.Ok("0.1.5");
         }
