@@ -125,34 +125,6 @@ namespace RedocPro.Controllers
             return this.Ok();
         }
 
-
-		[HttpGet]
-		[SwaggerOperation(OperationId = nameof(GetTransversalUserData), Description = EndpointsDescriptions.GetTransversalUserDataDescription)]
-		[SwaggerResponse(200, "Response", type: typeof(UserDataResponse))]
-		[SwaggerResponse(500, "Unhandled error, validate the error log.", type: typeof(ErrorResponse))]
-		public IActionResult GetTransversalUserData([FromQuery] UserDataRequest request)
-		{
-			return this.Ok();
-		}
-
-		[HttpPost]
-		[SwaggerOperation(OperationId = nameof(RevokeRefreshToken), Description = EndpointsDescriptions.RevokeRefreshTokenDescription)]
-		[SwaggerResponse(200, "Response", type: typeof(RefreshResponse))]
-		[SwaggerResponse(500, "Unhandled error, validate the error log.", type: typeof(ErrorResponse))]
-		public IActionResult RevokeRefreshToken([FromBody] RefreshRequest request)
-		{
-			return this.Ok();
-		}
-
-		[HttpGet]
-		[SwaggerOperation(OperationId = nameof(GetUserProfile), Description = EndpointsDescriptions.GetUserProfileDescription)]
-		[SwaggerResponse(200, "Response", type: typeof(UserChangeResponse))]
-		[SwaggerResponse(500, "Unhandled error, validate the error log.", type: typeof(ErrorResponse))]
-		public IActionResult GetUserProfile([FromQuery] GetUserProfileRequest request)
-		{
-			return this.Ok();
-		}
-
         [HttpGet]
         [SwaggerOperation(OperationId = nameof(GetUserProfile), Description = EndpointsDescriptions.TokenValidatorDescription)]
         [Route("TokenValidator")]
