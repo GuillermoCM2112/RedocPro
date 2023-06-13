@@ -6,8 +6,10 @@ using Microsoft.OpenApi.Writers;
 using RedocPro.Environments;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System.IO;
 using System.Reflection;
 using System.Text;
+using System.Xml.XPath;
 
 namespace RedocPro.Redoc
 {
@@ -41,7 +43,7 @@ namespace RedocPro.Redoc
                 {
                     Title = "CIAM Demo Documentation",
                     Version = "v1",
-                    Description = File.ReadAllText("../README.md", Encoding.UTF8),
+                    Description = GetAllFilesInDocumentation(),
                     Contact = new OpenApiContact
                     {
                         Name = "test",
@@ -62,10 +64,15 @@ namespace RedocPro.Redoc
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
             options.IncludeXmlComments(xmlPath);
             options.EnableAnnotations();
+
         }
         public static void GenerateSwaggerEndpoint(WebApplication app)
         {
-            app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v1/swagger.json", "CIAM Demo Documentation"));
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "CIAM Demo Documentation");
+            });
+
             app.UseReDoc(options =>
             {
                 options.DocumentTitle = "CIAM Demo Documentation";
@@ -74,6 +81,17 @@ namespace RedocPro.Redoc
                 options.ExpandResponses("200");
             });
         }
-       
+
+
+        public static string GetAllFilesInDocumentation(string routeDocs = "../docs", string routeReadme = "../README.md")
+        {
+            string fileBase = File.ReadAllText(routeReadme, Encoding.UTF8);
+            if (Directory.Exists(routeDocs) && Directory.GetFiles(routeDocs).Any())
+            {
+                Directory.GetFiles(routeDocs).Select(k => fileBase += File.ReadAllText(k, Encoding.UTF8)).ToList();
+            }
+
+            return fileBase;
+        }
     }
 }
