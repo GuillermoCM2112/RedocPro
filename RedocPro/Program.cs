@@ -1,17 +1,21 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Interfaces;
 using Microsoft.OpenApi.Models;
 using Microsoft.OpenApi.Writers;
 using RedocPro.Environments;
 using Swashbuckle.AspNetCore.Swagger;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
 using System.Text;
 
+/// <summary>
+/// 
+/// </summary>
 public class Program
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="args"></param>
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
@@ -62,6 +66,7 @@ public class Program
                 options.DocumentTitle = "CIAM Demo Documentation";
                 options.SpecUrl = "/swagger/v1/swagger.json";
                 options.HideDownloadButton();
+                options.ExpandResponses("200");
             });
         }
 

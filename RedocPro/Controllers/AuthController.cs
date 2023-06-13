@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using RedocPro.Descriptions;
 using RedocPro.Entities.RequestPayloads;
 using RedocPro.Entities.ResponsePayloads;
@@ -146,27 +147,15 @@ namespace RedocPro.Controllers
             throw new Exception("Invalid");
         }
 
+        #region UpdateUserProfile
         /// <summary>
-        /// Updates the partial information of user.
+        /// UpdateUserProfile
         /// </summary>
         /// <param name="user">*User information.*</param>
         /// <returns>Returns the requested object to update.</returns>
         /// <remarks>
-        /// Sample request:
-        ///
-        ///     PATCH api/Auth/RecoveryUserPassword
-        ///     {
-        ///         "prop1": "...",
-        ///         "prop2": "...",
-        ///         "prop3": "...",
-        ///         "prop4": "...",
-        ///         "prop5": "...",
-        ///         "prop6": "...",
-        ///         "prop7": "...",
-        ///         "prop8": ".",
-        ///         "prop9": "...",
-        ///         "prop510": "..."
-        ///     }
+        /// 
+        /// Updates the partial information of user.
         ///
         /// </remarks>
         /// <response code="200">The information is updated correctly</response>
@@ -188,11 +177,75 @@ namespace RedocPro.Controllers
         /// </response>
         [HttpPatch]
         [Route("UpdateUserProfile")]
-        [ProducesResponseType(200, Type = typeof(PerfilUsuario))]
+        [Produces("application/json")]
+        [ProducesResponseType(200, Type = typeof(CambiarCuentaRespuesta))]
         [ProducesResponseType(400, Type = typeof(ValidationProblemDetails))]
         [ProducesResponseType(401, Type = typeof(Error))]
         [ProducesResponseType(409, Type = typeof(Error))]
-        [ProducesResponseType(500)]
+        [ProducesResponseType(500, Type = typeof(Error))]
         public IActionResult UpdateUserProfile([FromBody] PerfilUsuario user) => this.Ok(user);
-    }
+        #endregion
+
+        #region RecoveryUserPassword
+        /// <summary>
+        /// RecoveryUserPassword
+        /// </summary>
+        /// <param name="user">*User information with the new password.*</param>
+        /// <returns>Returns the requested object to update.</returns>
+        /// <remarks>
+        /// 
+        /// Recovery an user's password, based on the requested data
+        ///
+        /// </remarks>
+        /// <response code="200">The password was recovered successfully.</response>
+        /// <response code="401">
+        /// - Invalid token (SPCI-401-7): the given token is not valid.
+        /// - Invalid token (SPCI-401-8): the scope header is invalid.
+        /// </response>
+        /// <response code="500">
+        /// - ChangeUserPassword User Not Found in Auth0 (SPCI-500): error.
+        /// - Invalid grant to recover password (SPCI-500): error.
+        /// - RecoveryUserPassword User Not Found in Auth0. (SPCI-500): error.
+        /// - Unhandled error, is necesary validate the log.
+        /// </response>
+        [HttpPost]
+        [Route("RecoveryUserPassword")]
+        [Produces("application/json")]
+        [ProducesResponseType(200, Type = typeof(CambiarCuentaRespuesta))]
+        [ProducesResponseType(401, Type = typeof(Error))]
+        [ProducesResponseType(500, Type = typeof(Error))]
+        public IActionResult RecoveryUserPassword([FromBody] RecuperarContrasena user) => this.Ok(user);
+
+        #endregion
+
+        #region CancelUserAccount
+        /// <summary>
+        /// CancelUserAccount
+        /// </summary>
+        /// <param name="request">*User information with the cancel the account.*</param>
+        /// <returns></returns>
+        /// <remarks>
+        /// 
+        /// Endpoint in charge of canceling a user's account with the requested data.
+        ///
+        /// </remarks>
+        /// <response code="200">The account is close correctly</response>
+        /// <response code="401">
+        /// - The username or password is incorrect (SPCI-401-1): incorrect data (wrong email or password).
+        /// </response>
+        /// <response code="500">
+        /// - CancelUserAccount User Not Found in Auth0 (SPCI-500): error.
+        /// - CancelUserAccount invalid grant.(SPCI-500): error.
+        /// - Generic error from Auth0 Service.(SPCI-500): error.
+        /// - Unhandled error, is necesary validate the log.
+        /// </response>
+        [HttpPost]
+        [Route("CancelUserAccount")]
+        [Produces("application/json")]
+        [ProducesResponseType(200, Type = typeof(CancelarCuentaRespuesta))]
+        [ProducesResponseType(401, Type = typeof(Error))]
+        [ProducesResponseType(500, Type = typeof(Error))]
+        public IActionResult CancelUserAccount([FromBody] CancelarCuenta request) => this.Ok(request);
+        #endregion
+    }   
 }
