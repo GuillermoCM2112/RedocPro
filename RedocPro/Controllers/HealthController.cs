@@ -15,7 +15,7 @@ namespace RedocPro.Controllers
     /// </remarks>
     /// <response code="200">Returns a 200 if the API is online.</response>
     /// <response code="500">Unhandled error, validate the error log.</response>
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class HealthController : ControllerBase
     {

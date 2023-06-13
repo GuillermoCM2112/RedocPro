@@ -5,7 +5,7 @@ using RedocPro.Entities;
 namespace RedocPro.Controllers
 {
     [ApiController]
-    [Route("ciam/api/[controller]/[action]")]
+    [Route("api/[controller]/[action]")]
     [Consumes(MediaTypeNames.Application.Json)]
     [Produces(MediaTypeNames.Application.Json)]
     public class NethoneController : ControllerBase
