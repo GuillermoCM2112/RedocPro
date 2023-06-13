@@ -177,6 +177,7 @@ namespace RedocPro.Controllers
         /// </response>
         [HttpPatch]
         [Route("UpdateUserProfile")]
+        [Consumes("application/json")]
         [Produces("application/json")]
         [ProducesResponseType(200, Type = typeof(CambiarCuentaRespuesta))]
         [ProducesResponseType(400, Type = typeof(ValidationProblemDetails))]
@@ -210,6 +211,7 @@ namespace RedocPro.Controllers
         /// </response>
         [HttpPost]
         [Route("RecoveryUserPassword")]
+        [Consumes("application/json")]
         [Produces("application/json")]
         [ProducesResponseType(200, Type = typeof(CambiarCuentaRespuesta))]
         [ProducesResponseType(401, Type = typeof(Error))]
@@ -241,6 +243,7 @@ namespace RedocPro.Controllers
         /// </response>
         [HttpPost]
         [Route("CancelUserAccount")]
+        [Consumes("application/json")]
         [Produces("application/json")]
         [ProducesResponseType(200, Type = typeof(CancelarCuentaRespuesta))]
         [ProducesResponseType(401, Type = typeof(Error))]
