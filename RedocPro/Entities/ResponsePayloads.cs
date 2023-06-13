@@ -12,7 +12,8 @@ namespace RedocPro.Entities.ResponsePayloads
         /// Wrapper for Auth0 response.
         /// </summary>
         /// <param name="authResponse"> Auth0 raw response</param> 
-        public AccessResponse(AccessTokenResponse authResponse)
+        //public AccessResponse(AccessTokenResponse authResponse)
+        public AccessResponse()
         {
             // this.AccessToken = authResponse.AccessToken;
             // this.TokenType = authResponse.TokenType;
