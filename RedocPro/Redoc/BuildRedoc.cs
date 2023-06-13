@@ -71,6 +71,7 @@ namespace RedocPro.Redoc
                 options.DocumentTitle = "CIAM Demo Documentation";
                 options.SpecUrl = "/swagger/v1/swagger.json";
                 options.HideDownloadButton();
+                options.ExpandResponses("200");
             });
         }
        
