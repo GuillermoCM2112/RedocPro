@@ -59,8 +59,8 @@ namespace RedocPro.Redoc
                       }
                     }
                 });
-			options.SchemaFilter<SwaggerSchemaExampleFilter>();
-			var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            options.SchemaFilter<SwaggerSchemaExampleFilter>();
+            var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
             options.IncludeXmlComments(xmlPath);
             options.EnableAnnotations();

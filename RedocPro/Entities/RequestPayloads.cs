@@ -72,11 +72,11 @@ namespace RedocPro.Entities.RequestPayloads
 
     public class RefreshRequest
     {
-		[Required]
-		[SwaggerSchema(Description = PropertiesDescriptions.RefreshToken)]
-		[SwaggerSchemaExample("v1.McGUUd_CL7lc4UjVa2jlAgAG7lCyif14ItPqa_VyqXbeLfR1IpHdqu02QT3XuSsGekr0zfh3PJBszwsWGnC8lJw")]
-		public string RefreshToken { get; set; } = string.Empty;
-	}
+        [Required]
+        [SwaggerSchema(Description = PropertiesDescriptions.RefreshToken)]
+        [SwaggerSchemaExample("v1.McGUUd_CL7lc4UjVa2jlAgAG7lCyif14ItPqa_VyqXbeLfR1IpHdqu02QT3XuSsGekr0zfh3PJBszwsWGnC8lJw")]
+        public string RefreshToken { get; set; } = string.Empty;
+    }
 
     public class UpdatePasswordRequest
     {

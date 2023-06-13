@@ -27,7 +27,7 @@ namespace RedocPro.Controllers
         /// <response code="500">Unhandled error, validate the error log.</response>
         /// <param name="request">Nethone request</param> 
         /// <returns></returns>
-        [HttpPut] 
+        [HttpPut]
         [ProducesResponseType(200, Type = typeof(NethoneResponseConfirm))]
         public async Task<IActionResult> NethoneTransactionConfirm([FromBody] FlagsNethoneConfirm request)
         {
@@ -61,7 +61,7 @@ namespace RedocPro.Controllers
         /// <response code="500">Unhandled error, validate the error log.</response>
         /// <param name="request">Nethone request</param>
         /// <returns></returns>
-        
+
         [HttpPost]
         [ProducesResponseType(200, Type = typeof(NethoneResponse))]
         public async Task<IActionResult> NethoneRecommendation([FromBody] NewNethoneRequest request)
