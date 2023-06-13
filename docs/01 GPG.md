@@ -45,6 +45,7 @@
 
 10. Prueba que puedas firmar tus commits 
     * El siguiente comando mostrara tu configuración, la cual debe ser parecida a la siguiente:
+    
 ```
     user.signingkey=[Key]
     gpg.program=gpg2
@@ -53,6 +54,7 @@
 ```
 
 11. En caso de no ser exitoso, ejecuta lo siguiente:
+
 ```
     brew install pinentry-mac
     echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
