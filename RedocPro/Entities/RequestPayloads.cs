@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using RedocPro.Descriptions;
+using RedocPro.Redoc;
+using Swashbuckle.AspNetCore.Annotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace RedocPro.Entities.RequestPayloads
 {
@@ -67,10 +70,11 @@ namespace RedocPro.Entities.RequestPayloads
 
     public class RefreshRequest
     {
-        /// <example>v1.McGUUd_CL7lc4UjVa2jlAgAG7lCyif14ItPqa_VyqXbeLfR1IpHdqu02QT3XuSsGekr0zfh3PJBszwsWGnC8lJw</example>
-        [Required]
-        public string RefreshToken { get; set; } = string.Empty;
-    }
+		[Required]
+		[SwaggerSchema(Description = PropertiesDescriptions.RefreshToken)]
+		[SwaggerSchemaExample("v1.McGUUd_CL7lc4UjVa2jlAgAG7lCyif14ItPqa_VyqXbeLfR1IpHdqu02QT3XuSsGekr0zfh3PJBszwsWGnC8lJw")]
+		public string RefreshToken { get; set; } = string.Empty;
+	}
 
     public class UpdatePasswordRequest
     {
