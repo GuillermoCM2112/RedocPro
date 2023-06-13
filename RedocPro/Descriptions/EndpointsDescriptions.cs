@@ -39,5 +39,6 @@
             "- CancelUserAccount invalid grant.(SPCI-500): error.\n" +
             "- Generic error from Auth0 Service.(SPCI-500): error.\n" +
             "- Unhandled error, is necesary validate the log.";
+        public const string TokenValidatorDescription = @"validates that the token sent is correct";
     }
 }
