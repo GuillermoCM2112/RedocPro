@@ -55,7 +55,7 @@ jobs:
               git -c user.name="Guillermo Coba Montoya" -c user.email="guillermo.coba@digitalfemsa.com" commit -m "Actualizar archivo JSON"
              git push origin main
           else
-             echo "No hay cambios para actualizar en la rama main"
+             echo "No hay cambios para actualizar en la rama main."
           fi
     
     - name: Instalacion de Redoc CLI y Deploy
