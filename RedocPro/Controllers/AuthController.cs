@@ -102,7 +102,7 @@ namespace RedocPro.Controllers
         }
 
         /// <summary>
-        /// Updates the partial information of a user.
+        /// Updates the partial information of user.
         /// </summary>
         /// <param name="user">*User information.*</param>
         /// <returns>Returns the requested object to update.</returns>
