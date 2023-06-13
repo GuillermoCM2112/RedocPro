@@ -17,10 +17,15 @@ namespace RedocPro.Controllers
             this.logger = logger;
         }
 
-        /// <summary>
-        /// 
+        /// <summary> 
+        /// NethoneTransactionConfirm 
         /// </summary>
-        /// <param name="request"></param>
+        /// <remarks>
+        /// Validates transaction integrity. 
+        /// </remarks>
+        /// <response code="200">Returns access token information.</response>
+        /// <response code="500">Unhandled error, validate the error log.</response>
+        /// <param name="request">Nethone request</param> 
         /// <returns></returns>
         [HttpPut] 
         [ProducesResponseType(200, Type = typeof(NethoneResponseConfirm))]
@@ -29,6 +34,16 @@ namespace RedocPro.Controllers
             return this.Ok("0.1.5");
         }
 
+        /// <summary>
+        /// NethoneTransaction 
+        /// </summary>
+        /// <remarks>
+        /// Process Nethone transaction.
+        /// /// </remarks>
+        /// <response code="200">Returns access token information.</response>
+        /// <response code="500">Unhandled error, validate the error log.</response>
+        /// <param name="request">Nethone request</param>
+        /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(200, Type = typeof(NethoneResponseConfirm))]
         public async Task<IActionResult> NethoneTransaction([FromBody] NethoneTransactionRequest request)
@@ -36,6 +51,17 @@ namespace RedocPro.Controllers
             return this.Ok("0.1.5");
         }
 
+        /// <summary>
+        /// NethoneRecommendation 
+        /// </summary>
+        /// <remarks>
+        /// Process Nethone recommendation.
+        /// </remarks>
+        /// <response code="200">Returns access token information.</response>
+        /// <response code="500">Unhandled error, validate the error log.</response>
+        /// <param name="request">Nethone request</param>
+        /// <returns></returns>
+        
         [HttpPost]
         [ProducesResponseType(200, Type = typeof(NethoneResponse))]
         public async Task<IActionResult> NethoneRecommendation([FromBody] NewNethoneRequest request)
@@ -43,12 +69,13 @@ namespace RedocPro.Controllers
             return this.Ok("0.1.5");
         }
         /// <summary>
-        /// 
+        /// NethoneRecommendationPay: check if the data has suspicious or fraudulent activity
         /// </summary>
-        /// <returns></returns>
+        /// <param name="ObjNewCardRequest">Object with data new card</param>
+        /// <returns>Check recommendation pay</returns>
         [HttpPost]
         [ProducesResponseType(200, Type = typeof(JsonContent))]
-        public async Task<IActionResult> NethoneRecommendationPay()
+        public async Task<IActionResult> NethoneRecommendationPay(string ObjNewCardRequest)
         {
             return this.Ok("0.1.5");
         }

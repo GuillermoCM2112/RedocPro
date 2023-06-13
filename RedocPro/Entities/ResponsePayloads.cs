@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Annotations;
-using System.ComponentModel.DataAnnotations;
-using System.Globalization;
-using Auth0.AuthenticationApi.Models;
-
+using System.ComponentModel.DataAnnotations; 
+using System.Globalization; 
+//using Auth0.AuthenticationApi.Models; 
 namespace RedocPro.Entities.ResponsePayloads
 {
     public class AccessResponse
@@ -12,14 +11,15 @@ namespace RedocPro.Entities.ResponsePayloads
         /// Initializes a new instance of the <see cref="AccessResponse"/> class.
         /// Wrapper for Auth0 response.
         /// </summary>
-        /// <param name="authResponse"> Auth0 raw response</param>
-        public AccessResponse(AccessTokenResponse authResponse)
+        /// <param name="authResponse"> Auth0 raw response</param> 
+        //public AccessResponse(AccessTokenResponse authResponse)
+        public AccessResponse()
         {
-            this.AccessToken = authResponse.AccessToken;
-            this.TokenType = authResponse.TokenType;
-            this.IdToken = authResponse.IdToken;
-            this.ExpiresIn = authResponse.ExpiresIn;
-            this.RefreshToken = authResponse.RefreshToken;
+            // this.AccessToken = authResponse.AccessToken;
+            // this.TokenType = authResponse.TokenType;
+            // this.IdToken = authResponse.IdToken;
+            // this.ExpiresIn = authResponse.ExpiresIn;
+            // this.RefreshToken = authResponse.RefreshToken; 
         }
 
         /// <example>eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZ...</example>
@@ -40,9 +40,8 @@ namespace RedocPro.Entities.ResponsePayloads
 
         /// <example>v1.McGUUd_CL7lc4UjVa2jlAgAG7lCyif14ItPqa_VyqXbeLfR1IpHdqu02QT3XuSsGekr0zfh3PJBszwsWGnC8lJw</example>
         [Required]
-        public string RefreshToken { get; set; } = string.Empty;
-    }
-
+        public string RefreshToken { get; set; } = string.Empty; 
+    }  
     public class UserChangeResponse
     {
         /// <example>examplemail@cool.domain.com</example>

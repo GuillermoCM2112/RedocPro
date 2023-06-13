@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using RedocPro.Descriptions;
 using RedocPro.Entities.RequestPayloads;
@@ -16,26 +17,26 @@ namespace RedocPro.Controllers
     public class AuthController : ControllerBase
     {
         /// <summary>
-        /// Login
+        /// Validates if the user has permissions to log in.
         /// </summary>
-        /// <remarks>
-        /// Validates if you have permissions to login. 
-        /// </remarks>
+        /// <param name="request">The user credentials.</param>
         /// <response code="200">Returns access token information.</response>
         /// <response code="500">Unhandled error, validate the error log.</response>
+        /// <returns>El producto encontrado.</returns>
         [HttpPost]
         [ProducesResponseType(200, Type = typeof(AccessResponse))]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status402PaymentRequired)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
             return this.Ok();
         }
 
         /// <summary>
-        /// Signup
-        /// </summary>
-        /// <remarks>
         /// Creates a user if meets the validations.
-        /// </remarks>
+        /// </summary>
+        /// <param name="request">The user information.</param>
         /// <response code="200">Returns access token information.</response>
         /// <response code="500">Unhandled error, validate the error log.</response>
         [HttpPost]
@@ -46,11 +47,9 @@ namespace RedocPro.Controllers
         }
 
         /// <summary>
-        /// RefreshToken
-        /// </summary>
-        /// <remarks>
         /// Generates a new refresh token.
-        /// </remarks>
+        /// </summary>
+        /// <param name="request">The refresh token.</param>
         /// <response code="200">Returns a status of the user.</response>
         /// <response code="500">Unhandled error, validate the error log.</response>
         [HttpPost]
@@ -128,11 +127,14 @@ namespace RedocPro.Controllers
 		}
 
         /// <summary>
-        /// 
+        /// TokenValidator: validates that the token sent is correct
         /// </summary>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
         [HttpGet]
+        [Route("TokenValidator")]
+        [Consumes("application/json")]
+        [Produces("application/json")]
         [ProducesResponseType(200)]
         public IActionResult TokenValidator()
         {
