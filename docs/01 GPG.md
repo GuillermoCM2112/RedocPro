@@ -1,23 +1,23 @@
 # Clave GPG
 ## Requerimientos
    
-   1. El usuario debe tener instalado [Gnupg](https://www.gnupg.org/download) y [Git Bash](https://git-scm.com/downloads) para usuarios con Windows.
-   2. El usuario debe tener instalado [Brew](https://brew.sh/index_es) para usuarios con MacBook.
+  * El usuario debe tener instalado [Gnupg](https://www.gnupg.org/download) y [Git Bash](https://git-scm.com/downloads) para usuarios con Windows.
+  * El usuario debe tener instalado [Brew](https://brew.sh/index_es) para usuarios con MacBook.
 
 ## Generación con MacBook
 
 1. Abre la Terminal.
 
 2. Verifica si ya tienes instalado GPG en tu Mac escribiendo el siguiente comando y presionando enter:
- ```
+```
     gpg --version  
- ```
+```
    *NOTA: GPG ya está instalado, verás la versión instalada y podrás continuar con el paso 4. Si no lo tienes instalado, continua con el paso 3.*
 
 3. Si no tiene GPG, el Usuario instala GPG con Homebrew.
- ```
+```
     brew install gnupg
- ```
+```
 4. El Usuario le indica a GPG que genere una clave GPG.
     * GPG solicita al Usuario la información requerida para generar la clave (nombre, dirección de correo electrónico, contraseña, etc.).
     * Es muy importante que la logitud de la clave sea de: 4,096
@@ -116,7 +116,7 @@ Si el error a un persiste ejecuta el siguiente comando:
 ```
     gpg --list-secret-keys --keyid-format=long
 ```
-2 Si no existe una clave se debe generar con el siguiente comando o en caso contrario pasar al paso 4):
+2. Si no existe una clave se debe generar con el siguiente comando o en caso contrario pasar al paso 4):
 ```
     gpg --full-generate-key
 ```
@@ -130,8 +130,8 @@ Si el error a un persiste ejecuta el siguiente comando:
     gpg --list-secret-keys --keyid-format=long
 ```
    * Copiar el Id de la clave: [ key_id ] 
-
    * Ejecutar el siguiente comando
+   
 ```
     gpg --armor --export [key_id]
 ```
