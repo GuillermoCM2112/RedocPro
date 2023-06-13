@@ -812,7 +812,7 @@
         }
       }
     },
-    "/api/Health": {
+    "/api/Health/Health": {
       "get": {
         "tags": [
           "Health"
@@ -827,7 +827,7 @@
         }
       }
     },
-    "/ciam/api/Nethone/NethoneTransactionConfirm": {
+    "/api/Nethone/NethoneTransactionConfirm": {
       "put": {
         "tags": [
           "Nethone"
@@ -861,7 +861,7 @@
         }
       }
     },
-    "/ciam/api/Nethone/NethoneTransaction": {
+    "/api/Nethone/NethoneTransaction": {
       "post": {
         "tags": [
           "Nethone"
@@ -895,7 +895,7 @@
         }
       }
     },
-    "/ciam/api/Nethone/NethoneRecommendation": {
+    "/api/Nethone/NethoneRecommendation": {
       "post": {
         "tags": [
           "Nethone"
@@ -929,7 +929,7 @@
         }
       }
     },
-    "/ciam/api/Nethone/NethoneRecommendationPay": {
+    "/api/Nethone/NethoneRecommendationPay": {
       "post": {
         "tags": [
           "Nethone"
