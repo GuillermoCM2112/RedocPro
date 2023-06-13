@@ -11,6 +11,7 @@
 											   <li>CancelledAccount = 8</li><li>FirstLoginOxxo = 20</li></ul>";
 		public const string ChangeUserProperty = @"This endpoint will change the property of the user.";
 		public const string ChangeUserPassword = @"This endpoint will change the password of the user.";
-
+        public const string AddTaCVersion = @"This endpoint will accept the TaC Version.";
+        public const string GetLatestTaC = @"This endpoint will get the TaC Version.";
     }
 }
