@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "CIAM Demo Documentation",
-    "description": "# RedocPro\n\nImplementación del servicio Customer Identity and Access Management (CIAM)  \n\n## Endpoints\n\nHasta el momento, se cuentan con los siguientes endpoints:\n- `Login`: \n- `Signup`:\n- `RefreshToken`: \n- `ChangeUserPassword`: \n- `ChangeUserProperty`: \n- `UserValidation`: \n- `RevokeRefreshToken`:\n\nPara descargar la colección de Postman puede hacer <a href=\"postman_collection.json\" download>click aquí</a>\n\n\n\nPara descargar las variables de entorno de Postman puede hacer <a href=\"test_environment.json\" download>click aquí</a>\n\n## Ejecución local\nPara ejecutar de forma local, se pueden seguir los siguientes pasos:\n1. Instalar la versión más reciente de Visual Studio.\n2. Descargar el `.zip` de la rama `main` del repositorio.\n3. Abrir el proyecto\n4. Agregar en el [`appsettings.Development.json`]\n5. Ahora, puedes hacer click en la ejecutar el proyecto, o bien, en \"Depurar > Iniciar depuración\".\n\nDonde puedes interactuar con los endpoints de CIAM. Si no se abre la ventana, puedes ingresar a esta por medio del siguiente enlace: [https://localhost:7009/swagger/index.html](https://localhost:7009/swagger/index.html).\n\n## Como contribuir al repositorio\nPara contribuir al repositorio se te deben otorgar permisos de escritura y seguir los siguientes pasos. \n\n1. Asociar un nuevo SSH con tu cuenta de GitHub institucional.\n\n    En esta ocasión, no basta con descargar el `.zip` del repositorio. Debes configurar tu dispositivo para conectar tu cuenta de GitHub mediante SSH, puedes seguir el siguiente [tutorial de GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) para añadir una SSH a tu cuenta. Además, debes darle permisos para acceder a `digitaltitransversal`, sigue el siguiente [tutorial](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on) para dar dichos permisos.\n\n2. Teniendo ya el SSH configurado, debes clonar el repositorio en la carpeta de tu preferencia. Como sugerencia, puedes crear una carpeta `~/Projects` para mantener todos los proyectos en un sólo lugar.\n\n    En la terminal, corre el siguiente comando:\n    ```\n    git clone git@github.com:\n    ```\n\n    Debería aparecer una salida parecida a:\n    ```\n    remote: Enumerating objects: 542, done.\n    remote: Counting objects: 100% (314/314), done.\n    remote: Compressing objects: 100% (177/177), done.\n    remote: Total 542 (delta 196), reused 178 (delta 122), pack-reused 228\n    Receiving objects: 100% (542/542), 110.60 KiB | 1.44 MiB/s, done.\n    Resolving deltas: 100% (271/271), done.\n    ```\n\n3. En este punto, se pueden seguir los pasos que se describieron para la ejecución local.\n\n4. Si se quiere agregar nuevos cambios, debes crear tu propia rama.\n    ```\n    git branch rama-de-ejemplo\n    ```\n\n5. Para empezar a trabajar sobre la rama creada, puedes ejecutar el siguiente comando:\n\n    ```\n    git checkout rama-de-ejemplo\n    ```\n\n    En este punto ya puedes comenzar a hacer tus cambios. Si no haces el `checkout` a tu rama, puede que afectes a otras ramas e interrumpir el trabajo de los demás. Recuerda que no te dejará hacer `push` a `main`. \n\n6. Después de hacer tus cambios, haz pruebas unitarias e\n\n7. Se checa de manera automática que se cumpla ciertas reglas de sintaxis. Algunas de estas reglas son necesarias para tener una sintaxis consistente en todo el repositorio. La mayoría de las reglas se pueden aplicar de manera automática corriendo el siguiente comando:\n    ```\n    dotnet format\n    ```\n    En caso de enviar tus cambios y todavía tener pendientes de sintaxis, tendrás que checar de forma manual cómo arreglarlo. Te puedes guiar de la [documentación de StyleCop](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/tree/master/documentation) y pedir ayuda al equipo. Para checar de forma local la sintaxis, puedes correr el siguiente comando:\n\n    ```\n    dotnet format --verify-no-changes --verbosity m --severity warn\n    ```\n\n",
+    "description": "# RedocPro\n\nImplementación del servicio Customer Identity and Access Management (CIAM)  \n![Alt text](image.png)\n\n## Endpoints\n\nHasta el momento, se cuentan con los siguientes endpoints:\n- `Login`: \n- `Signup`:\n- `RefreshToken`: \n- `ChangeUserPassword`: \n- `ChangeUserProperty`: \n- `UserValidation`: \n- `RevokeRefreshToken`:\n\nPara descargar la colección de Postman puede hacer <a href=\"postman_collection.json\" download>click aquí</a>\n\n\n\nPara descargar las variables de entorno de Postman puede hacer <a href=\"test_environment.json\" download>click aquí</a>\n\n## Ejecución local\nPara ejecutar de forma local, se pueden seguir los siguientes pasos:\n1. Instalar la versión más reciente de Visual Studio.\n2. Descargar el `.zip` de la rama `main` del repositorio.\n3. Abrir el proyecto\n4. Agregar en el [`appsettings.Development.json`]\n5. Ahora, puedes hacer click en la ejecutar el proyecto, o bien, en \"Depurar > Iniciar depuración\".\n\nDonde puedes interactuar con los endpoints de CIAM. Si no se abre la ventana, puedes ingresar a esta por medio del siguiente enlace: [https://localhost:7009/swagger/index.html](https://localhost:7009/swagger/index.html).\n\n## Como contribuir al repositorio\nPara contribuir al repositorio se te deben otorgar permisos de escritura y seguir los siguientes pasos. \n\n1. Asociar un nuevo SSH con tu cuenta de GitHub institucional.\n\n    En esta ocasión, no basta con descargar el `.zip` del repositorio. Debes configurar tu dispositivo para conectar tu cuenta de GitHub mediante SSH, puedes seguir el siguiente [tutorial de GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) para añadir una SSH a tu cuenta. Además, debes darle permisos para acceder a `digitaltitransversal`, sigue el siguiente [tutorial](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on) para dar dichos permisos.\n\n2. Teniendo ya el SSH configurado, debes clonar el repositorio en la carpeta de tu preferencia. Como sugerencia, puedes crear una carpeta `~/Projects` para mantener todos los proyectos en un sólo lugar.\n\n    En la terminal, corre el siguiente comando:\n    ```\n    git clone git@github.com:\n    ```\n\n    Debería aparecer una salida parecida a:\n    ```\n    remote: Enumerating objects: 542, done.\n    remote: Counting objects: 100% (314/314), done.\n    remote: Compressing objects: 100% (177/177), done.\n    remote: Total 542 (delta 196), reused 178 (delta 122), pack-reused 228\n    Receiving objects: 100% (542/542), 110.60 KiB | 1.44 MiB/s, done.\n    Resolving deltas: 100% (271/271), done.\n    ```\n\n3. En este punto, se pueden seguir los pasos que se describieron para la ejecución local.\n\n4. Si se quiere agregar nuevos cambios, debes crear tu propia rama.\n    ```\n    git branch rama-de-ejemplo\n    ```\n\n5. Para empezar a trabajar sobre la rama creada, puedes ejecutar el siguiente comando:\n\n    ```\n    git checkout rama-de-ejemplo\n    ```\n\n    En este punto ya puedes comenzar a hacer tus cambios. Si no haces el `checkout` a tu rama, puede que afectes a otras ramas e interrumpir el trabajo de los demás. Recuerda que no te dejará hacer `push` a `main`. \n\n6. Después de hacer tus cambios, haz pruebas unitarias e\n\n7. Se checa de manera automática que se cumpla ciertas reglas de sintaxis. Algunas de estas reglas son necesarias para tener una sintaxis consistente en todo el repositorio. La mayoría de las reglas se pueden aplicar de manera automática corriendo el siguiente comando:\n    ```\n    dotnet format\n    ```\n    En caso de enviar tus cambios y todavía tener pendientes de sintaxis, tendrás que checar de forma manual cómo arreglarlo. Te puedes guiar de la [documentación de StyleCop](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/tree/master/documentation) y pedir ayuda al equipo. Para checar de forma local la sintaxis, puedes correr el siguiente comando:\n\n    ```\n    dotnet format --verify-no-changes --verbosity m --severity warn\n    ```\n\n\n\n# FAQ for developers\n\nPreguntas frecuentes etc..\n\n## Sección 1\n## Sección 2\n\n# Clave GPG\n## Requerimientos\n   \n  * El usuario debe tener instalado [Gnupg](https://www.gnupg.org/download) y [Git Bash](https://git-scm.com/downloads) para usuarios con Windows.\n  * El usuario debe tener instalado [Brew](https://brew.sh/index_es) para usuarios con MacBook.\n\n## Generación con MacBook\n\n1. Abre la Terminal.\n\n2. Verifica si ya tienes instalado GPG en tu Mac escribiendo el siguiente comando y presionando enter:\n```\n    gpg --version  \n```\n   *NOTA: GPG ya está instalado, verás la versión instalada y podrás continuar con el paso 4. Si no lo tienes instalado, continua con el paso 3.*\n\n3. Si no tiene GPG, el Usuario instala GPG con Homebrew.\n```\n    brew install gnupg\n```\n4. El Usuario le indica a GPG que genere una clave GPG.\n    * GPG solicita al Usuario la información requerida para generar la clave (nombre, dirección de correo electrónico, contraseña, etc.).\n    * Es muy importante que la logitud de la clave sea de: 4,096\n\n6. El Usuario ingresa la información requerida para generar sus clave gpg. \n   * Exportar la clave \n```\n    gpg --full-generate-key\n    gpg --list-secret-keys --keyid-format=long\n```\n   * Copia el ID de la clave que acabas de generar (debería tener el formato 4096R/XXXXXXXXXXXXXXXX).\n   * Configura Git para usar tu clave de firma ejecutando los siguientes comandos:\n```\n    git config --global user.signingkey XXXXXXXXXXXXXXXX\n    git config --global commit.gpgsign true\n```\n    \n7. Se obtiene la clave gpg en la terminal para exportarla a Github\n```\n    gpg --armor --export [key_id]\n```\n8. GPG muestra la clave generada al Usuario.\n\n9. La clave generada se guarda dentro de Github en el apartado de [GPG keys](https://github.com/settings/keys)\n\n10. Prueba que puedas firmar tus commits \n    * El siguiente comando mostrara tu configuración, la cual debe ser parecida a la siguiente:\n    \n```\n    user.signingkey=[Key]\n    gpg.program=gpg2\n    commit.gpgsign=true\n    git commit -S -m “[Develop] Comment”\n```\n\n11. En caso de no ser exitoso, ejecuta lo siguiente:\n\n```\n    brew install pinentry-mac\n    echo \"pinentry-program $(which pinentry-mac)\" >> ~/.gnupg/gpg-agent.conf\n    killall gpg-agent\n    $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \\\n\n    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi\n    \n    $ if [ -r ~/.zshrc ]; then echo 'export GPG_TTY=$(tty)' >> ~/.zshrc; \\\n\n   else echo 'export GPG_TTY=$(tty)' >> ~/.zprofile; fi\n```\n\n12. En caso de seguir con problemas seguir la siguiente secuencia:\n\n```\n    brew uninstall gpg\n    brew install gpg2\n    brew install pinentry-mac \n    gpg --full-generate-key \n```\n\n   * Obten la key generada: \n   \n```\n    gpg --list-keys\n```\n\nActualiza la key en local\n```\n    git config --global user.signingkey <Key de tu list>\n    git config --global gpg.program /usr/local/bin/gpg\n    git config --global commit.gpgsign true\n```\n\nExporta tu Key a GitHub :\n\n```\n    gpg --armor --export <key> \n```\n\nAgrega la key a GitHub desde GPG keys:   \n\nSi el error a un persiste ejecuta el siguiente comando:\n\n```\n    test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile\n    echo 'export GPG_TTY=$(tty)' >> ~/.profile\n```\n\n*NOTA: Si el error aun persiste:\n\n   * *Instala: https://gpgtools.org* \n   * *Firma la clave que utilizaste presionando \"Sign\" en la barra de menú: Key -> Sign*.\n\n## Generación con Windows\n\n1. Correr el comando para verificar si ya existe alguna clave creada.\n```\n    gpg --list-secret-keys --keyid-format=long\n```\n2. Si no existe una clave se debe generar con el siguiente comando o en caso contrario pasar al paso 4):\n```\n    gpg --full-generate-key\n```\n  * Seleccionar el tipo de llave por defecto (RSA and RSA).\n  * Seleccionar la longitud de bits por defecto (3072).\n  * Seleccionar el tiempo de expiración por defecto(0) y confirmar.\n  * Escribir tu nombre, correo electrónico, comentario opcional y Passhphrase y confirmarlos.\n\n4. Ejecutar el siguiente comando para visualizar la nueva llave existente:\n```\n    gpg --list-secret-keys --keyid-format=long\n```\n   * Copiar el Id de la clave: [ key_id ] \n   * Ejecutar el siguiente comando\n   \n```\n    gpg --armor --export [key_id]\n```\n   * Copiar la clave GPG, incluyendo comentarios\n   * Pegar la clave completa en https://github.com/settings/keys  e ingresa el título deseado\n   * Ejecutar el comando con el ID de la clave GPG\n```\n    git config --global user.signingkey [ key_id ]\n```\n",
     "contact": {
       "name": "test",
       "email": "someemail@somedomain.com"
@@ -19,9 +19,9 @@
         "tags": [
           "Auth"
         ],
-        "summary": "Login",
-        "description": "Validates if you have permissions to login.",
+        "summary": "Validates if the user has permissions to log in.",
         "requestBody": {
+          "description": "The user credentials.",
           "content": {
             "application/json": {
               "schema": {
@@ -61,6 +61,66 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Client Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Unhandled error, validate the error log."
           }
@@ -72,9 +132,9 @@
         "tags": [
           "Auth"
         ],
-        "summary": "Signup",
-        "description": "Creates a user if meets the validations.",
+        "summary": "Creates a user if meets the validations.",
         "requestBody": {
+          "description": "The user information.",
           "content": {
             "application/json": {
               "schema": {
@@ -125,9 +185,9 @@
         "tags": [
           "Auth"
         ],
-        "summary": "RefreshToken",
-        "description": "Generates a new refresh token.",
+        "summary": "Generates a new refresh token.",
         "requestBody": {
+          "description": "The refresh token.",
           "content": {
             "application/json": {
               "schema": {
@@ -365,20 +425,20 @@
             "style": "form",
             "schema": {
               "type": "string",
+              "description": "User phone number.",
               "example": "+521234567890"
-            },
-            "example": "+521234567890"
+            }
           },
           {
-            "name": "AnotherId",
+            "name": "DeviceId",
             "in": "query",
             "required": true,
             "style": "form",
             "schema": {
               "type": "string",
-              "example": "1"
-            },
-            "example": "1"
+              "description": "Device identifier",
+              "example": "A1B2C3D4E5"
+            }
           }
         ],
         "responses": {
@@ -509,9 +569,9 @@
             "style": "form",
             "schema": {
               "type": "string",
+              "description": "User Id",
               "example": "auth0|63b477d3b85540fe7e870500"
-            },
-            "example": "auth0|63b477d3b85540fe7e870500"
+            }
           },
           {
             "name": "PhoneNumber",
@@ -519,9 +579,9 @@
             "style": "form",
             "schema": {
               "type": "string",
-              "example": "+525544332211"
-            },
-            "example": "+525544332211"
+              "description": "User phone number.",
+              "example": "+521234567890"
+            }
           }
         ],
         "responses": {
@@ -573,7 +633,8 @@
         "tags": [
           "Auth"
         ],
-        "summary": "TokenValidator: validates that the token sent is correct",
+        "description": "validates that the token sent is correct",
+        "operationId": "GetUserProfile",
         "responses": {
           "200": {
             "description": "Success"
@@ -581,15 +642,14 @@
         }
       }
     },
-    "/api/Auth/UpdateUserProfile/UpdateUserProfile": {
+    "/api/Auth/UpdateUserProfile": {
       "patch": {
         "tags": [
           "Auth"
         ],
-        "summary": "UpdateUserProfile",
         "description": "Updates the partial information of user.",
+        "operationId": "UpdateUserProfile",
         "requestBody": {
-          "description": "*User information.*",
           "content": {
             "application/json": {
               "schema": {
@@ -614,17 +674,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
           },
           "401": {
-            "description": "- Invalid token (SPCI-401-7): the given token is not valid.\r\n- Invalid token (SPCI-401-8): the scope header is invalid.\r\n- Nethone request a review (SPNE-401): review the user.\r\n- Nethone refuse the request (SPNE-402): user refused.",
+            "description": "- Invalid token (SPCI-401-7): the given token is not valid.\n- Invalid token (SPCI-401-8): the scope header is invalid.\n- Nethone request a review (SPNE-401): review the user.\n- Nethone refuse the request (SPNE-402): user refused.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
@@ -640,11 +700,11 @@
             }
           },
           "500": {
-            "description": "- Loyalty User was not able to create (SPCI-500): if the user not exists in Loyalty.\r\n- Unhandled error, is necesary validate the log.",
+            "description": "- Loyalty User was not able to create (SPCI-500): if the user not exists in Loyalty.\n- Unhandled error, is necesary validate the log.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
@@ -652,15 +712,14 @@
         }
       }
     },
-    "/api/Auth/RecoveryUserPassword/RecoveryUserPassword": {
+    "/api/Auth/RecoveryUserPassword": {
       "post": {
         "tags": [
           "Auth"
         ],
-        "summary": "RecoveryUserPassword",
-        "description": "Recovery an user's password, based on the requested data",
+        "description": "Recovery an user's password, based on the requested data.",
+        "operationId": "RecoveryUserPassword",
         "requestBody": {
-          "description": "*User information with the new password.*",
           "content": {
             "application/json": {
               "schema": {
@@ -681,21 +740,21 @@
             }
           },
           "401": {
-            "description": "- Invalid token (SPCI-401-7): the given token is not valid.\r\n- Invalid token (SPCI-401-8): the scope header is invalid.",
+            "description": "- Invalid token (SPCI-401-7): the given token is not valid.\n- Invalid token (SPCI-401-8): the scope header is invalid.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
           },
           "500": {
-            "description": "- ChangeUserPassword User Not Found in Auth0 (SPCI-500): error.\r\n- Invalid grant to recover password (SPCI-500): error.\r\n- RecoveryUserPassword User Not Found in Auth0. (SPCI-500): error.\r\n- Unhandled error, is necesary validate the log.",
+            "description": "- ChangeUserPassword User Not Found in Auth0 (SPCI-500): error. \n- Invalid grant to recover password (SPCI-500): error. \n- RecoveryUserPassword User Not Found in Auth0. (SPCI-500): error.\n- Unhandled error, is necesary validate the log.\n",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
@@ -708,10 +767,9 @@
         "tags": [
           "Auth"
         ],
-        "summary": "CancelUserAccount",
-        "description": "Endpoint in charge of canceling a user's account with the requested data.",
+        "description": "Recovery an user's password, based on the requested data.",
+        "operationId": "CancelUserAccount",
         "requestBody": {
-          "description": "*User information with the cancel the account.*",
           "content": {
             "application/json": {
               "schema": {
@@ -722,7 +780,7 @@
         },
         "responses": {
           "200": {
-            "description": "The account is close correctly",
+            "description": "The account is close correctly.",
             "content": {
               "application/json": {
                 "schema": {
@@ -736,17 +794,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
           },
           "500": {
-            "description": "- CancelUserAccount User Not Found in Auth0 (SPCI-500): error.\r\n- CancelUserAccount invalid grant.(SPCI-500): error.\r\n- Generic error from Auth0 Service.(SPCI-500): error.\r\n- Unhandled error, is necesary validate the log.",
+            "description": "- CancelUserAccount User Not Found in Auth0 (SPCI-500): error.\n- CancelUserAccount invalid grant.(SPCI-500): error.\n- Generic error from Auth0 Service.(SPCI-500): error.\n- Unhandled error, is necesary validate the log.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
@@ -2768,6 +2826,33 @@
         "additionalProperties": false,
         "description": ""
       },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
       "PropertyAttributes": {
         "enum": [
           0,
@@ -2889,6 +2974,7 @@
           "refreshToken": {
             "minLength": 1,
             "type": "string",
+            "description": "Refresh access token given.",
             "example": "v1.McGUUd_CL7lc4UjVa2jlAgAG7lCyif14ItPqa_VyqXbeLfR1IpHdqu02QT3XuSsGekr0zfh3PJBszwsWGnC8lJw"
           }
         },
@@ -2903,6 +2989,7 @@
           "refreshToken": {
             "minLength": 1,
             "type": "string",
+            "description": "Refresh access token given.",
             "example": "v1.McGUUd_CL7lc4UjVa2jlAgAG7lCyif14ItPqa_VyqXbeLfR1IpHdqu02QT3XuSsGekr0zfh3PJBszwsWGnC8lJw"
           }
         },
@@ -3880,17 +3967,17 @@
         "properties": {
           "firstName": {
             "type": "string",
-            "description": "FirstNameDescription property description goes here.",
+            "description": "User first Name",
             "nullable": true
           },
           "lastName": {
             "type": "string",
-            "description": "LastNameDescription property description goes here..",
+            "description": "User last Name.",
             "nullable": true
           },
           "email": {
             "type": "string",
-            "description": "EmailDescription property description goes here.",
+            "description": "User email.",
             "nullable": true
           }
         },
@@ -3910,44 +3997,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "ValidationProblemDetails": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "detail": {
-            "type": "string",
-            "nullable": true
-          },
-          "instance": {
-            "type": "string",
-            "nullable": true
-          },
-          "errors": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": { }
       }
     }
   },

@@ -41,12 +41,6 @@ jobs:
           npm install -g newman
           curl -X PUT -H "Content-Type: application/json" -H "X-Api-Key: ${{ secrets.POSTMAN_API_KEY }}" -d @postman_collection.json "https://api.postman.com/collections/27712020-db7469c0-0df4-4bb8-bf0f-c04c59dde495"
     
-    - name: Creacion de Snippets
-      run: |
-        npm install -g openapi-snippet-cli
-        openapi-snippet ./swagger.json -o ./swagger.yaml
-        openapi-snippet ./swagger.yaml -e json -o ./swagger.json
-    
     - name: Actualizar rama main
       run: |
           git checkout main
@@ -55,7 +49,7 @@ jobs:
               git -c user.name="Guillermo Coba Montoya" -c user.email="guillermo.coba@digitalfemsa.com" commit -m "Actualizar archivo JSON"
              git push origin main
           else
-             echo "No hay cambios para actualizar en la rama main"
+             echo "No hay cambios para actualizar en la rama main."
           fi
     
     - name: Instalacion de Redoc CLI y Deploy
