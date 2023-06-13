@@ -4,10 +4,13 @@ namespace RedocPro.Models
 {
     public class Error
     {
-        public string? error1 { get; set; }
-        
-        public string? error2 { get; set; }
-        
-        public string? error3 { get; set; }
+        [JsonPropertyName("errorCode")]
+        public string? ErrorCode { get; set; }
+
+        [JsonPropertyName("message")]
+        public string? Message { get; set; }
+
+        [JsonPropertyName("detail")]
+        public string? Detail { get; set; }
     }
 }

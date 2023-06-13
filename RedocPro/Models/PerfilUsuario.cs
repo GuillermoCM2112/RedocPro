@@ -11,64 +11,65 @@ namespace RedocPro.Models
         /// <summary>
         /// User identifier.
         /// </summary>
-        /// <example>...</example>
-        public string? prop1 { get; set; }
+        /// <example>auth0|63b477d3b85540fe7e870500</example>
+        public string? UserId { get; set; }
 
         /// <summary>
         /// Name.
         /// </summary>
-        /// <example>...</example>
+        /// <example>Juan Antonio</example>
         [StringLength(50)]
-        public string? prop2 { get; set; } = string.Empty;
+        public string? Name { get; set; } = string.Empty;
 
         /// <summary>
         /// User surname.
         /// </summary>
-        /// <example>...</example>
+        /// <example>Peréz Pérez</example>
         [StringLength(50)]
-        public string? prop3 { get; set; } = string.Empty;
+        public string? Surname { get; set; } = string.Empty;
 
         /// <summary>
         /// User birthday.
         /// </summary>
         /// <example>01/01/0001</example>
-        public string? prop4 { get; set; } = string.Empty;
+        public string? Birthday { get; set; } = string.Empty;
 
         /// <summary>
         /// User email.
         /// </summary>
-        /// <example>...</example>
-        public string? prop5 { get; set; }
+        /// <example>examplemail@cool.domain.com</example>
+        public string? Email { get; set; }
 
         /// <summary>
         /// User zipCode.
         /// </summary>
-        /// <example>...</example>
-        public string? prop6 { get; set; } = string.Empty;
+        /// <example>64000</example>
+        public string? ZipCode { get; set; } = string.Empty;
 
         /// <summary>
         /// User second last name.
         /// </summary>
-        /// <example>...</example>
-        public string? prop7 { get; set; } = string.Empty;
+        /// <example>Peréz</example>
+        public string? SecondLastName { get; set; } = string.Empty;
 
         /// <summary>
         /// User gender.
         /// </summary>
-        /// <example>.</example>
-        public string? prop8 { get; set; } = string.Empty;
+        /// <example>M (for Men) or W (for Woman)</example>
+        [RegularExpression("[M|W]")]
+        public string? Gender { get; set; } = string.Empty;
 
         /// <summary>
         /// User attempt reference.
         /// </summary>
-        /// <example>...</example>
-        public string? prop9 { get; set; } = string.Empty;
+        /// <example>A1B2C3D4E5</example>
+        public string? AttemptReference { get; set; } = string.Empty;
 
         /// <summary>
         /// User device identifier.
         /// </summary>
-        /// <example>...</example>
-        public string? prop510 { get; set; } = string.Empty;
+        /// <example>x1234ABCD</example>
+        public string? DeviceId { get; set; } = string.Empty;
     }
 
 
@@ -77,13 +78,13 @@ namespace RedocPro.Models
         /// <summary>
         /// User phone number.
         /// </summary>
-        /// <example>####</example>
+        /// <example>+525544332211</example>
         public string? PhoneNumber { get; set; }
 
         /// <summary>
         /// User new password to update.
         /// </summary>
-        /// <example>...</example>
+        /// <example>th1sIsANew%%pwd</example>
         [Required]
         [StringLength(50, MinimumLength = 8)]
         public string NewPassword { get; set; } = string.Empty;
@@ -91,13 +92,13 @@ namespace RedocPro.Models
         /// <summary>
         /// User device identifier.
         /// </summary>
-        /// <example>...</example>
+        /// <example>a3f3a772-f9af-4162-8ac3-8d79ad</example>
         public string? DeviceId { get; set; } = string.Empty;
 
         /// <summary>
         /// User attempt reference.
         /// </summary>
-        /// <example>...</example>
+        /// <example>A1B2C3D4E5</example>
         public string? AttemptReference { get; set; } = string.Empty;
     }
 
@@ -106,26 +107,29 @@ namespace RedocPro.Models
         /// <summary>
         /// User identifier.
         /// </summary>
-        /// <example>...</example>
+        /// <example>auth0|63b477d3b85540fe7e870500</example>
         [Required]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
         /// User password.
         /// </summary>
-        /// <example>...</example>
+        /// <example>th1sIsANew%%pwd</example>
         [Required]
         public string Password { get; set; } = string.Empty;
 
         /// <summary>
         /// Reason to cancel the account.
         /// </summary>
-        /// <example>...</example>
+        /// <example>"This is the reason why consider cancelate the account"</example>
         [Required]
         [StringLength(500)]
         public string CancellationReason { get; set; } = string.Empty;
     }
 
+    /// <summary>
+    /// holaaaaaaaaa
+    /// </summary>
     public class CancelarCuentaRespuesta
     {
         /// <summary>
