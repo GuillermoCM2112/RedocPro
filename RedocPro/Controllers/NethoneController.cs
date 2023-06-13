@@ -17,7 +17,7 @@ namespace RedocPro.Controllers
             this.logger = logger;
         }
 
-        /// <summary>
+        /// <summary> 
         /// NethoneTransactionConfirm 
         /// </summary>
         /// <remarks>
@@ -25,7 +25,7 @@ namespace RedocPro.Controllers
         /// </remarks>
         /// <response code="200">Returns access token information.</response>
         /// <response code="500">Unhandled error, validate the error log.</response>
-        /// <param name="request">Nethone request</param>
+        /// <param name="request">Nethone request</param> 
         /// <returns></returns>
         [HttpPut] 
         [ProducesResponseType(200, Type = typeof(NethoneResponseConfirm))]
