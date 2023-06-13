@@ -1,10 +1,43 @@
 ﻿using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Annotations;
 using System.ComponentModel.DataAnnotations;
-using System.Globalization;
+using System.Globalization; 
+//using Auth0.AuthenticationApi.Models;
 
 namespace RedocPro.Entities.ResponsePayloads
 {
+    public class AccessResponse
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AccessResponse"/> class.
+        /// Wrapper for Auth0 response.
+        /// </summary>
+        /// <param name="authResponse"> Auth0 raw response</param>
+        public AccessResponse()
+        {
+          
+        }
+
+        /// <example>eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZ...</example>
+        [Required]
+        public string AccessToken { get; set; } = string.Empty;
+
+        /// <example>Bearer</example>
+        [Required]
+        public string TokenType { get; set; } = string.Empty;
+
+        /// <example>eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZ...</example>
+        [Required]
+        public string IdToken { get; set; } = string.Empty;
+
+        /// <example>86400</example>
+        [Required]
+        public int ExpiresIn { get; set; } = 0;
+
+        /// <example>v1.McGUUd_CL7lc4UjVa2jlAgAG7lCyif14ItPqa_VyqXbeLfR1IpHdqu02QT3XuSsGekr0zfh3PJBszwsWGnC8lJw</example>
+        [Required]
+        public string RefreshToken { get; set; } = string.Empty;
+    } 
     public class UserChangeResponse
     {
         /// <example>examplemail@cool.domain.com</example>
