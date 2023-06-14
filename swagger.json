@@ -606,7 +606,7 @@
         }
       }
     },
-    "/api/Auth/CancelUserAccount/CancelUserAccount": {
+    "/api/Auth/CancelUserAccount": {
       "post": {
         "tags": [
           "Auth"
