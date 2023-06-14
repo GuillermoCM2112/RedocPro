@@ -19,5 +19,6 @@ jobs:
 
       - name: Build and test
         run: |
+          dotnet format
           dotnet build --configuration Release
           dotnet test --no-restore --verbosity normal
