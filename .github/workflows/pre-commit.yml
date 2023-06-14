@@ -1,11 +1,11 @@
 name: Pre-commit
 on:
-  pre-commit:
+  push:
     branches:
       - main
 
 jobs:
-  pre-commit:
+  pre-push:
     runs-on: ubuntu-latest
 
     steps:
