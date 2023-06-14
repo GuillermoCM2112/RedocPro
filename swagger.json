@@ -19,9 +19,9 @@
         "tags": [
           "Auth"
         ],
-        "summary": "Validates if the user has permissions to log in.",
+        "description": "Validates if the user has permissions to log in.",
+        "operationId": "Login",
         "requestBody": {
-          "description": "The user credentials.",
           "content": {
             "application/json": {
               "schema": {
@@ -32,7 +32,7 @@
         },
         "responses": {
           "200": {
-            "description": "Returns access token information.",
+            "description": "Response",
             "content": {
               "application/json": {
                 "schema": {
@@ -42,37 +42,24 @@
             }
           },
           "401": {
-            "description": "Unauthorized",
+            "description": "The username or password is incorrect (SPCI-401-1).",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "402": {
-            "description": "Client Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
           },
           "500": {
-            "description": "Unhandled error, validate the error log."
+            "description": "Unhandled error, validate the error log.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       }
@@ -82,9 +69,9 @@
         "tags": [
           "Auth"
         ],
-        "summary": "Creates a user if meets the validations.",
+        "description": "Creates a user if meets the validations.",
+        "operationId": "Signup",
         "requestBody": {
-          "description": "The user information.",
           "content": {
             "application/json": {
               "schema": {
@@ -95,7 +82,7 @@
         },
         "responses": {
           "200": {
-            "description": "Returns access token information.",
+            "description": "Response",
             "content": {
               "application/json": {
                 "schema": {
@@ -104,8 +91,45 @@
               }
             }
           },
+          "400": {
+            "description": "- The phone number is out of coverage (SPCI-400-1).\n- The user must be on legal age (SPCI-400).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "- The phone number has been used (SPCI-409-1).\n- The email has been used (SPCI-409-2).\n- It is not possible to register the user by a conflict (SPCI-409-3).\n- There is a procedure in progress, please try again (SPCI-409-4).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "421": {
+            "description": "- The account was created but it was not possible to obtain a valid token (SCPI-421-1).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "500": {
-            "description": "Unhandled error, validate the error log."
+            "description": "Unhandled error, validate the error log.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       }
@@ -115,9 +139,9 @@
         "tags": [
           "Auth"
         ],
-        "summary": "Generates a new refresh token.",
+        "description": "Generates a new refresh token.",
+        "operationId": "RefreshToken",
         "requestBody": {
-          "description": "The refresh token.",
           "content": {
             "application/json": {
               "schema": {
@@ -128,7 +152,7 @@
         },
         "responses": {
           "200": {
-            "description": "Returns a status of the user.",
+            "description": "Response",
             "content": {
               "application/json": {
                 "schema": {
@@ -137,8 +161,25 @@
               }
             }
           },
+          "401": {
+            "description": "- The refresh token has al ready expired, back to login (SPCI-401-2).\n- The refresh token is invalid, back to login (SPCI-401-3).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "500": {
-            "description": "Unhandled error, validate the error log."
+            "description": "Unhandled error, validate the error log.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       }
@@ -1515,6 +1556,7 @@
           "password": {
             "minLength": 1,
             "type": "string",
+            "description": "The current password.",
             "example": "thisIsA%%pwd0"
           },
           "deviceId": {
