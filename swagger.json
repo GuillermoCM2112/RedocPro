@@ -233,12 +233,11 @@
         }
       }
     },
-    "/api/Auth/ChangeUserPassword/ChangeUserPassword": {
+    "/api/Auth/ChangeUserPassword": {
       "post": {
         "tags": [
           "Auth"
         ],
-        "summary": "Change User Password",
         "description": "This endpoint will change the password of the user.",
         "operationId": "ChangeUserPassword",
         "requestBody": {
@@ -262,7 +261,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Response",
             "content": {
               "text/plain": {
                 "schema": {
@@ -280,17 +279,37 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "SPCI-404: User not found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       }
     },
-    "/api/Auth/ChangeUserProperty/ChangeUserProperty": {
+    "/api/Auth/ChangeUserProperty": {
       "post": {
         "tags": [
           "Auth"
         ],
-        "summary": "Change User Property",
         "description": "This endpoint will change the property of the user.",
+        "operationId": "ChangeUserProperty",
         "requestBody": {
           "content": {
             "application/json": {
@@ -312,80 +331,77 @@
         },
         "responses": {
           "200": {
-            "description": "Returns a 200 if the user property change.",
+            "description": "Returns a 200 if the user property change."
+          },
+          "404": {
+            "description": "SPCI-404: User not found",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserChangeResponse"
+                  "$ref": "#/components/schemas/Error"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserChangeResponse"
+                  "$ref": "#/components/schemas/Error"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserChangeResponse"
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
-          },
-          "500": {
-            "description": "Unhandled error, validate the error log."
           }
         }
       }
     },
-    "/api/Auth/UserValidation/UserValidation": {
+    "/api/Auth/UserValidation": {
       "get": {
         "tags": [
           "Auth"
         ],
-        "summary": "User Validation",
-        "description": "This endpoint will validate if the user has any of the following states: \r\n<ul><li>NotRegistered = 0</li><li>PreRegistered = 1</li><li>Registered = 2</li><li>OTPRequired = 3</li><li>SoftBlock = 4</li><li>HardBlock = 5</li><li>CancelledAccount = 8</li><li>FirstLoginOxxo = 20</li></ul>",
+        "description": "This endpoint will validate if the user has any of the following states: \n\t\t\t\t\t\t\t\t\t\t\t   <ul><li>NotRegistered = 0</li><li>PreRegistered = 1</li><li>Registered = 2</li>\n\t\t\t\t\t\t\t\t\t\t\t   <li>OTPRequired = 3</li><li>SoftBlock = 4</li><li>HardBlock = 5</li>\n\t\t\t\t\t\t\t\t\t\t\t   <li>CancelledAccount = 8</li><li>FirstLoginOxxo = 20</li></ul>",
+        "operationId": "UserValidation",
         "parameters": [
           {
             "name": "PhoneNumber",
             "in": "query",
-            "description": "The phone of user.",
             "required": true,
             "style": "form",
             "schema": {
               "maxLength": 14,
               "minLength": 10,
               "type": "string",
-              "example": "+515555555555"
-            },
-            "example": "+515555555555"
+              "description": "User phone number.",
+              "example": "+521234567890"
+            }
           },
           {
             "name": "DeviceId",
             "in": "query",
-            "description": "Device Id of user.",
             "required": true,
             "style": "form",
             "schema": {
               "type": "string",
-              "example": "x1234ABCD"
-            },
-            "example": "x1234ABCD"
+              "description": "User Device identifier",
+              "example": "A1B2C3D4E5"
+            }
           },
           {
             "name": "AttemptReference",
             "in": "query",
-            "description": "Attempt Reference.",
             "style": "form",
             "schema": {
               "type": "string",
+              "description": "User Attempt Reference",
               "example": "A1B2C3D4E5"
-            },
-            "example": "A1B2C3D4E5"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Returns a status of the user.",
+            "description": "Response",
             "content": {
               "text/plain": {
                 "schema": {
@@ -404,8 +420,25 @@
               }
             }
           },
-          "500": {
-            "description": "Unhandled error, validate the error log."
+          "404": {
+            "description": "SPCI-404: User not found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       }
@@ -959,10 +992,126 @@
           }
         }
       }
+    },
+    "/api/User/AddTaCVersion": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "This endpoint will accept the TaC Version.",
+        "operationId": "AddTaCVersionResponse",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcceptTaCRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcceptTaCRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcceptTaCRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddTaCVersionResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddTaCVersionResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddTaCVersionResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User/GetLatestTaC": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "description": "This endpoint will get the TaC Version.",
+        "operationId": "LatestTaCResponse",
+        "parameters": [
+          {
+            "name": "UserId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "description": "User Id Auth0",
+              "example": "auth0|63b477d3b85540fe7e870500"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LatestTaCResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LatestTaCResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LatestTaCResponse"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "AcceptTaCRequest": {
+        "required": [
+          "taCVersion",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User Id Auth0",
+            "example": "auth0|63b477d3b85540fe7e870500"
+          },
+          "taCVersion": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Version TaC",
+            "example": "V1.0"
+          }
+        },
+        "additionalProperties": false
+      },
       "AccessResponse": {
         "required": [
           "accessToken",
@@ -997,6 +1146,20 @@
             "minLength": 1,
             "type": "string",
             "example": "v1.McGUUd_CL7lc4UjVa2jlAgAG7lCyif14ItPqa_VyqXbeLfR1IpHdqu02QT3XuSsGekr0zfh3PJBszwsWGnC8lJw"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddTaCVersionResponse": {
+        "required": [
+          "successfulAccept"
+        ],
+        "type": "object",
+        "properties": {
+          "successfulAccept": {
+            "type": "boolean",
+            "description": "Tac Version Successful Accept",
+            "example": "true"
           }
         },
         "additionalProperties": false
@@ -1501,6 +1664,28 @@
         },
         "additionalProperties": false
       },
+      "LatestTaCResponse": {
+        "required": [
+          "acceptDate",
+          "version"
+        ],
+        "type": "object",
+        "properties": {
+          "acceptDate": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Date accepted Tac Version",
+            "example": "21/03/2023"
+          },
+          "version": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Version TaC",
+            "example": "V1.0"
+          }
+        },
+        "additionalProperties": false
+      },
       "LoginRequest": {
         "required": [
           "deviceId",
@@ -1927,20 +2112,20 @@
             "minLength": 1,
             "type": "string",
             "description": "User Id Auth0",
-            "example": "auth0|63af137d053f56ab291e7112"
+            "example": "auth0|63b477d3b85540fe7e870500"
           },
           "newPassword": {
             "maxLength": 50,
             "minLength": 8,
             "type": "string",
-            "description": "New password",
+            "description": "User New password",
             "example": "th1sIsANew%%pwd"
           },
           "currentPassword": {
             "maxLength": 50,
             "minLength": 8,
             "type": "string",
-            "description": "Current password",
+            "description": "User Current password",
             "nullable": true,
             "example": "th1sIsAOld%%pwd"
           }
@@ -1963,15 +2148,15 @@
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
-            "description": "The email of user.",
+            "description": "User email.",
             "nullable": true,
             "example": "examplemail@cool.domain.com"
           },
           "phoneNumber": {
             "type": "string",
-            "description": "The phone of user.",
+            "description": "User phone number.",
             "nullable": true,
-            "example": "+515555555555"
+            "example": "+521234567890"
           }
         },
         "additionalProperties": false
@@ -1990,56 +2175,56 @@
         "properties": {
           "email": {
             "type": "string",
-            "description": "Returns email of the user",
+            "description": "User email.",
             "nullable": true,
-            "example": "examplemail@cool.domain.com"
+            "example": "+521234567890"
           },
           "userName": {
             "type": "string",
-            "description": "Returns user Name of the user",
+            "description": "User Name of user",
             "nullable": true,
             "example": "+521234567890"
           },
           "firstName": {
             "minLength": 1,
             "type": "string",
-            "description": "Returns First Name of the user",
+            "description": "User first Name",
             "example": "Juan Antonio"
           },
           "lastName": {
             "minLength": 1,
             "type": "string",
-            "description": "Return Last Name of the user",
+            "description": "User last Name.",
             "example": "Peréz Pérez"
           },
           "birthday": {
             "minLength": 1,
             "type": "string",
-            "description": "Returns birthday of the user",
+            "description": "User birthday.",
             "example": "01/01/2000"
           },
           "phoneNumber": {
             "minLength": 1,
             "type": "string",
-            "description": "Returns Phone of the user",
+            "description": "User phone number.",
             "example": "+525555555555"
           },
           "zipCode": {
             "minLength": 1,
             "type": "string",
-            "description": "Returns Zip Code of the user",
+            "description": "User zip code",
             "example": "64000"
           },
           "loyaltyId": {
             "minLength": 1,
             "type": "string",
-            "description": "Returns Loyalty Id of the user",
+            "description": "Loyalty Id of the user",
             "example": "P1ATYGR"
           },
           "emailVerified": {
             "type": "boolean",
             "description": "Check if the user's email is verified",
-            "example": false
+            "example": "False"
           }
         },
         "additionalProperties": false
@@ -2074,7 +2259,7 @@
           "codeUserStatus": {
             "minLength": 1,
             "type": "string",
-            "description": "Returns the current status of the user",
+            "description": "User Status",
             "example": "0"
           }
         },
@@ -2086,6 +2271,10 @@
     {
       "name": "Auth",
       "description": "List Auth endpoints."
+    },
+    {
+      "name": "User",
+      "description": "User controller description goes here."
     }
   ]
 }
