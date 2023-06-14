@@ -1,7 +1,7 @@
 # RedocPro
 
 Implementación del servicio Customer Identity and Access Management (CIAM)  
-![Alt text](image.png)
+ <!---![Alt text](image.png)-->
 
 ## Endpoints
 
@@ -28,7 +28,7 @@ Para ejecutar de forma local, se pueden seguir los siguientes pasos:
 4. Agregar en el [`appsettings.Development.json`]
 5. Ahora, puedes hacer click en la ejecutar el proyecto, o bien, en "Depurar > Iniciar depuración".
 
-Donde puedes interactuar con los endpoints de CIAM. Si no se abre la ventana, puedes ingresar a esta por medio del siguiente enlace: [https://localhost:7009/swagger/index.html](https://localhost:7009/swagger/index.html).
+Donde puedes interactuar con los endpoints de CIAM. Si no se abre la ventana, puedes ingresar a esta por medio del siguiente enlace: [https://localhost:7131/swagger).
 
 ## Como contribuir al repositorio
 Para contribuir al repositorio se te deben otorgar permisos de escritura y seguir los siguientes pasos. 

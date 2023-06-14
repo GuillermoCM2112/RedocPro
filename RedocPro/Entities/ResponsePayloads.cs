@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using RedocPro.Descriptions;
+using RedocPro.Redoc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
@@ -44,46 +46,47 @@ namespace RedocPro.Entities.ResponsePayloads
     }
     public class UserChangeResponse
     {
-        /// <example>examplemail@cool.domain.com</example>
-        /// <summary> Returns email of the user </summary>
+        [SwaggerSchema(Description = PropertiesDescriptions.EmailDescription)]
+        [SwaggerSchemaExample("+521234567890")]
         public string Email { get; set; } = string.Empty;
-        /// <example>+521234567890</example>
-        /// <summary> Returns user Name of the user </summary>
+
+        [SwaggerSchema(Description = PropertiesDescriptions.UserNameDescription)]
+        [SwaggerSchemaExample("+521234567890")]
         public string UserName { get; set; } = string.Empty;
 
-        /// <example>Juan Antonio</example>
-        /// <summary> Returns First Name of the user </summary>
         [Required]
+        [SwaggerSchema(Description = PropertiesDescriptions.FirstNameDescription)]
+        [SwaggerSchemaExample("Juan Antonio")]
         public string FirstName { get; set; } = string.Empty;
 
-        /// <example>Peréz Pérez</example>
-        /// <summary> Return Last Name of the user </summary>
         [Required]
+        [SwaggerSchema(Description = PropertiesDescriptions.LastNameDescription)]
+        [SwaggerSchemaExample("Peréz Pérez")]
         public string LastName { get; set; } = string.Empty;
 
-        /// <example>01/01/2000</example>
-        /// <summary> Returns birthday of the user </summary>
         [Required]
+        [SwaggerSchema(Description = PropertiesDescriptions.BirthdayDescription)]
+        [SwaggerSchemaExample("01/01/2000")]
         public string Birthday { get; set; } = string.Empty;
 
-        /// <example>+525555555555</example>
-        /// <summary> Returns Phone of the user </summary>
         [Required]
+        [SwaggerSchema(Description = PropertiesDescriptions.PhoneNumber)]
+        [SwaggerSchemaExample("+525555555555")]
         public string PhoneNumber { get; set; } = string.Empty;
 
-        /// <example>64000</example>
-        /// <summary> Returns Zip Code of the user </summary>
         [Required]
+        [SwaggerSchema(Description = PropertiesDescriptions.ZipCodeDescription)]
+        [SwaggerSchemaExample("64000")]
         public string ZipCode { get; set; } = string.Empty;
 
-        /// <example>P1ATYGR</example>
-        /// <summary> Returns Loyalty Id of the user </summary>
         [Required]
+        [SwaggerSchema(Description = PropertiesDescriptions.LoyaltyIdDescription)]
+        [SwaggerSchemaExample("P1ATYGR")]
         public string LoyaltyId { get; set; } = string.Empty;
 
-        /// <example>false</example>
-        /// <summary> Check if the user's email is verified </summary>
         [Required]
+        [SwaggerSchema(Description = PropertiesDescriptions.EmailVerifiedDescription)]
+        [SwaggerSchemaExample("False")]
         public bool EmailVerified { get; set; } = false;
     }
     public class UserValidationResponse
@@ -93,9 +96,29 @@ namespace RedocPro.Entities.ResponsePayloads
             this.CodeUserStatus = codeUserStatus;
         }
 
-        /// <example>0</example>
-        /// <summary> Returns the current status of the user </summary>
         [Required]
+        [SwaggerSchema(Description = PropertiesDescriptions.CodeUserStatusDescription)]
+        [SwaggerSchemaExample("0")]
         public string CodeUserStatus { get; set; } = string.Empty;
+    }
+    public class LatestTaCResponse
+    {
+        [Required]
+        [SwaggerSchema(Description = "Date accepted Tac Version")]
+        [SwaggerSchemaExample("21/03/2023")]
+        public string AcceptDate { get; set; } = string.Empty;
+
+        [Required]
+        [SwaggerSchema(Description = "Version TaC")]
+        [SwaggerSchemaExample("V1.0")]
+        public string Version { get; set; } = string.Empty;
+    }
+
+    public class AddTaCVersionResponse
+    {
+        [Required]
+        [SwaggerSchema(Description = "Tac Version Successful Accept")]
+        [SwaggerSchemaExample("true")]
+        public bool SuccessfulAccept { get; set; } = false;
     }
 }
