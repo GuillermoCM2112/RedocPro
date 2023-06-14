@@ -5,6 +5,11 @@
         public const string GetTransversalUserDataDescription = @"Some endpoint description goes here.";
         public const string RevokeRefreshTokenDescription = @"Some endpoint description goes here.";
         public const string GetUserProfileDescription = @"Some endpoint description goes here.";
+        public const string NethoneTransactionConfirm = @"Validates Nethone transaction integrity.";
+        public const string NethoneTransaction = @"Process Nethone transaction.";
+        public const string NethoneRecommendation = @"Process Nethone recommendation.";
+
+        
 
         public const string UserValidation = @"This endpoint will validate if the user has any of the following states: 
 											   <ul><li>NotRegistered = 0</li><li>PreRegistered = 1</li><li>Registered = 2</li>

@@ -1,9 +1,11 @@
 ﻿using System.Net.Mime;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RedocPro.Descriptions;
 using RedocPro.Entities;
 using RedocPro.Entities.RequestPayloads;
 using RedocPro.Entities.ResponsePayloads;
+using RedocPro.Models.Responses;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace RedocPro.Controllers
@@ -21,41 +23,27 @@ namespace RedocPro.Controllers
         {
             this.logger = logger;
         }
-
-        /// <summary>
-        /// NethoneTransactionConfirm: Validates Nethone transaction integrity
-        /// </summary>
-        /// <param name="request">The Nethone flags to validate.</param>
-        /// <response code="200">Returns payment token information.</response>
-        /// <response code="404">Unhandled error, validate the error log.</response>
-        /// <response code="402">Auth0 error,validate the error log.</response>
+         
+        /// <param name="request">The Nethone flags to validate.</param> >
         /// <returns>Payment token information.</returns> 
-        [HttpPut]
-        [ProducesResponseType(200, Type = typeof(AccessResponse))]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(StatusCodes.Status402PaymentRequired)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)] 
-        [ProducesResponseType(200, Type = typeof(NethoneResponseConfirm))]
+        [HttpPut]  
+        [SwaggerOperation(OperationId = nameof(NethoneTransactionConfirm), Description = EndpointsDescriptions.NethoneTransactionConfirm)]
+        [SwaggerResponse(200, "Response", type: typeof(NethoneResponseConfirm))]
+        [SwaggerResponse(404, "Status not found.", type: typeof(ErrorResponse))]
+        [SwaggerResponse(402, "Payment Required,verify internal log for more information.", type: typeof(ErrorResponse))]
+        [SwaggerResponse(401, "Unauthorized,verify internal log for more information.", type: typeof(ErrorResponse))]
         public async Task<IActionResult> NethoneTransactionConfirm([FromBody] FlagsNethoneConfirm request)
         {
             return this.Ok("0.1.5");
         }
-
-
-
-        /// <summary>
-        /// NethoneTransaction: Process Nethone transaction
-        /// </summary>
-        /// <param name="request">The Nethone flags to validate.</param>
-        /// <response code="200">Returns payment token information.</response>
-        /// <response code="404">Unhandled error, validate the error log.</response>
-        /// <response code="402">Auth0 error,validate the error log.</response>
+         
+        /// <param name="request">The Nethone flags to validate.</param> >
         /// <returns>Payment token information.</returns> 
         [HttpPost]
-        [ProducesResponseType(200, Type = typeof(AccessResponse))]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(StatusCodes.Status402PaymentRequired)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [SwaggerOperation(OperationId = nameof(NethoneTransaction), Description = EndpointsDescriptions.NethoneTransaction)]
+        [SwaggerResponse(200, "Response", type: typeof(NethoneResponseConfirm))]
+        [SwaggerResponse(404, "Status not found.", type: typeof(ErrorResponse))]
+        [SwaggerResponse(402, "Payment Required,verify internal log for more information.", type: typeof(ErrorResponse))]  
         [ProducesResponseType(200, Type = typeof(NethoneResponseConfirm))]
         public async Task<IActionResult> NethoneTransaction([FromBody] NethoneTransactionRequest request)
         {
@@ -63,20 +51,15 @@ namespace RedocPro.Controllers
         }
 
 
-
-        /// <summary>
-        /// NethoneRecommendation: Process Nethone recommendation
-        /// </summary>
-        /// <param name="request">The Nethone flags to validate.</param>
-        /// <response code="200">Returns payment token information.</response>
-        /// <response code="404">Unhandled error, validate the error log.</response>
-        /// <response code="402">Auth0 error,validate the error log.</response>
+        
+        /// <param name="request">The Nethone flags to validate.</param> >
         /// <returns>Payment token information.</returns> 
         [HttpPost]
-        [ProducesResponseType(200, Type = typeof(AccessResponse))]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)] 
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(200, Type = typeof(NethoneResponse))]  
+        [SwaggerOperation(OperationId = nameof(NethoneRecommendation), Description = EndpointsDescriptions.NethoneRecommendation)]
+        [SwaggerResponse(200, "Response", type: typeof(NethoneResponse))]
+        [SwaggerResponse(404, "Status not found.", type: typeof(ErrorResponse))]
+        [SwaggerResponse(402, "Payment Required,verify internal log for more information.", type: typeof(ErrorResponse))]
+        [ProducesResponseType(200, Type = typeof(NethoneResponse))]
         public async Task<IActionResult> NethoneRecommendation([FromBody] NewNethoneRequest request)
         {
             return this.Ok("0.1.5");
