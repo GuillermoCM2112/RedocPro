@@ -27,16 +27,6 @@
               "schema": {
                 "$ref": "#/components/schemas/LoginRequest"
               }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LoginRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/LoginRequest"
-              }
             }
           }
         },
@@ -44,17 +34,7 @@
           "200": {
             "description": "Returns access token information.",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AccessResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AccessResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AccessResponse"
                 }
@@ -64,17 +44,7 @@
           "401": {
             "description": "Unauthorized",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -84,17 +54,7 @@
           "402": {
             "description": "Client Error",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -104,17 +64,7 @@
           "404": {
             "description": "Not Found",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -140,16 +90,6 @@
               "schema": {
                 "$ref": "#/components/schemas/SignupRequest"
               }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SignupRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/SignupRequest"
-              }
             }
           }
         },
@@ -157,17 +97,7 @@
           "200": {
             "description": "Returns access token information.",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AccessResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AccessResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AccessResponse"
                 }
@@ -193,16 +123,6 @@
               "schema": {
                 "$ref": "#/components/schemas/RefreshRequest"
               }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RefreshRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/RefreshRequest"
-              }
             }
           }
         },
@@ -210,17 +130,7 @@
           "200": {
             "description": "Returns a status of the user.",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AccessResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AccessResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AccessResponse"
                 }
@@ -246,16 +156,6 @@
               "schema": {
                 "$ref": "#/components/schemas/UpdatePasswordRequest"
               }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdatePasswordRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdatePasswordRequest"
-              }
             }
           }
         },
@@ -263,17 +163,7 @@
           "200": {
             "description": "Response",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserChangeResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserChangeResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UserChangeResponse"
                 }
@@ -283,17 +173,7 @@
           "404": {
             "description": "SPCI-404: User not found",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Error"
                 }
@@ -316,16 +196,6 @@
               "schema": {
                 "$ref": "#/components/schemas/UpdateUserRequest"
               }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateUserRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateUserRequest"
-              }
             }
           }
         },
@@ -336,17 +206,7 @@
           "404": {
             "description": "SPCI-404: User not found",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Error"
                 }
@@ -403,17 +263,7 @@
           "200": {
             "description": "Response",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserValidationResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserValidationResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UserValidationResponse"
                 }
@@ -423,17 +273,7 @@
           "404": {
             "description": "SPCI-404: User not found",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Error"
                 }
@@ -478,17 +318,7 @@
           "200": {
             "description": "Response",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserDataResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserDataResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UserDataResponse"
                 }
@@ -498,17 +328,7 @@
           "500": {
             "description": "Unhandled error, validate the error log.",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorResponse"
                 }
@@ -531,16 +351,6 @@
               "schema": {
                 "$ref": "#/components/schemas/RefreshRequest"
               }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RefreshRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/RefreshRequest"
-              }
             }
           }
         },
@@ -548,17 +358,7 @@
           "200": {
             "description": "Response",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RefreshResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RefreshResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/RefreshResponse"
                 }
@@ -568,17 +368,7 @@
           "500": {
             "description": "Unhandled error, validate the error log.",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorResponse"
                 }
@@ -621,17 +411,7 @@
           "200": {
             "description": "Response",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserChangeResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserChangeResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UserChangeResponse"
                 }
@@ -641,17 +421,7 @@
           "500": {
             "description": "Unhandled error, validate the error log.",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorResponse"
                 }
@@ -667,7 +437,7 @@
           "Auth"
         ],
         "description": "validates that the token sent is correct",
-        "operationId": "GetUserProfile",
+        "operationId": "TokenValidator",
         "responses": {
           "200": {
             "description": "Success"
@@ -1006,16 +776,6 @@
               "schema": {
                 "$ref": "#/components/schemas/AcceptTaCRequest"
               }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AcceptTaCRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AcceptTaCRequest"
-              }
             }
           }
         },
@@ -1023,17 +783,7 @@
           "200": {
             "description": "Response",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AddTaCVersionResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AddTaCVersionResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AddTaCVersionResponse"
                 }
@@ -1067,17 +817,7 @@
           "200": {
             "description": "Response",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LatestTaCResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LatestTaCResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/LatestTaCResponse"
                 }
@@ -2270,7 +2010,15 @@
   "tags": [
     {
       "name": "Auth",
-      "description": "List Auth endpoints."
+      "description": "Auth controller description goes here."
+    },
+    {
+      "name": "Health",
+      "description": "Health controller description goes here."
+    },
+    {
+      "name": "Nethone",
+      "description": "Nethone controller description goes here."
     },
     {
       "name": "User",
