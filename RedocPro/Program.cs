@@ -19,7 +19,8 @@ public class Program
     /// <param name="args"></param>
     public static void Main(string[] args)
     {
-        var builder = WebApplication.CreateBuilder(args);
+        var builder 
+            =          WebApplication.CreateBuilder(args);
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen(BuildRedoc.GenerateDocumentation);
@@ -34,6 +35,7 @@ public class Program
         app.UseHttpsRedirection();
         app.UseAuthorization();
         app.MapControllers();
-        app.Run();
+
+        app.Run()
     }
 }
