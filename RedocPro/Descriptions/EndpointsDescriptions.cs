@@ -49,5 +49,26 @@
             "- Generic error from Auth0 Service.(SPCI-500): error.\n" +
             "- Unhandled error, is necesary validate the log.";
         public const string TokenValidatorDescription = @"validates that the token sent is correct";
+
+        public const string LoginDescription = @"Validates if the user has permissions to log in.";
+        public const string Login401Description = @"The username or password is incorrect (SPCI-401-1).";
+
+        public const string SignupDescription = @"Creates a user if meets the validations.";
+        public const string Signup400Description = @"" +
+            "- The phone number is out of coverage (SPCI-400-1).\n" +
+            "- The user must be on legal age (SPCI-400).";
+        public const string Signup409Description = @"" +
+            "- The phone number has been used (SPCI-409-1).\n" +
+            "- The email has been used (SPCI-409-2).\n" +
+            "- It is not possible to register the user by a conflict (SPCI-409-3).\n" +
+            "- There is a procedure in progress, please try again (SPCI-409-4).";
+        public const string Signup421Description = @"" +
+            "- The account was created but it was not possible to obtain a valid token (SCPI-421-1).";
+
+        public const string RefreshTokenDescription = @"Generates a new refresh token.";
+        public const string RefreshToken401Description = @"" +
+            "- The refresh token has al ready expired, back to login (SPCI-401-2).\n" +
+            "- The refresh token is invalid, back to login (SPCI-401-3).";
+
     }
 }

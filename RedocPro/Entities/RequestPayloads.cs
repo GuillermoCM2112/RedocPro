@@ -8,24 +8,23 @@ namespace RedocPro.Entities.RequestPayloads
 {
     public class LoginRequest
     {
-        /// <summary>
-        /// The username can be a phone number or an email.
-        /// </summary>
-        /// <example>+515555555555</example>
         [Required]
+        [SwaggerSchema(Description = PropertiesDescriptions.UsernameRequestDescription)]
+        [SwaggerSchemaExampleAttribute("+515555555555")]
         [StringLength(50, MinimumLength = 10)]
 
         public string Username { get; set; } = string.Empty;
 
-        /// <example>thisIsA%%pwd0</example>
         [Required]
+        [SwaggerSchema(Description = PropertiesDescriptions.Password)]
+        [SwaggerSchemaExampleAttribute("thisIsA%%pwd0")]
         public string Password { get; set; } = string.Empty;
 
-        /// <example>a3f3a772-f9af-4162-8ac3-8d79ad</example>
         [Required]
+        [SwaggerSchemaExampleAttribute("a3f3a772-f9af-4162-8ac3-8d79ad")]
         public string DeviceId { get; set; } = string.Empty;
 
-        /// <example>A1B2C3D4E5</example>
+        [SwaggerSchemaExampleAttribute("A1B2C3D4E5")]
         public string? AttemptReference { get; set; } = string.Empty;
     }
 

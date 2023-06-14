@@ -18,45 +18,40 @@ namespace RedocPro.Controllers
     [SwaggerTag(Descriptions.ControllersDescriptions.AuthController)]
     public class AuthController : ControllerBase
     {
-        /// <summary>
-        /// Validates if the user has permissions to log in.
-        /// </summary>
-        /// <param name="request">The user credentials.</param>
-        /// <response code="200">Returns access token information.</response>
-        /// <response code="500">Unhandled error, validate the error log.</response>
-        /// <returns>El producto encontrado.</returns>
         [HttpPost]
-        [ProducesResponseType(200, Type = typeof(AccessResponse))]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(StatusCodes.Status402PaymentRequired)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Login([FromBody] LoginRequest request)
+        [SwaggerOperation(OperationId = nameof(Login), Description = EndpointsDescriptions.LoginDescription)]
+        [Consumes("application/json")]
+        [Produces("application/json")]
+        [SwaggerResponse(200, "Response", Type = typeof(AccessResponse))]
+        [SwaggerResponse(401, EndpointsDescriptions.Login401Description, type: typeof(Error))]
+        [SwaggerResponse(500, "Unhandled error, validate the error log.", type: typeof(Error))]
+        public IActionResult Login([FromBody] LoginRequest request)
         {
             return this.Ok();
         }
 
-        /// <summary>
-        /// Creates a user if meets the validations.
-        /// </summary>
-        /// <param name="request">The user information.</param>
-        /// <response code="200">Returns access token information.</response>
-        /// <response code="500">Unhandled error, validate the error log.</response>
         [HttpPost]
-        [ProducesResponseType(200, Type = typeof(AccessResponse))]
-        public async Task<IActionResult> Signup([FromBody] SignupRequest request)
+        [SwaggerOperation(OperationId = nameof(Signup), Description = EndpointsDescriptions.SignupDescription)]
+        [Consumes("application/json")]
+        [Produces("application/json")]
+        [SwaggerResponse(200, "Response", Type = typeof(AccessResponse))]
+        [SwaggerResponse(400, EndpointsDescriptions.Signup400Description, type: typeof(Error))]
+        [SwaggerResponse(409, EndpointsDescriptions.Signup409Description, type: typeof(Error))]
+        [SwaggerResponse(421, EndpointsDescriptions.Signup421Description, type: typeof(Error))]
+        [SwaggerResponse(500, "Unhandled error, validate the error log.", type: typeof(Error))]
+        public IActionResult Signup([FromBody] SignupRequest request)
         {
             return this.Ok();
         }
 
-        /// <summary>
-        /// Generates a new refresh token.
-        /// </summary>
-        /// <param name="request">The refresh token.</param>
-        /// <response code="200">Returns a status of the user.</response>
-        /// <response code="500">Unhandled error, validate the error log.</response>
         [HttpPost]
-        [ProducesResponseType(200, Type = typeof(AccessResponse))]
-        public async Task<IActionResult> RefreshToken([FromBody] RefreshRequest request)
+        [SwaggerOperation(OperationId = nameof(RefreshToken), Description = EndpointsDescriptions.RefreshTokenDescription)]
+        [Consumes("application/json")]
+        [Produces("application/json")]
+        [SwaggerResponse(200, "Response", Type = typeof(AccessResponse))]
+        [SwaggerResponse(401, EndpointsDescriptions.RefreshToken401Description, type: typeof(Error))]
+        [SwaggerResponse(500, "Unhandled error, validate the error log.", type: typeof(Error))]
+        public IActionResult RefreshToken([FromBody] RefreshRequest request)
         {
             return this.Ok();
         }
