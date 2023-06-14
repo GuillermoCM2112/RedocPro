@@ -5,7 +5,7 @@ using RedocPro.Entities;
 namespace RedocPro.Controllers
 {
     [ApiController]
-    [Route("ciam/api/[controller]/[action]")]
+    [Route("api/[controller]/[action]")]
     [Consumes(MediaTypeNames.Application.Json)]
     [Produces(MediaTypeNames.Application.Json)]
     public class NethoneController : ControllerBase
@@ -74,7 +74,7 @@ namespace RedocPro.Controllers
         /// <param name="ObjNewCardRequest">Object with data new card</param>
         /// <returns>Check recommendation pay</returns>
         [HttpPost]
-        [ProducesResponseType(200, Type = typeof(JsonContent))]
+        [ProducesResponseType(200, Type = typeof(NethoneResponse))]
         public async Task<IActionResult> NethoneRecommendationPay(string ObjNewCardRequest)
         {
             return this.Ok("0.1.5");

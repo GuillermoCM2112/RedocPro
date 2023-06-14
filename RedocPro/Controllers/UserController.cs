@@ -8,7 +8,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace RedocPro.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     [SwaggerTag(Descriptions.ControllersDescriptions.UserController)]
     public class UserController : ControllerBase

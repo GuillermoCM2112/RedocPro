@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "CIAM Demo Documentation",
-    "description": "# RedocPro\r\n\r\nImplementación del servicio Customer Identity and Access Management (CIAM)  \r\n\r\n## Endpoints\r\n\r\nHasta el momento, se cuentan con los siguientes endpoints:\r\n- `Login`: \r\n- `Signup`:\r\n- `RefreshToken`: \r\n- `ChangeUserPassword`: \r\n- `ChangeUserProperty`: \r\n- `UserValidation`: \r\n- `RevokeRefreshToken`:\r\n\r\nPara descargar la colección de Postman puede hacer <a href=\"postman_collection.json\" download>click aquí</a>\r\n\r\n\r\n\r\nPara descargar las variables de entorno de Postman puede hacer <a href=\"test_environment.json\" download>click aquí</a>\r\n\r\n## Ejecución local\r\nPara ejecutar de forma local, se pueden seguir los siguientes pasos:\r\n1. Instalar la versión más reciente de Visual Studio.\r\n2. Descargar el `.zip` de la rama `main` del repositorio.\r\n3. Abrir el proyecto\r\n4. Agregar en el [`appsettings.Development.json`]\r\n5. Ahora, puedes hacer click en la ejecutar el proyecto, o bien, en \"Depurar > Iniciar depuración\".\r\n\r\nDonde puedes interactuar con los endpoints de CIAM. Si no se abre la ventana, puedes ingresar a esta por medio del siguiente enlace: [https://localhost:7009/swagger/index.html](https://localhost:7009/swagger/index.html).\r\n\r\n## Como contribuir al repositorio\r\nPara contribuir al repositorio se te deben otorgar permisos de escritura y seguir los siguientes pasos. \r\n\r\n1. Asociar un nuevo SSH con tu cuenta de GitHub institucional.\r\n\r\n    En esta ocasión, no basta con descargar el `.zip` del repositorio. Debes configurar tu dispositivo para conectar tu cuenta de GitHub mediante SSH, puedes seguir el siguiente [tutorial de GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) para añadir una SSH a tu cuenta. Además, debes darle permisos para acceder a `digitaltitransversal`, sigue el siguiente [tutorial](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on) para dar dichos permisos.\r\n\r\n2. Teniendo ya el SSH configurado, debes clonar el repositorio en la carpeta de tu preferencia. Como sugerencia, puedes crear una carpeta `~/Projects` para mantener todos los proyectos en un sólo lugar.\r\n\r\n    En la terminal, corre el siguiente comando:\r\n    ```\r\n    git clone git@github.com:\r\n    ```\r\n\r\n    Debería aparecer una salida parecida a:\r\n    ```\r\n    remote: Enumerating objects: 542, done.\r\n    remote: Counting objects: 100% (314/314), done.\r\n    remote: Compressing objects: 100% (177/177), done.\r\n    remote: Total 542 (delta 196), reused 178 (delta 122), pack-reused 228\r\n    Receiving objects: 100% (542/542), 110.60 KiB | 1.44 MiB/s, done.\r\n    Resolving deltas: 100% (271/271), done.\r\n    ```\r\n\r\n3. En este punto, se pueden seguir los pasos que se describieron para la ejecución local.\r\n\r\n4. Si se quiere agregar nuevos cambios, debes crear tu propia rama.\r\n    ```\r\n    git branch rama-de-ejemplo\r\n    ```\r\n\r\n5. Para empezar a trabajar sobre la rama creada, puedes ejecutar el siguiente comando:\r\n\r\n    ```\r\n    git checkout rama-de-ejemplo\r\n    ```\r\n\r\n    En este punto ya puedes comenzar a hacer tus cambios. Si no haces el `checkout` a tu rama, puede que afectes a otras ramas e interrumpir el trabajo de los demás. Recuerda que no te dejará hacer `push` a `main`. \r\n\r\n6. Después de hacer tus cambios, haz pruebas unitarias e\r\n\r\n7. Se checa de manera automática que se cumpla ciertas reglas de sintaxis. Algunas de estas reglas son necesarias para tener una sintaxis consistente en todo el repositorio. La mayoría de las reglas se pueden aplicar de manera automática corriendo el siguiente comando:\r\n    ```\r\n    dotnet format\r\n    ```\r\n    En caso de enviar tus cambios y todavía tener pendientes de sintaxis, tendrás que checar de forma manual cómo arreglarlo. Te puedes guiar de la [documentación de StyleCop](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/tree/master/documentation) y pedir ayuda al equipo. Para checar de forma local la sintaxis, puedes correr el siguiente comando:\r\n\r\n    ```\r\n    dotnet format --verify-no-changes --verbosity m --severity warn\r\n    ```\r\n\r\n",
+    "description": "# RedocPro\n\nImplementación del servicio Customer Identity and Access Management (CIAM)  \n![Alt text](image.png)\n\n## Endpoints\n\nHasta el momento, se cuentan con los siguientes endpoints:\n- `Login`: \n- `Signup`:\n- `RefreshToken`: \n- `ChangeUserPassword`: \n- `ChangeUserProperty`: \n- `UserValidation`: \n- `RevokeRefreshToken`:\n\nPara descargar la colección de Postman puede hacer <a href=\"postman_collection.json\" download>click aquí</a>\n\n\n\nPara descargar las variables de entorno de Postman puede hacer <a href=\"test_environment.json\" download>click aquí</a>\n\n## Ejecución local\nPara ejecutar de forma local, se pueden seguir los siguientes pasos:\n1. Instalar la versión más reciente de Visual Studio.\n2. Descargar el `.zip` de la rama `main` del repositorio.\n3. Abrir el proyecto\n4. Agregar en el [`appsettings.Development.json`]\n5. Ahora, puedes hacer click en la ejecutar el proyecto, o bien, en \"Depurar > Iniciar depuración\".\n\nDonde puedes interactuar con los endpoints de CIAM. Si no se abre la ventana, puedes ingresar a esta por medio del siguiente enlace: [https://localhost:7009/swagger/index.html](https://localhost:7009/swagger/index.html).\n\n## Como contribuir al repositorio\nPara contribuir al repositorio se te deben otorgar permisos de escritura y seguir los siguientes pasos. \n\n1. Asociar un nuevo SSH con tu cuenta de GitHub institucional.\n\n    En esta ocasión, no basta con descargar el `.zip` del repositorio. Debes configurar tu dispositivo para conectar tu cuenta de GitHub mediante SSH, puedes seguir el siguiente [tutorial de GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) para añadir una SSH a tu cuenta. Además, debes darle permisos para acceder a `digitaltitransversal`, sigue el siguiente [tutorial](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on) para dar dichos permisos.\n\n2. Teniendo ya el SSH configurado, debes clonar el repositorio en la carpeta de tu preferencia. Como sugerencia, puedes crear una carpeta `~/Projects` para mantener todos los proyectos en un sólo lugar.\n\n    En la terminal, corre el siguiente comando:\n    ```\n    git clone git@github.com:\n    ```\n\n    Debería aparecer una salida parecida a:\n    ```\n    remote: Enumerating objects: 542, done.\n    remote: Counting objects: 100% (314/314), done.\n    remote: Compressing objects: 100% (177/177), done.\n    remote: Total 542 (delta 196), reused 178 (delta 122), pack-reused 228\n    Receiving objects: 100% (542/542), 110.60 KiB | 1.44 MiB/s, done.\n    Resolving deltas: 100% (271/271), done.\n    ```\n\n3. En este punto, se pueden seguir los pasos que se describieron para la ejecución local.\n\n4. Si se quiere agregar nuevos cambios, debes crear tu propia rama.\n    ```\n    git branch rama-de-ejemplo\n    ```\n\n5. Para empezar a trabajar sobre la rama creada, puedes ejecutar el siguiente comando:\n\n    ```\n    git checkout rama-de-ejemplo\n    ```\n\n    En este punto ya puedes comenzar a hacer tus cambios. Si no haces el `checkout` a tu rama, puede que afectes a otras ramas e interrumpir el trabajo de los demás. Recuerda que no te dejará hacer `push` a `main`. \n\n6. Después de hacer tus cambios, haz pruebas unitarias e\n\n7. Se checa de manera automática que se cumpla ciertas reglas de sintaxis. Algunas de estas reglas son necesarias para tener una sintaxis consistente en todo el repositorio. La mayoría de las reglas se pueden aplicar de manera automática corriendo el siguiente comando:\n    ```\n    dotnet format\n    ```\n    En caso de enviar tus cambios y todavía tener pendientes de sintaxis, tendrás que checar de forma manual cómo arreglarlo. Te puedes guiar de la [documentación de StyleCop](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/tree/master/documentation) y pedir ayuda al equipo. Para checar de forma local la sintaxis, puedes correr el siguiente comando:\n\n    ```\n    dotnet format --verify-no-changes --verbosity m --severity warn\n    ```\n\n\n\n# FAQ for developers\n\nPreguntas frecuentes etc..\n\n## Sección 1\n## Sección 2\n\n# Clave GPG\n## Requerimientos\n   \n  * El usuario debe tener instalado [Gnupg](https://www.gnupg.org/download) y [Git Bash](https://git-scm.com/downloads) para usuarios con Windows.\n  * El usuario debe tener instalado [Brew](https://brew.sh/index_es) para usuarios con MacBook.\n\n## Generación con MacBook\n\n1. Abre la Terminal.\n\n2. Verifica si ya tienes instalado GPG en tu Mac escribiendo el siguiente comando y presionando enter:\n```\n    gpg --version  \n```\n   *NOTA: GPG ya está instalado, verás la versión instalada y podrás continuar con el paso 4. Si no lo tienes instalado, continua con el paso 3.*\n\n3. Si no tiene GPG, el Usuario instala GPG con Homebrew.\n```\n    brew install gnupg\n```\n4. El Usuario le indica a GPG que genere una clave GPG.\n    * GPG solicita al Usuario la información requerida para generar la clave (nombre, dirección de correo electrónico, contraseña, etc.).\n    * Es muy importante que la logitud de la clave sea de: 4,096\n\n6. El Usuario ingresa la información requerida para generar sus clave gpg. \n   * Exportar la clave \n```\n    gpg --full-generate-key\n    gpg --list-secret-keys --keyid-format=long\n```\n   * Copia el ID de la clave que acabas de generar (debería tener el formato 4096R/XXXXXXXXXXXXXXXX).\n   * Configura Git para usar tu clave de firma ejecutando los siguientes comandos:\n```\n    git config --global user.signingkey XXXXXXXXXXXXXXXX\n    git config --global commit.gpgsign true\n```\n    \n7. Se obtiene la clave gpg en la terminal para exportarla a Github\n```\n    gpg --armor --export [key_id]\n```\n8. GPG muestra la clave generada al Usuario.\n\n9. La clave generada se guarda dentro de Github en el apartado de [GPG keys](https://github.com/settings/keys)\n\n10. Prueba que puedas firmar tus commits \n    * El siguiente comando mostrara tu configuración, la cual debe ser parecida a la siguiente:\n    \n```\n    user.signingkey=[Key]\n    gpg.program=gpg2\n    commit.gpgsign=true\n    git commit -S -m “[Develop] Comment”\n```\n\n11. En caso de no ser exitoso, ejecuta lo siguiente:\n\n```\n    brew install pinentry-mac\n    echo \"pinentry-program $(which pinentry-mac)\" >> ~/.gnupg/gpg-agent.conf\n    killall gpg-agent\n    $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \\\n\n    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi\n    \n    $ if [ -r ~/.zshrc ]; then echo 'export GPG_TTY=$(tty)' >> ~/.zshrc; \\\n\n   else echo 'export GPG_TTY=$(tty)' >> ~/.zprofile; fi\n```\n\n12. En caso de seguir con problemas seguir la siguiente secuencia:\n\n```\n    brew uninstall gpg\n    brew install gpg2\n    brew install pinentry-mac \n    gpg --full-generate-key \n```\n\n   * Obten la key generada: \n   \n```\n    gpg --list-keys\n```\n\nActualiza la key en local\n```\n    git config --global user.signingkey <Key de tu list>\n    git config --global gpg.program /usr/local/bin/gpg\n    git config --global commit.gpgsign true\n```\n\nExporta tu Key a GitHub :\n\n```\n    gpg --armor --export <key> \n```\n\nAgrega la key a GitHub desde GPG keys:   \n\nSi el error a un persiste ejecuta el siguiente comando:\n\n```\n    test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile\n    echo 'export GPG_TTY=$(tty)' >> ~/.profile\n```\n\n*NOTA: Si el error aun persiste:\n\n   * *Instala: https://gpgtools.org* \n   * *Firma la clave que utilizaste presionando \"Sign\" en la barra de menú: Key -> Sign*.\n\n## Generación con Windows\n\n1. Correr el comando para verificar si ya existe alguna clave creada.\n```\n    gpg --list-secret-keys --keyid-format=long\n```\n2. Si no existe una clave se debe generar con el siguiente comando o en caso contrario pasar al paso 4):\n```\n    gpg --full-generate-key\n```\n  * Seleccionar el tipo de llave por defecto (RSA and RSA).\n  * Seleccionar la longitud de bits por defecto (3072).\n  * Seleccionar el tiempo de expiración por defecto(0) y confirmar.\n  * Escribir tu nombre, correo electrónico, comentario opcional y Passhphrase y confirmarlos.\n\n4. Ejecutar el siguiente comando para visualizar la nueva llave existente:\n```\n    gpg --list-secret-keys --keyid-format=long\n```\n   * Copiar el Id de la clave: [ key_id ] \n   * Ejecutar el siguiente comando\n   \n```\n    gpg --armor --export [key_id]\n```\n   * Copiar la clave GPG, incluyendo comentarios\n   * Pegar la clave completa en https://github.com/settings/keys  e ingresa el título deseado\n   * Ejecutar el comando con el ID de la clave GPG\n```\n    git config --global user.signingkey [ key_id ]\n```\n",
     "contact": {
       "name": "test",
       "email": "someemail@somedomain.com"
@@ -233,11 +233,12 @@
         }
       }
     },
-    "/api/Auth/ChangeUserPassword": {
+    "/api/Auth/ChangeUserPassword/ChangeUserPassword": {
       "post": {
         "tags": [
           "Auth"
         ],
+        "summary": "Change User Password",
         "description": "This endpoint will change the password of the user.",
         "operationId": "ChangeUserPassword",
         "requestBody": {
@@ -261,7 +262,7 @@
         },
         "responses": {
           "200": {
-            "description": "Response",
+            "description": "Success",
             "content": {
               "text/plain": {
                 "schema": {
@@ -276,26 +277,6 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UserChangeResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "SPCI-404: User not found",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -303,13 +284,13 @@
         }
       }
     },
-    "/api/Auth/ChangeUserProperty": {
+    "/api/Auth/ChangeUserProperty/ChangeUserProperty": {
       "post": {
         "tags": [
           "Auth"
         ],
+        "summary": "Change User Property",
         "description": "This endpoint will change the property of the user.",
-        "operationId": "ChangeUserProperty",
         "requestBody": {
           "content": {
             "application/json": {
@@ -331,38 +312,38 @@
         },
         "responses": {
           "200": {
-            "description": "Returns a 200 if the user property change."
-          },
-          "404": {
-            "description": "SPCI-404: User not found",
+            "description": "Returns a 200 if the user property change.",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/UserChangeResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/UserChangeResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/UserChangeResponse"
                 }
               }
             }
+          },
+          "500": {
+            "description": "Unhandled error, validate the error log."
           }
         }
       }
     },
-    "/api/Auth/UserValidation": {
+    "/api/Auth/UserValidation/UserValidation": {
       "get": {
         "tags": [
           "Auth"
         ],
-        "description": "This endpoint will validate if the user has any of the following states: \r\n\t\t\t\t\t\t\t\t\t\t\t   <ul><li>NotRegistered = 0</li><li>PreRegistered = 1</li><li>Registered = 2</li>\r\n\t\t\t\t\t\t\t\t\t\t\t   <li>OTPRequired = 3</li><li>SoftBlock = 4</li><li>HardBlock = 5</li>\r\n\t\t\t\t\t\t\t\t\t\t\t   <li>CancelledAccount = 8</li><li>FirstLoginOxxo = 20</li></ul>",
-        "operationId": "UserValidation",
+        "summary": "User Validation",
+        "description": "This endpoint will validate if the user has any of the following states: \r\n<ul><li>NotRegistered = 0</li><li>PreRegistered = 1</li><li>Registered = 2</li><li>OTPRequired = 3</li><li>SoftBlock = 4</li><li>HardBlock = 5</li><li>CancelledAccount = 8</li><li>FirstLoginOxxo = 20</li></ul>",
         "parameters": [
           {
             "name": "PhoneNumber",
@@ -404,7 +385,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Response",
+            "description": "Returns a status of the user.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -423,25 +404,8 @@
               }
             }
           },
-          "404": {
-            "description": "SPCI-404: User not found",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
+          "500": {
+            "description": "Unhandled error, validate the error log."
           }
         }
       }
@@ -461,20 +425,20 @@
             "style": "form",
             "schema": {
               "type": "string",
+              "description": "User phone number.",
               "example": "+521234567890"
-            },
-            "example": "+521234567890"
+            }
           },
           {
-            "name": "AnotherId",
+            "name": "DeviceId",
             "in": "query",
             "required": true,
             "style": "form",
             "schema": {
               "type": "string",
-              "example": "1"
-            },
-            "example": "1"
+              "description": "Device identifier",
+              "example": "A1B2C3D4E5"
+            }
           }
         ],
         "responses": {
@@ -605,9 +569,9 @@
             "style": "form",
             "schema": {
               "type": "string",
+              "description": "User Id",
               "example": "auth0|63b477d3b85540fe7e870500"
-            },
-            "example": "auth0|63b477d3b85540fe7e870500"
+            }
           },
           {
             "name": "PhoneNumber",
@@ -615,9 +579,9 @@
             "style": "form",
             "schema": {
               "type": "string",
-              "example": "+525544332211"
-            },
-            "example": "+525544332211"
+              "description": "User phone number.",
+              "example": "+521234567890"
+            }
           }
         ],
         "responses": {
@@ -669,7 +633,8 @@
         "tags": [
           "Auth"
         ],
-        "summary": "TokenValidator: validates that the token sent is correct",
+        "description": "validates that the token sent is correct",
+        "operationId": "GetUserProfile",
         "responses": {
           "200": {
             "description": "Success"
@@ -677,15 +642,14 @@
         }
       }
     },
-    "/api/Auth/UpdateUserProfile/UpdateUserProfile": {
+    "/api/Auth/UpdateUserProfile": {
       "patch": {
         "tags": [
           "Auth"
         ],
-        "summary": "UpdateUserProfile",
         "description": "Updates the partial information of user.",
+        "operationId": "UpdateUserProfile",
         "requestBody": {
-          "description": "*User information.*",
           "content": {
             "application/json": {
               "schema": {
@@ -710,13 +674,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
           },
           "401": {
-            "description": "- Invalid token (SPCI-401-7): the given token is not valid.\r\n- Invalid token (SPCI-401-8): the scope header is invalid.\r\n- Nethone request a review (SPNE-401): review the user.\r\n- Nethone refuse the request (SPNE-402): user refused.",
+            "description": "- Invalid token (SPCI-401-7): the given token is not valid.\n- Invalid token (SPCI-401-8): the scope header is invalid.\n- Nethone request a review (SPNE-401): review the user.\n- Nethone refuse the request (SPNE-402): user refused.",
             "content": {
               "application/json": {
                 "schema": {
@@ -736,7 +700,7 @@
             }
           },
           "500": {
-            "description": "- Loyalty User was not able to create (SPCI-500): if the user not exists in Loyalty.\r\n- Unhandled error, is necesary validate the log.",
+            "description": "- Loyalty User was not able to create (SPCI-500): if the user not exists in Loyalty.\n- Unhandled error, is necesary validate the log.",
             "content": {
               "application/json": {
                 "schema": {
@@ -748,15 +712,14 @@
         }
       }
     },
-    "/api/Auth/RecoveryUserPassword/RecoveryUserPassword": {
+    "/api/Auth/RecoveryUserPassword": {
       "post": {
         "tags": [
           "Auth"
         ],
-        "summary": "RecoveryUserPassword",
-        "description": "Recovery an user's password, based on the requested data",
+        "description": "Recovery an user's password, based on the requested data.",
+        "operationId": "RecoveryUserPassword",
         "requestBody": {
-          "description": "*User information with the new password.*",
           "content": {
             "application/json": {
               "schema": {
@@ -777,7 +740,7 @@
             }
           },
           "401": {
-            "description": "- Invalid token (SPCI-401-7): the given token is not valid.\r\n- Invalid token (SPCI-401-8): the scope header is invalid.",
+            "description": "- Invalid token (SPCI-401-7): the given token is not valid.\n- Invalid token (SPCI-401-8): the scope header is invalid.",
             "content": {
               "application/json": {
                 "schema": {
@@ -787,7 +750,7 @@
             }
           },
           "500": {
-            "description": "- ChangeUserPassword User Not Found in Auth0 (SPCI-500): error.\r\n- Invalid grant to recover password (SPCI-500): error.\r\n- RecoveryUserPassword User Not Found in Auth0. (SPCI-500): error.\r\n- Unhandled error, is necesary validate the log.",
+            "description": "- ChangeUserPassword User Not Found in Auth0 (SPCI-500): error. \n- Invalid grant to recover password (SPCI-500): error. \n- RecoveryUserPassword User Not Found in Auth0. (SPCI-500): error.\n- Unhandled error, is necesary validate the log.\n",
             "content": {
               "application/json": {
                 "schema": {
@@ -804,10 +767,9 @@
         "tags": [
           "Auth"
         ],
-        "summary": "CancelUserAccount",
-        "description": "Endpoint in charge of canceling a user's account with the requested data.",
+        "description": "Recovery an user's password, based on the requested data.",
+        "operationId": "CancelUserAccount",
         "requestBody": {
-          "description": "*User information with the cancel the account.*",
           "content": {
             "application/json": {
               "schema": {
@@ -818,7 +780,7 @@
         },
         "responses": {
           "200": {
-            "description": "The account is close correctly",
+            "description": "The account is close correctly.",
             "content": {
               "application/json": {
                 "schema": {
@@ -838,7 +800,7 @@
             }
           },
           "500": {
-            "description": "- CancelUserAccount User Not Found in Auth0 (SPCI-500): error.\r\n- CancelUserAccount invalid grant.(SPCI-500): error.\r\n- Generic error from Auth0 Service.(SPCI-500): error.\r\n- Unhandled error, is necesary validate the log.",
+            "description": "- CancelUserAccount User Not Found in Auth0 (SPCI-500): error.\n- CancelUserAccount invalid grant.(SPCI-500): error.\n- Generic error from Auth0 Service.(SPCI-500): error.\n- Unhandled error, is necesary validate the log.",
             "content": {
               "application/json": {
                 "schema": {
@@ -850,7 +812,7 @@
         }
       }
     },
-    "/api/Health": {
+    "/api/Health/Health": {
       "get": {
         "tags": [
           "Health"
@@ -865,7 +827,7 @@
         }
       }
     },
-    "/ciam/api/Nethone/NethoneTransactionConfirm": {
+    "/api/Nethone/NethoneTransactionConfirm": {
       "put": {
         "tags": [
           "Nethone"
@@ -899,7 +861,7 @@
         }
       }
     },
-    "/ciam/api/Nethone/NethoneTransaction": {
+    "/api/Nethone/NethoneTransaction": {
       "post": {
         "tags": [
           "Nethone"
@@ -933,7 +895,7 @@
         }
       }
     },
-    "/ciam/api/Nethone/NethoneRecommendation": {
+    "/api/Nethone/NethoneRecommendation": {
       "post": {
         "tags": [
           "Nethone"
@@ -967,7 +929,7 @@
         }
       }
     },
-    "/ciam/api/Nethone/NethoneRecommendationPay": {
+    "/api/Nethone/NethoneRecommendationPay": {
       "post": {
         "tags": [
           "Nethone"
@@ -990,7 +952,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/JsonContent"
+                  "$ref": "#/components/schemas/NethoneResponse"
                 }
               }
             }
@@ -1035,106 +997,6 @@
             "minLength": 1,
             "type": "string",
             "example": "v1.McGUUd_CL7lc4UjVa2jlAgAG7lCyif14ItPqa_VyqXbeLfR1IpHdqu02QT3XuSsGekr0zfh3PJBszwsWGnC8lJw"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Assembly": {
-        "type": "object",
-        "properties": {
-          "definedTypes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TypeInfo"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "exportedTypes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Type"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "codeBase": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true,
-            "deprecated": true
-          },
-          "entryPoint": {
-            "$ref": "#/components/schemas/MethodInfo"
-          },
-          "fullName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "imageRuntimeVersion": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "isDynamic": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "location": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "reflectionOnly": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isCollectible": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isFullyTrusted": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "customAttributes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomAttributeData"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "escapedCodeBase": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true,
-            "deprecated": true
-          },
-          "manifestModule": {
-            "$ref": "#/components/schemas/Module"
-          },
-          "modules": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Module"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "globalAssemblyCache": {
-            "type": "boolean",
-            "readOnly": true,
-            "deprecated": true
-          },
-          "hostContext": {
-            "type": "integer",
-            "format": "int64",
-            "readOnly": true
-          },
-          "securityRuleSet": {
-            "$ref": "#/components/schemas/SecurityRuleSet"
           }
         },
         "additionalProperties": false
@@ -1195,17 +1057,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "CallingConventions": {
-        "enum": [
-          1,
-          2,
-          3,
-          32,
-          64
-        ],
-        "type": "integer",
-        "format": "int32"
       },
       "CambiarCuentaRespuesta": {
         "required": [
@@ -1377,199 +1228,6 @@
         },
         "additionalProperties": false
       },
-      "ConstructorInfo": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "declaringType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "reflectedType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "module": {
-            "$ref": "#/components/schemas/Module"
-          },
-          "customAttributes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomAttributeData"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "isCollectible": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "metadataToken": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/MethodAttributes"
-          },
-          "methodImplementationFlags": {
-            "$ref": "#/components/schemas/MethodImplAttributes"
-          },
-          "callingConvention": {
-            "$ref": "#/components/schemas/CallingConventions"
-          },
-          "isAbstract": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isConstructor": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isFinal": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isHideBySig": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSpecialName": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isStatic": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isVirtual": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isAssembly": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isFamily": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isFamilyAndAssembly": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isFamilyOrAssembly": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isPrivate": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isPublic": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isConstructedGenericMethod": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isGenericMethod": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isGenericMethodDefinition": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "containsGenericParameters": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "methodHandle": {
-            "$ref": "#/components/schemas/RuntimeMethodHandle"
-          },
-          "isSecurityCritical": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSecuritySafeCritical": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSecurityTransparent": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "memberType": {
-            "$ref": "#/components/schemas/MemberTypes"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CustomAttributeData": {
-        "type": "object",
-        "properties": {
-          "attributeType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "constructor": {
-            "$ref": "#/components/schemas/ConstructorInfo"
-          },
-          "constructorArguments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomAttributeTypedArgument"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "namedArguments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomAttributeNamedArgument"
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CustomAttributeNamedArgument": {
-        "type": "object",
-        "properties": {
-          "memberInfo": {
-            "$ref": "#/components/schemas/MemberInfo"
-          },
-          "typedValue": {
-            "$ref": "#/components/schemas/CustomAttributeTypedArgument"
-          },
-          "memberName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "isField": {
-            "type": "boolean",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CustomAttributeTypedArgument": {
-        "type": "object",
-        "properties": {
-          "argumentType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "value": {
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "DeclaredIp": {
         "type": "object",
         "properties": {
@@ -1691,212 +1349,6 @@
         },
         "additionalProperties": false
       },
-      "EventAttributes": {
-        "enum": [
-          0,
-          512,
-          1024
-        ],
-        "type": "integer",
-        "format": "int32"
-      },
-      "EventInfo": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "declaringType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "reflectedType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "module": {
-            "$ref": "#/components/schemas/Module"
-          },
-          "customAttributes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomAttributeData"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "isCollectible": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "metadataToken": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "memberType": {
-            "$ref": "#/components/schemas/MemberTypes"
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/EventAttributes"
-          },
-          "isSpecialName": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "addMethod": {
-            "$ref": "#/components/schemas/MethodInfo"
-          },
-          "removeMethod": {
-            "$ref": "#/components/schemas/MethodInfo"
-          },
-          "raiseMethod": {
-            "$ref": "#/components/schemas/MethodInfo"
-          },
-          "isMulticast": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "eventHandlerType": {
-            "$ref": "#/components/schemas/Type"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FieldAttributes": {
-        "enum": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          16,
-          32,
-          64,
-          128,
-          256,
-          512,
-          1024,
-          4096,
-          8192,
-          32768,
-          38144
-        ],
-        "type": "integer",
-        "format": "int32"
-      },
-      "FieldInfo": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "declaringType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "reflectedType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "module": {
-            "$ref": "#/components/schemas/Module"
-          },
-          "customAttributes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomAttributeData"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "isCollectible": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "metadataToken": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "memberType": {
-            "$ref": "#/components/schemas/MemberTypes"
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/FieldAttributes"
-          },
-          "fieldType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "isInitOnly": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isLiteral": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isNotSerialized": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isPinvokeImpl": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSpecialName": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isStatic": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isAssembly": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isFamily": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isFamilyAndAssembly": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isFamilyOrAssembly": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isPrivate": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isPublic": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSecurityCritical": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSecuritySafeCritical": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSecurityTransparent": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "fieldHandle": {
-            "$ref": "#/components/schemas/RuntimeFieldHandle"
-          }
-        },
-        "additionalProperties": false
-      },
       "Fingerprint": {
         "type": "object",
         "properties": {
@@ -1966,20 +1418,6 @@
         },
         "additionalProperties": false
       },
-      "GenericParameterAttributes": {
-        "enum": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          8,
-          16,
-          28
-        ],
-        "type": "integer",
-        "format": "int32"
-      },
       "HttpStatusCode": {
         "enum": [
           100,
@@ -2047,10 +1485,6 @@
         "type": "integer",
         "format": "int32"
       },
-      "ICustomAttributeProvider": {
-        "type": "object",
-        "additionalProperties": false
-      },
       "Info": {
         "type": "object",
         "properties": {
@@ -2066,40 +1500,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "IntPtr": {
-        "type": "object",
-        "additionalProperties": false
-      },
-      "JsonContent": {
-        "type": "object",
-        "properties": {
-          "headers": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/StringStringIEnumerableKeyValuePair"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "objectType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "value": {
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "LayoutKind": {
-        "enum": [
-          0,
-          2,
-          3
-        ],
-        "type": "integer",
-        "format": "int32"
       },
       "LoginRequest": {
         "required": [
@@ -2130,443 +1530,6 @@
             "type": "string",
             "nullable": true,
             "example": "A1B2C3D4E5"
-          }
-        },
-        "additionalProperties": false
-      },
-      "MemberInfo": {
-        "type": "object",
-        "properties": {
-          "memberType": {
-            "$ref": "#/components/schemas/MemberTypes"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "declaringType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "reflectedType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "module": {
-            "$ref": "#/components/schemas/Module"
-          },
-          "customAttributes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomAttributeData"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "isCollectible": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "metadataToken": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "MemberTypes": {
-        "enum": [
-          1,
-          2,
-          4,
-          8,
-          16,
-          32,
-          64,
-          128,
-          191
-        ],
-        "type": "integer",
-        "format": "int32"
-      },
-      "MethodAttributes": {
-        "enum": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8,
-          16,
-          32,
-          64,
-          128,
-          256,
-          512,
-          1024,
-          2048,
-          4096,
-          8192,
-          16384,
-          32768,
-          53248
-        ],
-        "type": "integer",
-        "format": "int32"
-      },
-      "MethodBase": {
-        "type": "object",
-        "properties": {
-          "memberType": {
-            "$ref": "#/components/schemas/MemberTypes"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "declaringType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "reflectedType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "module": {
-            "$ref": "#/components/schemas/Module"
-          },
-          "customAttributes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomAttributeData"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "isCollectible": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "metadataToken": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/MethodAttributes"
-          },
-          "methodImplementationFlags": {
-            "$ref": "#/components/schemas/MethodImplAttributes"
-          },
-          "callingConvention": {
-            "$ref": "#/components/schemas/CallingConventions"
-          },
-          "isAbstract": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isConstructor": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isFinal": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isHideBySig": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSpecialName": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isStatic": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isVirtual": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isAssembly": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isFamily": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isFamilyAndAssembly": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isFamilyOrAssembly": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isPrivate": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isPublic": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isConstructedGenericMethod": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isGenericMethod": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isGenericMethodDefinition": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "containsGenericParameters": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "methodHandle": {
-            "$ref": "#/components/schemas/RuntimeMethodHandle"
-          },
-          "isSecurityCritical": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSecuritySafeCritical": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSecurityTransparent": {
-            "type": "boolean",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "MethodImplAttributes": {
-        "enum": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          8,
-          16,
-          32,
-          64,
-          128,
-          256,
-          512,
-          4096,
-          65535
-        ],
-        "type": "integer",
-        "format": "int32"
-      },
-      "MethodInfo": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "declaringType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "reflectedType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "module": {
-            "$ref": "#/components/schemas/Module"
-          },
-          "customAttributes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomAttributeData"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "isCollectible": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "metadataToken": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/MethodAttributes"
-          },
-          "methodImplementationFlags": {
-            "$ref": "#/components/schemas/MethodImplAttributes"
-          },
-          "callingConvention": {
-            "$ref": "#/components/schemas/CallingConventions"
-          },
-          "isAbstract": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isConstructor": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isFinal": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isHideBySig": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSpecialName": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isStatic": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isVirtual": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isAssembly": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isFamily": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isFamilyAndAssembly": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isFamilyOrAssembly": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isPrivate": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isPublic": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isConstructedGenericMethod": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isGenericMethod": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isGenericMethodDefinition": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "containsGenericParameters": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "methodHandle": {
-            "$ref": "#/components/schemas/RuntimeMethodHandle"
-          },
-          "isSecurityCritical": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSecuritySafeCritical": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSecurityTransparent": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "memberType": {
-            "$ref": "#/components/schemas/MemberTypes"
-          },
-          "returnParameter": {
-            "$ref": "#/components/schemas/ParameterInfo"
-          },
-          "returnType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "returnTypeCustomAttributes": {
-            "$ref": "#/components/schemas/ICustomAttributeProvider"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Module": {
-        "type": "object",
-        "properties": {
-          "assembly": {
-            "$ref": "#/components/schemas/Assembly"
-          },
-          "fullyQualifiedName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "mdStreamVersion": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "moduleVersionId": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "scopeName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "moduleHandle": {
-            "$ref": "#/components/schemas/ModuleHandle"
-          },
-          "customAttributes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomAttributeData"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "metadataToken": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ModuleHandle": {
-        "type": "object",
-        "properties": {
-          "mdStreamVersion": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -2705,93 +1668,6 @@
         },
         "additionalProperties": false
       },
-      "ParameterAttributes": {
-        "enum": [
-          0,
-          1,
-          2,
-          4,
-          8,
-          16,
-          4096,
-          8192,
-          16384,
-          32768,
-          61440
-        ],
-        "type": "integer",
-        "format": "int32"
-      },
-      "ParameterInfo": {
-        "type": "object",
-        "properties": {
-          "attributes": {
-            "$ref": "#/components/schemas/ParameterAttributes"
-          },
-          "member": {
-            "$ref": "#/components/schemas/MemberInfo"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "parameterType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "position": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "isIn": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isLcid": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isOptional": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isOut": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isRetval": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "defaultValue": {
-            "nullable": true,
-            "readOnly": true
-          },
-          "rawDefaultValue": {
-            "nullable": true,
-            "readOnly": true
-          },
-          "hasDefaultValue": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "customAttributes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomAttributeData"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "metadataToken": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
       "PerfilUsuario": {
         "type": "object",
         "properties": {
@@ -2891,84 +1767,6 @@
         },
         "additionalProperties": { }
       },
-      "PropertyAttributes": {
-        "enum": [
-          0,
-          512,
-          1024,
-          4096,
-          8192,
-          16384,
-          32768,
-          62464
-        ],
-        "type": "integer",
-        "format": "int32"
-      },
-      "PropertyInfo": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "declaringType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "reflectedType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "module": {
-            "$ref": "#/components/schemas/Module"
-          },
-          "customAttributes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomAttributeData"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "isCollectible": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "metadataToken": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "memberType": {
-            "$ref": "#/components/schemas/MemberTypes"
-          },
-          "propertyType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/PropertyAttributes"
-          },
-          "isSpecialName": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "canRead": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "canWrite": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "getMethod": {
-            "$ref": "#/components/schemas/MethodInfo"
-          },
-          "setMethod": {
-            "$ref": "#/components/schemas/MethodInfo"
-          }
-        },
-        "additionalProperties": false
-      },
       "RecuperarContrasena": {
         "required": [
           "newPassword"
@@ -3012,6 +1810,7 @@
           "refreshToken": {
             "minLength": 1,
             "type": "string",
+            "description": "Refresh access token given.",
             "example": "v1.McGUUd_CL7lc4UjVa2jlAgAG7lCyif14ItPqa_VyqXbeLfR1IpHdqu02QT3XuSsGekr0zfh3PJBszwsWGnC8lJw"
           }
         },
@@ -3026,6 +1825,7 @@
           "refreshToken": {
             "minLength": 1,
             "type": "string",
+            "description": "Refresh access token given.",
             "example": "v1.McGUUd_CL7lc4UjVa2jlAgAG7lCyif14ItPqa_VyqXbeLfR1IpHdqu02QT3XuSsGekr0zfh3PJBszwsWGnC8lJw"
           }
         },
@@ -3056,42 +1856,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "RuntimeFieldHandle": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/IntPtr"
-          }
-        },
-        "additionalProperties": false
-      },
-      "RuntimeMethodHandle": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/IntPtr"
-          }
-        },
-        "additionalProperties": false
-      },
-      "RuntimeTypeHandle": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/IntPtr"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SecurityRuleSet": {
-        "enum": [
-          0,
-          1,
-          2
-        ],
-        "type": "integer",
-        "format": "int32"
       },
       "SignupRequest": {
         "required": [
@@ -3148,724 +1912,6 @@
             "type": "string",
             "nullable": true,
             "example": "A1B2C3D4E5"
-          }
-        },
-        "additionalProperties": false
-      },
-      "StringStringIEnumerableKeyValuePair": {
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string",
-            "nullable": true
-          },
-          "value": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "StructLayoutAttribute": {
-        "type": "object",
-        "properties": {
-          "typeId": {
-            "nullable": true,
-            "readOnly": true
-          },
-          "value": {
-            "$ref": "#/components/schemas/LayoutKind"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Type": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "customAttributes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomAttributeData"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "isCollectible": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "metadataToken": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "isInterface": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "memberType": {
-            "$ref": "#/components/schemas/MemberTypes"
-          },
-          "namespace": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "assemblyQualifiedName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "fullName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "assembly": {
-            "$ref": "#/components/schemas/Assembly"
-          },
-          "module": {
-            "$ref": "#/components/schemas/Module"
-          },
-          "isNested": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "declaringType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "declaringMethod": {
-            "$ref": "#/components/schemas/MethodBase"
-          },
-          "reflectedType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "underlyingSystemType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "isTypeDefinition": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isArray": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isByRef": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isPointer": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isConstructedGenericType": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isGenericParameter": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isGenericTypeParameter": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isGenericMethodParameter": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isGenericType": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isGenericTypeDefinition": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSZArray": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isVariableBoundArray": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isByRefLike": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "hasElementType": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "genericTypeArguments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Type"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "genericParameterPosition": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "genericParameterAttributes": {
-            "$ref": "#/components/schemas/GenericParameterAttributes"
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/TypeAttributes"
-          },
-          "isAbstract": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isImport": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSealed": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSpecialName": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isClass": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isNestedAssembly": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isNestedFamANDAssem": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isNestedFamily": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isNestedFamORAssem": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isNestedPrivate": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isNestedPublic": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isNotPublic": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isPublic": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isAutoLayout": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isExplicitLayout": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isLayoutSequential": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isAnsiClass": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isAutoClass": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isUnicodeClass": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isCOMObject": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isContextful": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isEnum": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isMarshalByRef": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isPrimitive": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isValueType": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSignatureType": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSecurityCritical": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSecuritySafeCritical": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSecurityTransparent": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "structLayoutAttribute": {
-            "$ref": "#/components/schemas/StructLayoutAttribute"
-          },
-          "typeInitializer": {
-            "$ref": "#/components/schemas/ConstructorInfo"
-          },
-          "typeHandle": {
-            "$ref": "#/components/schemas/RuntimeTypeHandle"
-          },
-          "guid": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "baseType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "isSerializable": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "containsGenericParameters": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isVisible": {
-            "type": "boolean",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "TypeAttributes": {
-        "enum": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8,
-          16,
-          24,
-          32,
-          128,
-          256,
-          1024,
-          2048,
-          4096,
-          8192,
-          16384,
-          65536,
-          131072,
-          196608,
-          262144,
-          264192,
-          1048576,
-          12582912
-        ],
-        "type": "integer",
-        "format": "int32"
-      },
-      "TypeInfo": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "customAttributes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomAttributeData"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "isCollectible": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "metadataToken": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "isInterface": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "memberType": {
-            "$ref": "#/components/schemas/MemberTypes"
-          },
-          "namespace": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "assemblyQualifiedName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "fullName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "assembly": {
-            "$ref": "#/components/schemas/Assembly"
-          },
-          "module": {
-            "$ref": "#/components/schemas/Module"
-          },
-          "isNested": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "declaringType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "declaringMethod": {
-            "$ref": "#/components/schemas/MethodBase"
-          },
-          "reflectedType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "underlyingSystemType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "isTypeDefinition": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isArray": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isByRef": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isPointer": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isConstructedGenericType": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isGenericParameter": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isGenericTypeParameter": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isGenericMethodParameter": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isGenericType": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isGenericTypeDefinition": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSZArray": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isVariableBoundArray": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isByRefLike": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "hasElementType": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "genericTypeArguments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Type"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "genericParameterPosition": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "genericParameterAttributes": {
-            "$ref": "#/components/schemas/GenericParameterAttributes"
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/TypeAttributes"
-          },
-          "isAbstract": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isImport": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSealed": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSpecialName": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isClass": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isNestedAssembly": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isNestedFamANDAssem": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isNestedFamily": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isNestedFamORAssem": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isNestedPrivate": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isNestedPublic": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isNotPublic": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isPublic": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isAutoLayout": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isExplicitLayout": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isLayoutSequential": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isAnsiClass": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isAutoClass": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isUnicodeClass": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isCOMObject": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isContextful": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isEnum": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isMarshalByRef": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isPrimitive": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isValueType": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSignatureType": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSecurityCritical": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSecuritySafeCritical": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isSecurityTransparent": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "structLayoutAttribute": {
-            "$ref": "#/components/schemas/StructLayoutAttribute"
-          },
-          "typeInitializer": {
-            "$ref": "#/components/schemas/ConstructorInfo"
-          },
-          "typeHandle": {
-            "$ref": "#/components/schemas/RuntimeTypeHandle"
-          },
-          "guid": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "baseType": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "isSerializable": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "containsGenericParameters": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "isVisible": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "genericTypeParameters": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Type"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "declaredConstructors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConstructorInfo"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "declaredEvents": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EventInfo"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "declaredFields": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FieldInfo"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "declaredMembers": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MemberInfo"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "declaredMethods": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MethodInfo"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "declaredNestedTypes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TypeInfo"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "declaredProperties": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PropertyInfo"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "implementedInterfaces": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Type"
-            },
-            "nullable": true,
-            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -4003,17 +2049,17 @@
         "properties": {
           "firstName": {
             "type": "string",
-            "description": "FirstNameDescription property description goes here.",
+            "description": "User first Name",
             "nullable": true
           },
           "lastName": {
             "type": "string",
-            "description": "LastNameDescription property description goes here..",
+            "description": "User last Name.",
             "nullable": true
           },
           "email": {
             "type": "string",
-            "description": "EmailDescription property description goes here.",
+            "description": "User email.",
             "nullable": true
           }
         },
@@ -4033,44 +2079,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "ValidationProblemDetails": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "detail": {
-            "type": "string",
-            "nullable": true
-          },
-          "instance": {
-            "type": "string",
-            "nullable": true
-          },
-          "errors": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": { }
       }
     }
   },
