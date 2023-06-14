@@ -5,11 +5,14 @@ using RedocPro.Descriptions;
 using RedocPro.Entities.RequestPayloads;
 using RedocPro.Entities.ResponsePayloads;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Net.Mime;
 
 namespace RedocPro.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [Consumes(MediaTypeNames.Application.Json)]
+    [Produces(MediaTypeNames.Application.Json)]
     [SwaggerTag(Descriptions.ControllersDescriptions.UserController)]
     public class UserController : ControllerBase
     {

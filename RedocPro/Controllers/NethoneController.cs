@@ -2,12 +2,15 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RedocPro.Entities;
+using Swashbuckle.AspNetCore.Annotations;
+
 namespace RedocPro.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
     [Consumes(MediaTypeNames.Application.Json)]
     [Produces(MediaTypeNames.Application.Json)]
+    [SwaggerTag(Descriptions.ControllersDescriptions.NethoneController)]
     public class NethoneController : ControllerBase
     {
         private readonly ILogger<NethoneController> logger;

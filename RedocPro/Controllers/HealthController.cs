@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
+using System.Net.Mime;
 
 namespace RedocPro.Controllers
 {
@@ -17,6 +19,9 @@ namespace RedocPro.Controllers
     /// <response code="500">Unhandled error, validate the error log.</response>
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [Consumes(MediaTypeNames.Application.Json)]
+    [Produces(MediaTypeNames.Application.Json)]
+    [SwaggerTag(Descriptions.ControllersDescriptions.HealthController)]
     public class HealthController : ControllerBase
     {
         [HttpGet]

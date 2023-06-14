@@ -7,12 +7,15 @@ using RedocPro.Models.Requests;
 using RedocPro.Models.Responses;
 using RedocPro.Redoc;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Net.Mime;
 
 namespace RedocPro.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [SwaggerTag("List Auth endpoints.")]
+    [Consumes(MediaTypeNames.Application.Json)]
+    [Produces(MediaTypeNames.Application.Json)]
+    [SwaggerTag(Descriptions.ControllersDescriptions.AuthController)]
     public class AuthController : ControllerBase
     {
         /// <summary>
@@ -114,7 +117,7 @@ namespace RedocPro.Controllers
         }
 
         [HttpGet]
-        [SwaggerOperation(OperationId = nameof(GetUserProfile), Description = EndpointsDescriptions.TokenValidatorDescription)]
+        [SwaggerOperation(OperationId = nameof(TokenValidator), Description = EndpointsDescriptions.TokenValidatorDescription)]
         [Route("TokenValidator")]
         [Consumes("application/json")]
         [Produces("application/json")]
