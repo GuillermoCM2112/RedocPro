@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using RedocPro.Descriptions;
 using RedocPro.Entities.RequestPayloads;
 using RedocPro.Entities.ResponsePayloads;
+using RedocPro.Models;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net.Mime;
 
@@ -13,23 +12,19 @@ namespace RedocPro.Controllers
     [ApiController]
     [Consumes(MediaTypeNames.Application.Json)]
     [Produces(MediaTypeNames.Application.Json)]
-    [SwaggerTag(Descriptions.ControllersDescriptions.UserController)]
+    [SwaggerTag(ControllersDescriptions.UserController)]
     public class UserController : ControllerBase
     {
         [HttpPost]
-        [SwaggerOperation(OperationId = nameof(AddTaCVersionResponse), Description = EndpointsDescriptions.AddTaCVersion)]
-        [SwaggerResponse(200, "Response", type: typeof(AddTaCVersionResponse))]
-        public async Task<IActionResult> AddTaCVersion([FromBody] AcceptTaCRequest request)
-        {
-            return this.Ok();
-        }
+        [SwaggerOperation(OperationId = nameof(AddTaCVersion), Description = EndpointsDescriptions.AddTaCVersion)]
+        [SwaggerResponse(200, EndpointsDescriptions.ResponsePost200, type: typeof(AddTaCVersionResponse))]
+        [SwaggerResponse(500, EndpointsDescriptions.Response500, type: typeof(Error))]
+        public IActionResult AddTaCVersion([FromBody] AcceptTaCRequest request) => this.Ok();
 
         [HttpGet]
-        [SwaggerOperation(OperationId = nameof(LatestTaCResponse), Description = EndpointsDescriptions.GetLatestTaC)]
-        [SwaggerResponse(200, "Response", type: typeof(LatestTaCResponse))]
-        public async Task<IActionResult> GetLatestTaC([FromQuery] GetLatestTaCRequest request)
-        {
-            return this.Ok();
-        }
+        [SwaggerOperation(OperationId = nameof(GetLatestTaC), Description = EndpointsDescriptions.GetLatestTaC)]
+        [SwaggerResponse(200, EndpointsDescriptions.ResponseGet200, type: typeof(LatestTaCResponse))]
+        [SwaggerResponse(500, EndpointsDescriptions.Response500, type: typeof(Error))]
+        public IActionResult GetLatestTaC([FromQuery] GetLatestTaCRequest request) => this.Ok();
     }
 }

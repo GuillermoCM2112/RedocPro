@@ -15,7 +15,7 @@ namespace RedocPro.Controllers
     [ApiController]
     [Consumes(MediaTypeNames.Application.Json)]
     [Produces(MediaTypeNames.Application.Json)]
-    [SwaggerTag(Descriptions.ControllersDescriptions.AuthController)]
+    [SwaggerTag(ControllersDescriptions.AuthController)]
     public class AuthController : ControllerBase
     {
         [HttpPost]
@@ -132,8 +132,6 @@ namespace RedocPro.Controllers
 
         #region UpdateUserProfile
         [HttpPatch]
-        [Consumes("application/json")]
-        [Produces("application/json")]
         //[Route(nameof(UpdateUserProfile))]
         [SwaggerSchemaExample(nameof(PerfilUsuario))]
         [SwaggerOperation(OperationId = nameof(UpdateUserProfile), Description = EndpointsDescriptions.UpdateUserProfileDescription)]
@@ -147,8 +145,6 @@ namespace RedocPro.Controllers
 
         #region RecoveryUserPassword
         [HttpPost]
-        [Consumes("application/json")]
-        [Produces("application/json")]
         //[Route(nameof(RecoveryUserPassword))]
         [SwaggerSchemaExample(nameof(RecuperarContrasena))]
         [SwaggerOperation(OperationId = nameof(RecoveryUserPassword), Description = EndpointsDescriptions.RecoveryUserPasswordDescription)]
@@ -160,8 +156,6 @@ namespace RedocPro.Controllers
 
         #region CancelUserAccount
         [HttpPost]
-        [Consumes("application/json")]
-        [Produces("application/json")]
         //[Route(nameof(CancelUserAccount))]
         [SwaggerSchemaExample(nameof(CancelarCuenta))]
         [SwaggerOperation(OperationId = nameof(CancelUserAccount), Description = EndpointsDescriptions.CancelUserAccountDescription)]

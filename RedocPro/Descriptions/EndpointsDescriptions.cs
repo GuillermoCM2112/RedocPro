@@ -20,6 +20,11 @@
         public const string AddTaCVersion = @"This endpoint will accept the TaC Version.";
         public const string GetLatestTaC = @"This endpoint will get the TaC Version.";
 
+        public const string Response500 = @"- Unhandled error, is necesary validate the log.";
+        public const string ResponsePost200 = @"Resource created successfully.";
+        public const string ResponseGet200 = @"Information obtained correctly.";
+
+
         public const string UpdateUserProfileDescription = @"Updates the partial information of user.";
         public const string UpdateUserProfile200Description = @"The information is updated correctly";
         public const string UpdateUserProfile400Description = @"- The information is wrong (SPCI-400): the email provided is not valid.";
