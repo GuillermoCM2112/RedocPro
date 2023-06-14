@@ -55,8 +55,7 @@ jobs:
     - name: Instalacion de Redoc CLI y Deploy
       run: |
         npm install -g redoc-cli@latest
-        redoc-cli bundle ./swagger.json --output ./index.html --template.theme=swagger
-
+        redoc-cli bundle ./swagger.json --output ./index.html
     - name: Deploy en GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
