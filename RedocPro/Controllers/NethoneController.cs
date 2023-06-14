@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RedocPro.Entities;
+using RedocPro.Entities.RequestPayloads;
+using RedocPro.Entities.ResponsePayloads;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace RedocPro.Controllers
@@ -20,57 +22,66 @@ namespace RedocPro.Controllers
             this.logger = logger;
         }
 
-        /// <summary> 
-        /// NethoneTransactionConfirm 
+        /// <summary>
+        /// NethoneTransactionConfirm: Validates Nethone transaction integrity
         /// </summary>
-        /// <remarks>
-        /// Validates transaction integrity. 
-        /// </remarks>
-        /// <response code="200">Returns access token information.</response>
-        /// <response code="500">Unhandled error, validate the error log.</response>
-        /// <param name="request">Nethone request</param> 
-        /// <returns></returns>
+        /// <param name="request">The Nethone flags to validate.</param>
+        /// <response code="200">Returns payment token information.</response>
+        /// <response code="404">Unhandled error, validate the error log.</response>
+        /// <response code="402">Auth0 error,validate the error log.</response>
+        /// <returns>Payment token information.</returns> 
         [HttpPut]
+        [ProducesResponseType(200, Type = typeof(AccessResponse))]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status402PaymentRequired)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)] 
         [ProducesResponseType(200, Type = typeof(NethoneResponseConfirm))]
         public async Task<IActionResult> NethoneTransactionConfirm([FromBody] FlagsNethoneConfirm request)
         {
             return this.Ok("0.1.5");
         }
 
+
+
         /// <summary>
-        /// NethoneTransaction 
+        /// NethoneTransaction: Process Nethone transaction
         /// </summary>
-        /// <remarks>
-        /// Process Nethone transaction.
-        /// /// </remarks>
-        /// <response code="200">Returns access token information.</response>
-        /// <response code="500">Unhandled error, validate the error log.</response>
-        /// <param name="request">Nethone request</param>
-        /// <returns></returns>
+        /// <param name="request">The Nethone flags to validate.</param>
+        /// <response code="200">Returns payment token information.</response>
+        /// <response code="404">Unhandled error, validate the error log.</response>
+        /// <response code="402">Auth0 error,validate the error log.</response>
+        /// <returns>Payment token information.</returns> 
         [HttpPost]
+        [ProducesResponseType(200, Type = typeof(AccessResponse))]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status402PaymentRequired)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(200, Type = typeof(NethoneResponseConfirm))]
         public async Task<IActionResult> NethoneTransaction([FromBody] NethoneTransactionRequest request)
         {
             return this.Ok("0.1.5");
         }
 
-        /// <summary>
-        /// NethoneRecommendation 
-        /// </summary>
-        /// <remarks>
-        /// Process Nethone recommendation.
-        /// </remarks>
-        /// <response code="200">Returns access token information.</response>
-        /// <response code="500">Unhandled error, validate the error log.</response>
-        /// <param name="request">Nethone request</param>
-        /// <returns></returns>
 
+
+        /// <summary>
+        /// NethoneRecommendation: Process Nethone recommendation
+        /// </summary>
+        /// <param name="request">The Nethone flags to validate.</param>
+        /// <response code="200">Returns payment token information.</response>
+        /// <response code="404">Unhandled error, validate the error log.</response>
+        /// <response code="402">Auth0 error,validate the error log.</response>
+        /// <returns>Payment token information.</returns> 
         [HttpPost]
-        [ProducesResponseType(200, Type = typeof(NethoneResponse))]
+        [ProducesResponseType(200, Type = typeof(AccessResponse))]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)] 
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(200, Type = typeof(NethoneResponse))]  
         public async Task<IActionResult> NethoneRecommendation([FromBody] NewNethoneRequest request)
         {
             return this.Ok("0.1.5");
         }
+
         /// <summary>
         /// NethoneRecommendationPay: check if the data has suspicious or fraudulent activity
         /// </summary>
