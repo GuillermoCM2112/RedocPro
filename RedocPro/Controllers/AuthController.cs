@@ -160,7 +160,6 @@ namespace RedocPro.Controllers
 
         #region CancelUserAccount
         [HttpPost]
-        [Route("CancelUserAccount")]
         [Consumes("application/json")]
         [Produces("application/json")]
         //[Route(nameof(CancelUserAccount))]
