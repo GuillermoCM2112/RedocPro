@@ -2,6 +2,7 @@
 using RedocPro.Redoc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography.Xml;
 
 namespace RedocPro.Entities.RequestPayloads
 {
@@ -13,6 +14,7 @@ namespace RedocPro.Entities.RequestPayloads
         /// <example>+515555555555</example>
         [Required]
         [StringLength(50, MinimumLength = 10)]
+
         public string Username { get; set; } = string.Empty;
 
         /// <example>thisIsA%%pwd0</example>
@@ -78,53 +80,73 @@ namespace RedocPro.Entities.RequestPayloads
 
     public class UpdatePasswordRequest
     {
-        /// <example>auth0|63af137d053f56ab291e7112</example>
-        /// <summary>User Id Auth0</summary>
         [Required]
+        [SwaggerSchema(Description = PropertiesDescriptions.UserIdDescription)]
+        [SwaggerSchemaExample("auth0|63b477d3b85540fe7e870500")]
         public string UserId { get; set; } = string.Empty;
 
-        /// <example>th1sIsANew%%pwd</example>
-        /// <summary>New password</summary>
         [Required]
+        [SwaggerSchema(Description = "User New password")]
+        [SwaggerSchemaExample("th1sIsANew%%pwd")]
         [StringLength(50, MinimumLength = 8)]
         public string NewPassword { get; set; } = string.Empty;
-        /// <example>th1sIsAOld%%pwd</example>
-        /// <summary>Current password</summary>
+
         [StringLength(50, MinimumLength = 8)]
+        [SwaggerSchema(Description = "User Current password")]
+        [SwaggerSchemaExample("th1sIsAOld%%pwd")]
         public string CurrentPassword { get; set; } = string.Empty;
     }
     public class UpdateUserRequest
     {
-        /// <example>auth0|63b477d3b85540fe7e870500</example>
-        /// <summary>User Id Auth0</summary>
-
         [Required]
+        [SwaggerSchema(Description = PropertiesDescriptions.UserIdDescription)]
+        [SwaggerSchemaExample("auth0|63b477d3b85540fe7e870500")]
         public string UserId { get; set; } = string.Empty;
 
-        /// <example>examplemail@cool.domain.com</example>
-        /// <summary> The email of user. </summary>
+        [SwaggerSchema(Description = PropertiesDescriptions.EmailDescription)]
+        [SwaggerSchemaExample("examplemail@cool.domain.com")]
         [StringLength(50)]
         public string Email { get; set; } = string.Empty;
 
-        /// <example>+515555555555</example>
-        /// <summary> The phone of user. </summary>
+        [SwaggerSchema(Description = PropertiesDescriptions.PhoneNumber)]
+        [SwaggerSchemaExample("+521234567890")]
         public string PhoneNumber { get; set; } = string.Empty;
     }
     public class UserValidationRequest
     {
-        /// <example>+515555555555</example>
-        /// <summary> The phone of user. </summary>
         [Required]
         [StringLength(14, MinimumLength = 10)]
+        [SwaggerSchema(Description = PropertiesDescriptions.PhoneNumber)]
+        [SwaggerSchemaExample("+521234567890")]
         public string PhoneNumber { get; set; } = string.Empty;
 
-        /// <example>x1234ABCD</example>
-        /// <summary> Device Id of user. </summary>
         [Required]
+        [SwaggerSchema(Description = PropertiesDescriptions.DeviceIdDescription)]
+		[SwaggerSchemaExample("A1B2C3D4E5")]
         public string DeviceId { get; set; } = string.Empty;
 
-        /// <example>A1B2C3D4E5</example>
-        /// <summary> Attempt Reference. </summary>
+        [SwaggerSchema(Description = PropertiesDescriptions.AttemptReferenceDescription)]
+        [SwaggerSchemaExample("A1B2C3D4E5")]
         public string? AttemptReference { get; set; } = string.Empty;
+    }
+    public class AcceptTaCRequest
+    {
+        [Required]
+        [SwaggerSchema(Description = PropertiesDescriptions.UserIdDescription)]
+        [SwaggerSchemaExample("auth0|63b477d3b85540fe7e870500")]
+        public string UserId { get; set; } = string.Empty;
+
+        [Required]
+        [SwaggerSchema(Description = "Version TaC")]
+        [SwaggerSchemaExample("V1.0")]
+        public string TaCVersion { get; set; } = string.Empty;
+    }
+
+    public class GetLatestTaCRequest
+    {
+        [SwaggerSchema(Description = PropertiesDescriptions.UserIdDescription)]
+        [SwaggerSchemaExample("auth0|63b477d3b85540fe7e870500")]
+        [Required]
+        public string UserId { get; set; } = string.Empty;
     }
 }

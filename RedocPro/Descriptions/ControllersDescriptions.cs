@@ -1,7 +1,8 @@
 ﻿namespace RedocPro.Descriptions
 {
-    public static class ControllersDescriptions
-    {
-        public const string AuthController = @"Auth controller description goes here.";
+	public static class ControllersDescriptions
+	{
+		public const string AuthController = @"Auth controller description goes here.";
+		public const string UserController = @"User controller description goes here.";
     }
 }
