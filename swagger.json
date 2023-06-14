@@ -661,12 +661,14 @@
         "tags": [
           "Health"
         ],
+        "description": "Validate that the API is online.",
+        "operationId": "Health",
         "responses": {
           "200": {
-            "description": "Returns a 200 if the API is online."
+            "description": "Returns a 200 with the version if the API is online."
           },
           "500": {
-            "description": "Unhandled error, validate the error log."
+            "description": "- Unhandled error, is necesary validate the log."
           }
         }
       }
@@ -871,7 +873,7 @@
           "User"
         ],
         "description": "This endpoint will accept the TaC Version.",
-        "operationId": "AddTaCVersionResponse",
+        "operationId": "AddTaCVersion",
         "requestBody": {
           "content": {
             "application/json": {
@@ -883,11 +885,21 @@
         },
         "responses": {
           "200": {
-            "description": "Response",
+            "description": "Resource created successfully.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AddTaCVersionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "- Unhandled error, is necesary validate the log.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -901,7 +913,7 @@
           "User"
         ],
         "description": "This endpoint will get the TaC Version.",
-        "operationId": "LatestTaCResponse",
+        "operationId": "GetLatestTaC",
         "parameters": [
           {
             "name": "UserId",
@@ -917,11 +929,21 @@
         ],
         "responses": {
           "200": {
-            "description": "Response",
+            "description": "Information obtained correctly.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/LatestTaCResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "- Unhandled error, is necesary validate the log.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
