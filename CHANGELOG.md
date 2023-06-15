@@ -1,4 +1,12 @@
 - Update RedocDocumentacion.yml
+- Delete pre-commit.yml
+- Update RedocDocumentacion.yml
+- Update RedocDocumentacion.yml
+- merge
+- [test]
+- [test]
+- Actualizar archivo JSON
+- Update RedocDocumentacion.yml
 - Actualizar archivo JSON
 - local merge
 - dotnet format
