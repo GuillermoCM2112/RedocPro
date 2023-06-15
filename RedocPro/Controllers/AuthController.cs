@@ -79,7 +79,7 @@ namespace RedocPro.Controllers
         [SwaggerOperation(OperationId = nameof(UserValidation), Description = EndpointsDescriptions.UserValidation)]
         [SwaggerResponse(200, "Response", type: typeof(UserValidationResponse))]
         [SwaggerResponse(404, "SPCI-404: User not found", type: typeof(Error))]
-        public async Task<IActionResult> UserValidation([FromQuery] UserValidationRequest request)
+        public IActionResult UserValidation([FromQuery] UserValidationRequest request)
         {
             return this.Ok();
         }
