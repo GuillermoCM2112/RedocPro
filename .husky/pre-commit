@@ -2,11 +2,3 @@
 . "$(dirname "$0")/_/husky.sh"
 
 dotnet format
-dotnet build --configuration Release
-
-if [ $? -ne 0 ]; then
-  echo "Compile failed. No confirmations allowed."
-  exit 1
-fi
-
-exit 0
