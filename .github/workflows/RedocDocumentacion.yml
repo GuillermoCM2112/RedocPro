@@ -56,7 +56,7 @@ jobs:
             git pull origin main
             git stash apply
             git add .
-            git commit -m "Actualizar archivo JSON"
+            git -c user.name="Guillermo Coba Montoya" -c user.email="guillermo.coba@digitalfemsa.com" commit -m "Actualizar archivo JSON"
             git push origin main
           else
             echo "No hay cambios para actualizar en la rama main"
