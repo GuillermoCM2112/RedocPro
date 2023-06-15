@@ -60,7 +60,7 @@ namespace RedocPro.Controllers
         [SwaggerOperation(OperationId = nameof(ChangeUserPassword), Description = EndpointsDescriptions.ChangeUserPassword)]
         [SwaggerResponse(200, "Response", type: typeof(UserChangeResponse))]
         [SwaggerResponse(404, "SPCI-404: User not found", type: typeof(Error))]
-        public async Task<IActionResult> ChangeUserPassword([FromBody] UpdatePasswordRequest request)
+        public IActionResult ChangeUserPassword([FromBody] UpdatePasswordRequest request)
         {
             return this.Ok();
         }
@@ -70,7 +70,7 @@ namespace RedocPro.Controllers
         [SwaggerOperation(OperationId = nameof(ChangeUserProperty), Description = EndpointsDescriptions.ChangeUserProperty)]
         [SwaggerResponse(200, "Returns a 200 if the user property change.")]
         [SwaggerResponse(404, "SPCI-404: User not found", type: typeof(Error))]
-        public async Task<IActionResult> ChangeUserProperty([FromBody] UpdateUserRequest request)
+        public IActionResult ChangeUserProperty([FromBody] UpdateUserRequest request)
         {
             return this.Ok();
         }
