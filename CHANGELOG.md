@@ -1,3 +1,5 @@
+- feat/SPPP-625: Se cargan herramientas para gestión de commits.
+- Actualizar archivo JSON
 - Update RedocDocumentacion.yml
 - Delete pre-commit.yml
 - Update RedocDocumentacion.yml
