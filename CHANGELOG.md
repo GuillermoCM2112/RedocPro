@@ -1,3 +1,13 @@
+- Update 02 FAQ.md
+- Update RedocDocumentacion.yml
+- [SPPP-625]: message test
+- merge: local merge main
+- feat: pre-push BREAKING CHANGE: 	est test
+- feat/SPPP-636: Se agrega paso de instalación de depencias node.
+- fix/SPPP-666: Metodo sincrono ChangeUserPassword y ChangeUserProperty.
+- fix/SPPP-666: Volviendo metodos sincronos.
+- fix/SPPP-625: Volviendo metodos de Nethone sincronos.
+- Actualizar archivo JSON
 - feat/SPPP-625: Se cargan herramientas para gestión de commits.
 - Actualizar archivo JSON
 - Update RedocDocumentacion.yml
