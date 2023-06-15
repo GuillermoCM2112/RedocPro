@@ -89,7 +89,7 @@ namespace RedocPro.Redoc
                 Directory.GetFiles(routeDocs).Select(k => fileBase += File.ReadAllText(k, Encoding.UTF8)).ToList();
             }
 
-            return fileBase
+            return fileBase;
         }
     }
 }
