@@ -32,7 +32,7 @@ namespace RedocPro.Controllers
         [SwaggerResponse(404, "Status not found.", type: typeof(ErrorResponse))]
         [SwaggerResponse(402, "Payment Required,verify internal log for more information.", type: typeof(ErrorResponse))]
         [SwaggerResponse(401, "Unauthorized,verify internal log for more information.", type: typeof(ErrorResponse))]
-        public async Task<IActionResult> NethoneTransactionConfirm([FromBody] FlagsNethoneConfirm request)
+        public IActionResult NethoneTransactionConfirm([FromBody] FlagsNethoneConfirm request)
         {
             return this.Ok("0.1.5");
         }
@@ -45,7 +45,7 @@ namespace RedocPro.Controllers
         [SwaggerResponse(404, "Status not found.", type: typeof(ErrorResponse))]
         [SwaggerResponse(402, "Payment Required,verify internal log for more information.", type: typeof(ErrorResponse))]
         [ProducesResponseType(200, Type = typeof(NethoneResponseConfirm))]
-        public async Task<IActionResult> NethoneTransaction([FromBody] NethoneTransactionRequest request)
+        public IActionResult NethoneTransaction([FromBody] NethoneTransactionRequest request)
         {
             return this.Ok("0.1.5");
         }
@@ -60,7 +60,7 @@ namespace RedocPro.Controllers
         [SwaggerResponse(404, "Status not found.", type: typeof(ErrorResponse))]
         [SwaggerResponse(402, "Payment Required,verify internal log for more information.", type: typeof(ErrorResponse))]
         [ProducesResponseType(200, Type = typeof(NethoneResponse))]
-        public async Task<IActionResult> NethoneRecommendation([FromBody] NewNethoneRequest request)
+        public IActionResult NethoneRecommendation([FromBody] NewNethoneRequest request)
         {
             return this.Ok("0.1.5");
         }
@@ -72,7 +72,7 @@ namespace RedocPro.Controllers
         /// <returns>Check recommendation pay</returns>
         [HttpPost]
         [ProducesResponseType(200, Type = typeof(NethoneResponse))]
-        public async Task<IActionResult> NethoneRecommendationPay(string ObjNewCardRequest)
+        public IActionResult NethoneRecommendationPay(string ObjNewCardRequest)
         {
             return this.Ok("0.1.5");
         }
