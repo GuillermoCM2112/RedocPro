@@ -50,12 +50,16 @@ jobs:
     - name: Actualizar rama main
       run: |
           git checkout main
+           git checkout main
           if [[ -n $(git status -s) ]]; then
-              git add .
-              git -c user.name="Guillermo Coba Montoya" -c user.email="guillermo.coba@digitalfemsa.com" commit -m "Actualizar archivo JSON"
-             git push origin main
+            git stash
+            git pull origin main
+            git stash apply
+            git add .
+            git commit -m "Actualizar archivo JSON"
+            git push origin main
           else
-             echo "No hay cambios para actualizar en la rama main."
+            echo "No hay cambios para actualizar en la rama main."
           fi
     
     - name: Instalacion de Redoc CLI y Deploy
