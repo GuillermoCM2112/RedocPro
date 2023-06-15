@@ -15,12 +15,11 @@ namespace RedocPro.Redoc
 {
     public static class BuildRedoc
     {
-        public static void GenerateSwagger(WebApplication app)
+        public static void GenerateSwagger(WebApplication app, string filePath = "../swagger.json")
         {
             var stringWriter = new StringWriter();
             app.Services.GetRequiredService<ISwaggerProvider>().GetSwagger("v1").SerializeAsV3(new OpenApiJsonWriter(stringWriter));
             var swaggerJson = stringWriter.ToString();
-            var filePath = "../swagger.json";
             if (!File.Exists(filePath))
             {
                 File.Create(filePath).Close();
@@ -70,13 +69,12 @@ namespace RedocPro.Redoc
         {
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "CIAM Demo Documentation");
+                options.SwaggerEndpoint("", "CIAM Demo Documentation");
             });
 
             app.UseReDoc(options =>
             {
                 options.DocumentTitle = "CIAM Demo Documentation";
-                options.SpecUrl = "/swagger/v1/swagger.json";
                 options.HideDownloadButton();
                 options.ExpandResponses("200");
             });
@@ -91,7 +89,7 @@ namespace RedocPro.Redoc
                 Directory.GetFiles(routeDocs).Select(k => fileBase += File.ReadAllText(k, Encoding.UTF8)).ToList();
             }
 
-            return fileBase;
+            return fileBase
         }
     }
 }
