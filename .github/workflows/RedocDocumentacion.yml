@@ -65,18 +65,16 @@ jobs:
       run: npm install -g redoc-cli@latest
     - name: Build and Deploy Versions
       run: |
-          files=$(find ./swagger_files -name "swaggerv*.json")
-          for file in $files; do
-            version=$(basename "$file" .json | sed 's/swagger_//')
-            echo "Building and deploying Version $version"
-            redoc-cli bundle "$file" --output "./docs/$version/index.html"
+        folders=$(find ./swagger_files -type d -name "swagger*")
+        for folder in $folders; do
+          version=$(basename "$folder" | sed 's/swagger//')
+          echo "Building and deploying Version $version"
+          redoc-cli bundle "$folder/swagger.json" --output "./docs/$version/index.html"
+        done
 
-            # Despliegue en GitHub Pages utilizando peaceiris/actions-gh-pages
-            echo "Deploying Version $version to GitHub Pages"
-            echo "PUBLISH_DIR=./docs/$version" >> $GITHUB_ENV
-            echo "EXCLUDE_ASSETS=.github,.vs,RedocPro,RedocPro.sln,.gitignore" >> $GITHUB_ENV
-            echo "FORCE_ORPHAN=true" >> $GITHUB_ENV
-            git checkout main
-            npm install --save-dev @peaceiris/actions-gh-pages
-            npx @peaceiris/actions-gh-pages@v3
-          done
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@4.1.1
+      with:
+        branch: gh-pages
+        folder: ./docs
+        clean: true
