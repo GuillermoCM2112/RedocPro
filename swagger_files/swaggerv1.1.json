@@ -7,14 +7,14 @@
       "name": "test",
       "email": "someemail@somedomain.com"
     },
-    "version": "1.1",
+    "version": " 1.1",
     "x-logo": {
       "url": "https://img.freepik.com/vector-premium/diseno-logotipo-agua-hexagonal-listo-usar_94202-237.jpg?w=360",
       "altText": "Your logo alt text here"
     }
   },
   "paths": {
-    "/api/Auth/CancelUserAccount_1_1/CancelUserAccount": {
+    "/api/Auth/CancelUserAccount": {
       "post": {
         "tags": [
           "Auth"

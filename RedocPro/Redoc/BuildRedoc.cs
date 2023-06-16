@@ -8,7 +8,7 @@ namespace RedocPro.Redoc
 {
     public static class BuildRedoc
     {
-        private static void GenerateSwagger(WebApplication app, ApiVersionDescription desc, string filePath = "../docs/Versions/#VER#/swagger.json")
+        private static void GenerateSwagger(WebApplication app, ApiVersionDescription desc, string filePath = "../swagger_files/swagger#VER#.json")
         {
             var stringWriter = new StringWriter();
             filePath = filePath.Replace("#VER#", desc.GroupName);
