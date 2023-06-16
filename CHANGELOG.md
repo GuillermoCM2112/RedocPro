@@ -1,3 +1,5 @@
+- Update options.json
+- [SPPP-000]: Actualización de recursos
 - Update RedocDocumentacion.yml
 - Create options.json
 - [SPPP-625]: se regresa código de commit-msg para node
