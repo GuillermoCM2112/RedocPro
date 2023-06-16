@@ -65,11 +65,17 @@ jobs:
     - name: Instalacion de Redoc CLI y Deploy
       run: |
         npm install -g redoc-cli@latest
-        redoc-cli bundle ./swagger.json --output ./index.html
-    - name: Deploy en GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: .
-        exclude_assets: '.github,.vs,RedocPro,RedocPro.sln,.gitignore'
-        force_orphan: true
+        files=$(find ./swagger_files -name "swaggerv*.json")
+        for file in $files; do
+          version=$(basename "$file" .json | sed 's/swagger_//')
+          echo "Building and deploying Version $version"
+          redoc-cli bundle "$file" --output "./docs/$version/index.html"
+
+          echo "Deploying Version $version to GitHub Pages."
+          echo "PUBLISH_DIR=./docs/$version"
+          echo "EXCLUDE_ASSETS=.github,.vs,RedocPro,RedocPro.sln,.gitignore"
+          echo "FORCE_ORPHAN=true" >> $GITHUB_ENV
+          git checkout main
+          npm install --save-dev @peaceiris/actions-gh-pages
+          npx @peaceiris/actions-gh-pages@v3
+        done

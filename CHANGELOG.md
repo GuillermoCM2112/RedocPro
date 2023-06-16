@@ -1,3 +1,24 @@
+- Update RedocDocumentacion.yml
+- Update RedocDocumentacion.yml
+- Delete swaggerv1.1.json
+- Create swaggerv1.1.json
+- Rename swaggerv1.0.json to swagger.json
+- Update and rename s.json to swaggerv1.0.json
+- Create s.json
+- Rename swagger.json to swaggerv1.0.json
+- Rename swaggerv1.1 to swaggerv1.1.json
+- Create swaggerv1.1
+- [SPPP-625]: merge
+- Delete options.json
+- Update RedocDocumentacion.yml
+- [SPPP-625]: se agrega ruta de swagger
+- [SPPP-000]: Actualización de recursos
+- Update options.json
+- [SPPP-000]: Actualización de recursos
+- Update RedocDocumentacion.yml
+- Create options.json
+- [SPPP-625]: se regresa código de commit-msg para node
+- [SPPP-000]: Actualización de recursos
 - Update 02 FAQ.md
 - Update RedocDocumentacion.yml
 - [SPPP-625]: message test
