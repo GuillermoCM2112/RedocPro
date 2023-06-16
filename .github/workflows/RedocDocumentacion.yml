@@ -61,8 +61,9 @@ jobs:
           else
             echo "No hay cambios para actualizar en la rama main"
           fi
-    
     - name: Instalacion de Redoc CLI y Deploy
+      run: npm install -g redoc-cli@latest
+    - name: Build and Deploy Versions
       run: |
         npm install -g redoc-cli@latest
         folders=$(find ./docs -type d -name "swagger*")
