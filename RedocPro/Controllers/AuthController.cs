@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Mvc;
 using RedocPro.Descriptions;
 using RedocPro.Entities.RequestPayloads;
 using RedocPro.Entities.ResponsePayloads;
@@ -13,6 +14,7 @@ namespace RedocPro.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [ApiVersion(1.0)]
     [Consumes(MediaTypeNames.Application.Json)]
     [Produces(MediaTypeNames.Application.Json)]
     [SwaggerTag(ControllersDescriptions.AuthController)]
