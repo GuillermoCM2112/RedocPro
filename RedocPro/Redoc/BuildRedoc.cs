@@ -69,7 +69,7 @@ namespace RedocPro.Redoc
         {
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("", "CIAM Demo Documentation");
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "CIAM Demo Documentation");
             });
 
             app.UseReDoc(options =>
