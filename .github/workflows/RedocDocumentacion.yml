@@ -65,7 +65,7 @@ jobs:
       run: npm install -g redoc-cli@latest
     - name: Build and Deploy Versions
       run: |
-        folders=$(find ./swagger_files -type d -name "swagger*")
+        folders=$(find ./swagger_files -type d -name "swaggerv*")
         for folder in $folders; do
           version=$(basename "$folder" | sed 's/swagger//')
           echo "Building and deploying Version $version"
