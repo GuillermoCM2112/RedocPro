@@ -65,7 +65,6 @@ jobs:
       run: npm install -g redoc-cli@latest
     - name: Build and Deploy Versions
       run: |
-        npm install -g redoc-cli@latest
         folders=$(find ./docs -type d -name "swagger*")
         for folder  in $folders; do
           
