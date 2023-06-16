@@ -2,11 +2,10 @@
 using Microsoft.OpenApi.Writers;
 using RedocPro.Environments;
 using Swashbuckle.AspNetCore.Swagger;
-using System;
 
 namespace RedocPro.Redoc
 {
-    public static class BuildRedoc
+	public static class BuildRedoc
     {
         private static void GenerateSwagger(WebApplication app, ApiVersionDescription desc, string filePath = "../swagger_files/swagger#VER#.json")
         {
@@ -41,7 +40,8 @@ namespace RedocPro.Redoc
 
         public static void GenerateSwaggerEndpoint(WebApplication app, IReadOnlyList<ApiVersionDescription> versions)
         {
-            app.UseSwaggerUI(options =>
+			string urlVersions = string.Empty;
+			app.UseSwaggerUI(options =>
             {
                 foreach (var description in versions)
                 {
@@ -54,9 +54,23 @@ namespace RedocPro.Redoc
                         options.RoutePrefix = $"api-docs-{description.GroupName}";
                         options.HideDownloadButton();
                         options.ExpandResponses(description.GroupName == "v1" ? "200" : string.Empty);
+                        urlVersions += string.Format("* [{0}]({1}{0})\n", description.GroupName, "https://guillermocm2112.github.io/RedocPro/swagger");
                     });
                 }
             });
+
+            GenerateApiVersionsMarkdown(urlVersions);
         }
-    }
+
+		public static void GenerateApiVersionsMarkdown(string urlVersions)
+		{
+			var filePath = "../docs/04 Versions.md";
+			if (!File.Exists(filePath))
+			{
+				File.Create(filePath).Close();
+			}
+            string content = string.Format("# API Versions \n{0} ", urlVersions);
+			File.WriteAllText(filePath, content);
+		}
+	}
 }
