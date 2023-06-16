@@ -71,7 +71,7 @@ jobs:
           echo "Building and deploying Version $version"
           redoc-cli bundle "$file" --output "./docs/$version/index.html"
 
-          echo "Deploying Version $version to GitHub Pages"
+          echo "Deploying Version $version to GitHub Pages."
           echo "::set-env name=PUBLISH_DIR::./docs/$version"
           echo "::set-env name=EXCLUDE_ASSETS::.github,.vs,RedocPro,RedocPro.sln,.gitignore"
           echo "::set-env name=FORCE_ORPHAN::true"
