@@ -72,9 +72,9 @@ jobs:
           redoc-cli bundle "$file" --output "./docs/$version/index.html"
 
           echo "Deploying Version $version to GitHub Pages."
-          echo "::set-env name=PUBLISH_DIR::./docs/$version"
-          echo "::set-env name=EXCLUDE_ASSETS::.github,.vs,RedocPro,RedocPro.sln,.gitignore"
-          echo "::set-env name=FORCE_ORPHAN::true"
+          echo "PUBLISH_DIR=./docs/$version"
+          echo "EXCLUDE_ASSETS=.github,.vs,RedocPro,RedocPro.sln,.gitignore"
+          echo "FORCE_ORPHAN=true" >> $GITHUB_ENV
           git checkout main
           npm install --save-dev @peaceiris/actions-gh-pages
           npx @peaceiris/actions-gh-pages@v3
