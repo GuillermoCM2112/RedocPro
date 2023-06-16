@@ -65,7 +65,7 @@ jobs:
       run: npm install -g redoc-cli@latest
     - name: Build and Deploy Versions
       run: |
-          files=$(find ./swagger_files -name "swagger_*.json")
+          files=$(find ./swagger_files -name "swaggerv*.json")
           for file in $files; do
             version=$(basename "$file" .json | sed 's/swagger_//')
             echo "Building and deploying Version $version"
