@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Mvc;
 using RedocPro.Descriptions;
 using RedocPro.Entities.RequestPayloads;
 using RedocPro.Entities.ResponsePayloads;
@@ -13,12 +14,15 @@ namespace RedocPro.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [ApiVersion(1.0)]
+    [ApiVersion(1.1)]
     [Consumes(MediaTypeNames.Application.Json)]
     [Produces(MediaTypeNames.Application.Json)]
     [SwaggerTag(ControllersDescriptions.AuthController)]
     public class AuthController : ControllerBase
     {
         [HttpPost]
+        [MapToApiVersion(1.0)]
         [SwaggerOperation(OperationId = nameof(Login), Description = EndpointsDescriptions.LoginDescription)]
         [Consumes("application/json")]
         [Produces("application/json")]
@@ -31,6 +35,7 @@ namespace RedocPro.Controllers
         }
 
         [HttpPost]
+        [MapToApiVersion(1.0)]
         [SwaggerOperation(OperationId = nameof(Signup), Description = EndpointsDescriptions.SignupDescription)]
         [Consumes("application/json")]
         [Produces("application/json")]
@@ -45,6 +50,7 @@ namespace RedocPro.Controllers
         }
 
         [HttpPost]
+        [MapToApiVersion(1.0)]
         [SwaggerOperation(OperationId = nameof(RefreshToken), Description = EndpointsDescriptions.RefreshTokenDescription)]
         [Consumes("application/json")]
         [Produces("application/json")]
@@ -57,6 +63,7 @@ namespace RedocPro.Controllers
         }
 
         [HttpPost]
+        [MapToApiVersion(1.0)]
         [SwaggerOperation(OperationId = nameof(ChangeUserPassword), Description = EndpointsDescriptions.ChangeUserPassword)]
         [SwaggerResponse(200, "Response", type: typeof(UserChangeResponse))]
         [SwaggerResponse(404, "SPCI-404: User not found", type: typeof(Error))]
@@ -67,6 +74,7 @@ namespace RedocPro.Controllers
 
 
         [HttpPost]
+        [MapToApiVersion(1.0)]
         [SwaggerOperation(OperationId = nameof(ChangeUserProperty), Description = EndpointsDescriptions.ChangeUserProperty)]
         [SwaggerResponse(200, "Returns a 200 if the user property change.")]
         [SwaggerResponse(404, "SPCI-404: User not found", type: typeof(Error))]
@@ -76,6 +84,7 @@ namespace RedocPro.Controllers
         }
 
         [HttpGet]
+        [MapToApiVersion(1.0)]
         [SwaggerOperation(OperationId = nameof(UserValidation), Description = EndpointsDescriptions.UserValidation)]
         [SwaggerResponse(200, "Response", type: typeof(UserValidationResponse))]
         [SwaggerResponse(404, "SPCI-404: User not found", type: typeof(Error))]
@@ -85,6 +94,7 @@ namespace RedocPro.Controllers
         }
 
         [HttpGet]
+        [MapToApiVersion(1.0)]
         [SwaggerOperation(OperationId = nameof(GetTransversalUserData), Description = EndpointsDescriptions.GetTransversalUserDataDescription)]
         [SwaggerResponse(200, "Response", type: typeof(UserDataResponse))]
         [SwaggerResponse(500, "Unhandled error, validate the error log.", type: typeof(ErrorResponse))]
@@ -94,6 +104,7 @@ namespace RedocPro.Controllers
         }
 
         [HttpPost]
+        [MapToApiVersion(1.0)]
         [SwaggerOperation(OperationId = nameof(RevokeRefreshToken), Description = EndpointsDescriptions.RevokeRefreshTokenDescription)]
         [SwaggerResponse(200, "Response", type: typeof(RefreshResponse))]
         [SwaggerResponse(500, "Unhandled error, validate the error log.", type: typeof(ErrorResponse))]
@@ -103,6 +114,7 @@ namespace RedocPro.Controllers
         }
 
         [HttpGet]
+        [MapToApiVersion(1.0)]
         [SwaggerOperation(OperationId = nameof(GetUserProfile), Description = EndpointsDescriptions.GetUserProfileDescription)]
         [SwaggerResponse(200, "Response", type: typeof(UserChangeResponse))]
         [SwaggerResponse(500, "Unhandled error, validate the error log.", type: typeof(ErrorResponse))]
@@ -112,6 +124,7 @@ namespace RedocPro.Controllers
         }
 
         [HttpGet]
+        [MapToApiVersion(1.0)]
         [SwaggerOperation(OperationId = nameof(TokenValidator), Description = EndpointsDescriptions.TokenValidatorDescription)]
         [Route("TokenValidator")]
         [Consumes("application/json")]
@@ -132,6 +145,7 @@ namespace RedocPro.Controllers
 
         #region UpdateUserProfile
         [HttpPatch]
+        [MapToApiVersion(1.0)]
         //[Route(nameof(UpdateUserProfile))]
         [SwaggerSchemaExample(nameof(PerfilUsuario))]
         [SwaggerOperation(OperationId = nameof(UpdateUserProfile), Description = EndpointsDescriptions.UpdateUserProfileDescription)]
@@ -145,6 +159,7 @@ namespace RedocPro.Controllers
 
         #region RecoveryUserPassword
         [HttpPost]
+        [MapToApiVersion(1.0)]
         //[Route(nameof(RecoveryUserPassword))]
         [SwaggerSchemaExample(nameof(RecuperarContrasena))]
         [SwaggerOperation(OperationId = nameof(RecoveryUserPassword), Description = EndpointsDescriptions.RecoveryUserPasswordDescription)]
@@ -157,12 +172,23 @@ namespace RedocPro.Controllers
         #region CancelUserAccount
         [HttpPost]
         //[Route(nameof(CancelUserAccount))]
+        [MapToApiVersion(1.0)]
         [SwaggerSchemaExample(nameof(CancelarCuenta))]
         [SwaggerOperation(OperationId = nameof(CancelUserAccount), Description = EndpointsDescriptions.CancelUserAccountDescription)]
         [SwaggerResponse(200, EndpointsDescriptions.CancelUserAccount200Description, type: typeof(CancelarCuentaRespuesta))]
         [SwaggerResponse(401, EndpointsDescriptions.CancelUserAccount401Description, type: typeof(Error))]
         [SwaggerResponse(500, EndpointsDescriptions.CancelUserAccount500Description, type: typeof(Error))]
         public IActionResult CancelUserAccount([FromBody] CancelarCuenta request) => this.Ok(request);
+
+        [HttpPost]
+        [Route(nameof(CancelUserAccount))]
+        [MapToApiVersion(1.1)]
+        [SwaggerSchemaExample(nameof(CancelarCuenta))]
+        [SwaggerOperation(OperationId = nameof(CancelUserAccount), Description = EndpointsDescriptions.CancelUserAccountDescription)]
+        [SwaggerResponse(200, EndpointsDescriptions.CancelUserAccount200Description, type: typeof(CancelarCuentaRespuesta))]
+        [SwaggerResponse(401, EndpointsDescriptions.CancelUserAccount401Description, type: typeof(Error))]
+        [SwaggerResponse(500, EndpointsDescriptions.CancelUserAccount500Description, type: typeof(Error))]
+        public IActionResult CancelUserAccount_1_1([FromBody] CancelarCuenta request) => this.Ok(request);
         #endregion
     }
 }

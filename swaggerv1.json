@@ -1,0 +1,2331 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Redopro - v1",
+    "description": "# RedocPro\r\n\r\nImplementación del servicio Customer Identity and Access Management (CIAM)  \r\n <!---![Alt text](image.png)-->\r\n\r\n## Endpoints\r\n\r\nHasta el momento, se cuentan con los siguientes endpoints:\r\n- `Login`: \r\n- `Signup`:\r\n- `RefreshToken`: \r\n- `ChangeUserPassword`: \r\n- `ChangeUserProperty`: \r\n- `UserValidation`: \r\n- `RevokeRefreshToken`:\r\n\r\nPara descargar la colección de Postman puede hacer <a href=\"postman_collection.json\" download>click aquí</a>\r\n\r\n\r\n\r\nPara descargar las variables de entorno de Postman puede hacer <a href=\"test_environment.json\" download>click aquí</a>\r\n\r\n## Ejecución local\r\nPara ejecutar de forma local, se pueden seguir los siguientes pasos:\r\n1. Instalar la versión más reciente de Visual Studio.\r\n2. Descargar el `.zip` de la rama `main` del repositorio.\r\n3. Abrir el proyecto\r\n4. Instalar las depencias de Node con ```npm install```\r\n5. Agregar en el [`appsettings.Development.json`]\r\n6. Ahora, puedes hacer click en la ejecutar el proyecto, o bien, en \"Depurar > Iniciar depuración\".\r\n\r\nDonde puedes interactuar con los endpoints de CIAM. Si no se abre la ventana, puedes ingresar a esta por medio del siguiente enlace: [https://localhost:7131/swagger).\r\n\r\n## Como contribuir al repositorio\r\nPara contribuir al repositorio se te deben otorgar permisos de escritura y seguir los siguientes pasos. \r\n\r\n1. Asociar un nuevo SSH con tu cuenta de GitHub institucional.\r\n\r\n    En esta ocasión, no basta con descargar el `.zip` del repositorio. Debes configurar tu dispositivo para conectar tu cuenta de GitHub mediante SSH, puedes seguir el siguiente [tutorial de GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) para añadir una SSH a tu cuenta. Además, debes darle permisos para acceder a `digitaltitransversal`, sigue el siguiente [tutorial](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on) para dar dichos permisos.\r\n\r\n2. Teniendo ya el SSH configurado, debes clonar el repositorio en la carpeta de tu preferencia. Como sugerencia, puedes crear una carpeta `~/Projects` para mantener todos los proyectos en un sólo lugar.\r\n\r\n    En la terminal, corre el siguiente comando:\r\n    ```\r\n    git clone git@github.com:\r\n    ```\r\n\r\n    Debería aparecer una salida parecida a:\r\n    ```\r\n    remote: Enumerating objects: 542, done.\r\n    remote: Counting objects: 100% (314/314), done.\r\n    remote: Compressing objects: 100% (177/177), done.\r\n    remote: Total 542 (delta 196), reused 178 (delta 122), pack-reused 228\r\n    Receiving objects: 100% (542/542), 110.60 KiB | 1.44 MiB/s, done.\r\n    Resolving deltas: 100% (271/271), done.\r\n    ```\r\n\r\n3. En este punto, se pueden seguir los pasos que se describieron para la ejecución local.\r\n\r\n4. Si se quiere agregar nuevos cambios, debes crear tu propia rama.\r\n    ```\r\n    git branch rama-de-ejemplo\r\n    ```\r\n\r\n5. Para empezar a trabajar sobre la rama creada, puedes ejecutar el siguiente comando:\r\n\r\n    ```\r\n    git checkout rama-de-ejemplo\r\n    ```\r\n\r\n    En este punto ya puedes comenzar a hacer tus cambios. Si no haces el `checkout` a tu rama, puede que afectes a otras ramas e interrumpir el trabajo de los demás. Recuerda que no te dejará hacer `push` a `main`. \r\n\r\n6. Después de hacer tus cambios, haz pruebas unitarias e\r\n\r\n7. Se checa de manera automática que se cumpla ciertas reglas de sintaxis. Algunas de estas reglas son necesarias para tener una sintaxis consistente en todo el repositorio. La mayoría de las reglas se pueden aplicar de manera automática corriendo el siguiente comando:\r\n    ```\r\n    dotnet format\r\n    ```\r\n    En caso de enviar tus cambios y todavía tener pendientes de sintaxis, tendrás que checar de forma manual cómo arreglarlo. Te puedes guiar de la [documentación de StyleCop](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/tree/master/documentation) y pedir ayuda al equipo. Para checar de forma local la sintaxis, puedes correr el siguiente comando:\r\n\r\n    ```\r\n    dotnet format --verify-no-changes --verbosity m --severity warn\r\n    ```\r\n\r\n# Clave GPG\r\n## Requerimientos\r\n   \r\n  * El usuario debe tener instalado [Gnupg](https://www.gnupg.org/download) y [Git Bash](https://git-scm.com/downloads) para usuarios con Windows.\r\n  * El usuario debe tener instalado [Brew](https://brew.sh/index_es) para usuarios con MacBook.\r\n\r\n## Generación con MacBook\r\n\r\n1. Abre la Terminal.\r\n\r\n2. Verifica si ya tienes instalado GPG en tu Mac escribiendo el siguiente comando y presionando enter:\r\n```\r\n    gpg --version  \r\n```\r\n   *NOTA: GPG ya está instalado, verás la versión instalada y podrás continuar con el paso 4. Si no lo tienes instalado, continua con el paso 3.*\r\n\r\n3. Si no tiene GPG, el Usuario instala GPG con Homebrew.\r\n```\r\n    brew install gnupg\r\n```\r\n4. El Usuario le indica a GPG que genere una clave GPG.\r\n    * GPG solicita al Usuario la información requerida para generar la clave (nombre, dirección de correo electrónico, contraseña, etc.).\r\n    * Es muy importante que la logitud de la clave sea de: 4,096\r\n\r\n6. El Usuario ingresa la información requerida para generar sus clave gpg. \r\n   * Exportar la clave \r\n```\r\n    gpg --full-generate-key\r\n    gpg --list-secret-keys --keyid-format=long\r\n```\r\n   * Copia el ID de la clave que acabas de generar (debería tener el formato 4096R/XXXXXXXXXXXXXXXX).\r\n   * Configura Git para usar tu clave de firma ejecutando los siguientes comandos:\r\n```\r\n    git config --global user.signingkey XXXXXXXXXXXXXXXX\r\n    git config --global commit.gpgsign true\r\n```\r\n    \r\n7. Se obtiene la clave gpg en la terminal para exportarla a Github\r\n```\r\n    gpg --armor --export [key_id]\r\n```\r\n8. GPG muestra la clave generada al Usuario.\r\n\r\n9. La clave generada se guarda dentro de Github en el apartado de [GPG keys](https://github.com/settings/keys)\r\n\r\n10. Prueba que puedas firmar tus commits \r\n    * El siguiente comando mostrara tu configuración, la cual debe ser parecida a la siguiente:\r\n    \r\n```\r\n    user.signingkey=[Key]\r\n    gpg.program=gpg2\r\n    commit.gpgsign=true\r\n    git commit -S -m “[Develop] Comment”\r\n```\r\n\r\n11. En caso de no ser exitoso, ejecuta lo siguiente:\r\n\r\n```\r\n    brew install pinentry-mac\r\n    echo \"pinentry-program $(which pinentry-mac)\" >> ~/.gnupg/gpg-agent.conf\r\n    killall gpg-agent\r\n    $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \\\r\n\r\n    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi\r\n    \r\n    $ if [ -r ~/.zshrc ]; then echo 'export GPG_TTY=$(tty)' >> ~/.zshrc; \\\r\n\r\n   else echo 'export GPG_TTY=$(tty)' >> ~/.zprofile; fi\r\n```\r\n\r\n12. En caso de seguir con problemas seguir la siguiente secuencia:\r\n\r\n```\r\n    brew uninstall gpg\r\n    brew install gpg2\r\n    brew install pinentry-mac \r\n    gpg --full-generate-key \r\n```\r\n\r\n   * Obten la key generada: \r\n   \r\n```\r\n    gpg --list-keys\r\n```\r\n\r\nActualiza la key en local\r\n```\r\n    git config --global user.signingkey <Key de tu list>\r\n    git config --global gpg.program /usr/local/bin/gpg\r\n    git config --global commit.gpgsign true\r\n```\r\n\r\nExporta tu Key a GitHub :\r\n\r\n```\r\n    gpg --armor --export <key> \r\n```\r\n\r\nAgrega la key a GitHub desde GPG keys:   \r\n\r\nSi el error a un persiste ejecuta el siguiente comando:\r\n\r\n```\r\n    test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile\r\n    echo 'export GPG_TTY=$(tty)' >> ~/.profile\r\n```\r\n\r\n*NOTA: Si el error aun persiste:\r\n\r\n   * *Instala: https://gpgtools.org* \r\n   * *Firma la clave que utilizaste presionando \"Sign\" en la barra de menú: Key -> Sign*.\r\n\r\n## Generación con Windows\r\n\r\n1. Correr el comando para verificar si ya existe alguna clave creada.\r\n```\r\n    gpg --list-secret-keys --keyid-format=long\r\n```\r\n2. Si no existe una clave se debe generar con el siguiente comando o en caso contrario pasar al paso 4):\r\n```\r\n    gpg --full-generate-key\r\n```\r\n  * Seleccionar el tipo de llave por defecto (RSA and RSA).\r\n  * Seleccionar la longitud de bits por defecto (3072).\r\n  * Seleccionar el tiempo de expiración por defecto(0) y confirmar.\r\n  * Escribir tu nombre, correo electrónico, comentario opcional y Passhphrase y confirmarlos.\r\n\r\n4. Ejecutar el siguiente comando para visualizar la nueva llave existente:\r\n```\r\n    gpg --list-secret-keys --keyid-format=long\r\n```\r\n   * Copiar el Id de la clave: [ key_id ] \r\n   * Ejecutar el siguiente comando\r\n   \r\n```\r\n    gpg --armor --export [key_id]\r\n```\r\n   * Copiar la clave GPG, incluyendo comentarios\r\n   * Pegar la clave completa en https://github.com/settings/keys  e ingresa el título deseado\r\n   * Ejecutar el comando con el ID de la clave GPG\r\n```\r\n    git config --global user.signingkey [ key_id ]\r\n```\r\n\r\n\r\n# FAQ for developers\r\n\r\nPreguntas frecuentes etc..\r\n\r\n## Sección 1\r\n\r\n\r\n# Pull request template\r\n\r\n 1. El objetivo es agregar templates para crear pull requests de manera consistente\r\n    * Es necesario crear multiples templates, ya que los requisitios son distintos para cada branch\r\n    * Es necesario cumplir con todos los checks para poder hacer merge\r\n    * Los templates se encuentran dentro de un folder llamado PULL_REQUEST_TEMPLATE\r\n\r\n````\r\n  .github/PULL_REQUEST_TEMPLATE/develop-template.md\r\n  .github/PULL_REQUEST_TEMPLATE/main-template.md\r\n````\r\n  ![image](https://github.com/GuillermoCM2112/RedocPro/assets/131061309/6e44180b-c2e0-4f6d-a54a-0ead1fd719fe)\r\n",
+    "contact": {
+      "name": "test",
+      "email": "someemail@somedomain.com"
+    },
+    "version": "1.0",
+    "x-logo": {
+      "url": "https://img.freepik.com/vector-premium/diseno-logotipo-agua-hexagonal-listo-usar_94202-237.jpg?w=360",
+      "altText": "Your logo alt text here"
+    }
+  },
+  "paths": {
+    "/api/Auth/Login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "Validates if the user has permissions to log in.",
+        "operationId": "Login",
+        "parameters": [
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The username or password is incorrect (SPCI-401-1).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unhandled error, validate the error log.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Auth/Signup": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "Creates a user if meets the validations.",
+        "operationId": "Signup",
+        "parameters": [
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignupRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "- The phone number is out of coverage (SPCI-400-1).\n- The user must be on legal age (SPCI-400).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "- The phone number has been used (SPCI-409-1).\n- The email has been used (SPCI-409-2).\n- It is not possible to register the user by a conflict (SPCI-409-3).\n- There is a procedure in progress, please try again (SPCI-409-4).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "421": {
+            "description": "- The account was created but it was not possible to obtain a valid token (SCPI-421-1).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unhandled error, validate the error log.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Auth/RefreshToken": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "Generates a new refresh token.",
+        "operationId": "RefreshToken",
+        "parameters": [
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "- The refresh token has al ready expired, back to login (SPCI-401-2).\n- The refresh token is invalid, back to login (SPCI-401-3).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unhandled error, validate the error log.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Auth/ChangeUserPassword": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "This endpoint will change the password of the user.",
+        "operationId": "ChangeUserPassword",
+        "parameters": [
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePasswordRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserChangeResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "SPCI-404: User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Auth/ChangeUserProperty": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "This endpoint will change the property of the user.",
+        "operationId": "ChangeUserProperty",
+        "parameters": [
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns a 200 if the user property change."
+          },
+          "404": {
+            "description": "SPCI-404: User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Auth/UserValidation": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "This endpoint will validate if the user has any of the following states: \r\n\t\t\t\t\t\t\t\t\t\t\t   <ul><li>NotRegistered = 0</li><li>PreRegistered = 1</li><li>Registered = 2</li>\r\n\t\t\t\t\t\t\t\t\t\t\t   <li>OTPRequired = 3</li><li>SoftBlock = 4</li><li>HardBlock = 5</li>\r\n\t\t\t\t\t\t\t\t\t\t\t   <li>CancelledAccount = 8</li><li>FirstLoginOxxo = 20</li></ul>",
+        "operationId": "UserValidation",
+        "parameters": [
+          {
+            "name": "PhoneNumber",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "maxLength": 14,
+              "minLength": 10,
+              "type": "string",
+              "description": "User phone number.",
+              "example": "+521234567890"
+            }
+          },
+          {
+            "name": "DeviceId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "description": "User Device identifier",
+              "example": "A1B2C3D4E5"
+            }
+          },
+          {
+            "name": "AttemptReference",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "description": "User Attempt Reference",
+              "example": "A1B2C3D4E5"
+            }
+          },
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserValidationResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "SPCI-404: User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Auth/GetTransversalUserData": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "Some endpoint description goes here.",
+        "operationId": "GetTransversalUserData",
+        "parameters": [
+          {
+            "name": "PhoneNumber",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "description": "User phone number.",
+              "example": "+521234567890"
+            }
+          },
+          {
+            "name": "DeviceId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "description": "Device identifier",
+              "example": "A1B2C3D4E5"
+            }
+          },
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDataResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unhandled error, validate the error log.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Auth/RevokeRefreshToken": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "Some endpoint description goes here.",
+        "operationId": "RevokeRefreshToken",
+        "parameters": [
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RefreshResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unhandled error, validate the error log.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Auth/GetUserProfile": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "Some endpoint description goes here.",
+        "operationId": "GetUserProfile",
+        "parameters": [
+          {
+            "name": "UserId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "description": "User Id",
+              "example": "auth0|63b477d3b85540fe7e870500"
+            }
+          },
+          {
+            "name": "PhoneNumber",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "description": "User phone number.",
+              "example": "+521234567890"
+            }
+          },
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserChangeResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unhandled error, validate the error log.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Auth/TokenValidator/TokenValidator": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "validates that the token sent is correct",
+        "operationId": "TokenValidator",
+        "parameters": [
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Auth/UpdateUserProfile": {
+      "patch": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "Updates the partial information of user.",
+        "operationId": "UpdateUserProfile",
+        "parameters": [
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PerfilUsuario"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The information is updated correctly",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CambiarCuentaRespuesta"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "- The information is wrong (SPCI-400): the email provided is not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "- Invalid token (SPCI-401-7): the given token is not valid.\n- Invalid token (SPCI-401-8): the scope header is invalid.\n- Nethone request a review (SPNE-401): review the user.\n- Nethone refuse the request (SPNE-402): user refused.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "- The email has been used. (SPCI-409-2): old email.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "- Loyalty User was not able to create (SPCI-500): if the user not exists in Loyalty.\n- Unhandled error, is necesary validate the log.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Auth/RecoveryUserPassword": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "Recovery an user's password, based on the requested data.",
+        "operationId": "RecoveryUserPassword",
+        "parameters": [
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecuperarContrasena"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The password was recovered successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CambiarCuentaRespuesta"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "- Invalid token (SPCI-401-7): the given token is not valid.\n- Invalid token (SPCI-401-8): the scope header is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "- ChangeUserPassword User Not Found in Auth0 (SPCI-500): error. \n- Invalid grant to recover password (SPCI-500): error. \n- RecoveryUserPassword User Not Found in Auth0. (SPCI-500): error.\n- Unhandled error, is necesary validate the log.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Auth/CancelUserAccount": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "Recovery an user's password, based on the requested data.",
+        "operationId": "CancelUserAccount",
+        "parameters": [
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CancelarCuenta"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The account is close correctly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CancelarCuentaRespuesta"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "- The username or password is incorrect (SPCI-401-1): incorrect data (wrong email or password).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "- CancelUserAccount User Not Found in Auth0 (SPCI-500): error.\n- CancelUserAccount invalid grant.(SPCI-500): error.\n- Generic error from Auth0 Service.(SPCI-500): error.\n- Unhandled error, is necesary validate the log.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Health/Health": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "description": "Validate that the API is online.",
+        "operationId": "Health",
+        "parameters": [
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a 200 with the version if the API is online."
+          },
+          "500": {
+            "description": "- Unhandled error, is necesary validate the log."
+          }
+        }
+      }
+    },
+    "/api/Nethone/NethoneTransactionConfirm": {
+      "put": {
+        "tags": [
+          "Nethone"
+        ],
+        "description": "Validates Nethone transaction integrity.",
+        "operationId": "NethoneTransactionConfirm",
+        "parameters": [
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The Nethone flags to validate.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FlagsNethoneConfirm"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NethoneResponseConfirm"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Status not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required,verify internal log for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized,verify internal log for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Nethone/NethoneTransaction": {
+      "post": {
+        "tags": [
+          "Nethone"
+        ],
+        "description": "Process Nethone transaction.",
+        "operationId": "NethoneTransaction",
+        "parameters": [
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The Nethone flags to validate.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NethoneTransactionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NethoneResponseConfirm"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Status not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required,verify internal log for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Nethone/NethoneRecommendation": {
+      "post": {
+        "tags": [
+          "Nethone"
+        ],
+        "description": "Process Nethone recommendation.",
+        "operationId": "NethoneRecommendation",
+        "parameters": [
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The Nethone flags to validate.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewNethoneRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NethoneResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Status not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required,verify internal log for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Nethone/NethoneRecommendationPay": {
+      "post": {
+        "tags": [
+          "Nethone"
+        ],
+        "summary": "NethoneRecommendationPay: check if the data has suspicious or fraudulent activity",
+        "parameters": [
+          {
+            "name": "ObjNewCardRequest",
+            "in": "query",
+            "description": "Object with data new card",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NethoneResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User/AddTaCVersion": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "This endpoint will accept the TaC Version.",
+        "operationId": "AddTaCVersion",
+        "parameters": [
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcceptTaCRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Resource created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddTaCVersionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "- Unhandled error, is necesary validate the log.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User/GetLatestTaC": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "description": "This endpoint will get the TaC Version.",
+        "operationId": "GetLatestTaC",
+        "parameters": [
+          {
+            "name": "UserId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "description": "User Id Auth0",
+              "example": "auth0|63b477d3b85540fe7e870500"
+            }
+          },
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Information obtained correctly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LatestTaCResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "- Unhandled error, is necesary validate the log.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AcceptTaCRequest": {
+        "required": [
+          "taCVersion",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User Id Auth0",
+            "example": "auth0|63b477d3b85540fe7e870500"
+          },
+          "taCVersion": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Version TaC",
+            "example": "V1.0"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccessResponse": {
+        "required": [
+          "accessToken",
+          "expiresIn",
+          "idToken",
+          "refreshToken",
+          "tokenType"
+        ],
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "minLength": 1,
+            "type": "string",
+            "example": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZ..."
+          },
+          "tokenType": {
+            "minLength": 1,
+            "type": "string",
+            "example": "Bearer"
+          },
+          "idToken": {
+            "minLength": 1,
+            "type": "string",
+            "example": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZ..."
+          },
+          "expiresIn": {
+            "type": "integer",
+            "format": "int32",
+            "example": 86400
+          },
+          "refreshToken": {
+            "minLength": 1,
+            "type": "string",
+            "example": "v1.McGUUd_CL7lc4UjVa2jlAgAG7lCyif14ItPqa_VyqXbeLfR1IpHdqu02QT3XuSsGekr0zfh3PJBszwsWGnC8lJw"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddTaCVersionResponse": {
+        "required": [
+          "successfulAccept"
+        ],
+        "type": "object",
+        "properties": {
+          "successfulAccept": {
+            "type": "boolean",
+            "description": "Tac Version Successful Accept",
+            "example": "true"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Batterys": {
+        "type": "object",
+        "properties": {
+          "battery_health": {
+            "type": "string",
+            "nullable": true
+          },
+          "extra_health": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "levelextra_status": {
+            "type": "number",
+            "format": "double"
+          },
+          "extra_level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "extra_scale_level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "battery": {
+            "type": "string",
+            "nullable": true
+          },
+          "extra_plugged": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "charging_state": {
+            "type": "string",
+            "nullable": true
+          },
+          "extra_status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "extra_present": {
+            "type": "boolean"
+          },
+          "extra_technology": {
+            "type": "string",
+            "nullable": true
+          },
+          "extra_temperature": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "extra_voltage": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CambiarCuentaRespuesta": {
+        "required": [
+          "birthday",
+          "emailVerified",
+          "firstName",
+          "lastName",
+          "loyaltyId",
+          "phoneNumber",
+          "zipCode"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "User email registred in the App.",
+            "nullable": true,
+            "example": "examplemail@cool.domain.com"
+          },
+          "userName": {
+            "type": "string",
+            "description": "Username registred in the App.",
+            "nullable": true,
+            "example": "+521234567890"
+          },
+          "firstName": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User first name or two names.",
+            "example": "Juan Antonio"
+          },
+          "lastName": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User lastname.",
+            "example": "Pérez"
+          },
+          "birthday": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User birthday.",
+            "example": "01/01/2000"
+          },
+          "phoneNumber": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User phone number with area code.",
+            "example": "+525555555555"
+          },
+          "zipCode": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User zip code of address.",
+            "example": "64000"
+          },
+          "loyaltyId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Loyalty identifier in the App.",
+            "example": "P1ATYGR"
+          },
+          "emailVerified": {
+            "type": "boolean",
+            "description": "User email."
+          },
+          "secondLastName": {
+            "type": "string",
+            "description": "User second last name.",
+            "nullable": true,
+            "example": "Herrera"
+          },
+          "gender": {
+            "pattern": "[M|W]",
+            "type": "string",
+            "description": "User gender.",
+            "nullable": true,
+            "example": "M (for Men) or W (for Woman)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CancelarCuenta": {
+        "required": [
+          "cancellationReason",
+          "password",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User identifier.",
+            "example": "auth0|63b477d3b85540fe7e870500"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User password.",
+            "example": "th1sIsANew%%pwd"
+          },
+          "cancellationReason": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string",
+            "description": "Reason to cancel the account."
+          }
+        },
+        "additionalProperties": false
+      },
+      "CancelarCuentaRespuesta": {
+        "required": [
+          "successfulCancellation"
+        ],
+        "type": "object",
+        "properties": {
+          "successfulCancellation": {
+            "type": "boolean",
+            "description": "Property to know if the cancellation is successful."
+          }
+        },
+        "additionalProperties": false
+      },
+      "Carrier": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "iso_country_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobile_country_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobile_network_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "allows_voip": {
+            "type": "boolean"
+          },
+          "icc_card": {
+            "type": "boolean"
+          },
+          "roaming": {
+            "type": "boolean"
+          },
+          "sim_state": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "radio_phone_type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "network_type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeclaredIp": {
+        "type": "object",
+        "properties": {
+          "addr": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceInside": {
+        "type": "object",
+        "properties": {
+          "android_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "model": {
+            "type": "string",
+            "nullable": true
+          },
+          "manufacturer": {
+            "type": "string",
+            "nullable": true
+          },
+          "brand": {
+            "type": "string",
+            "nullable": true
+          },
+          "build_fingerprint": {
+            "type": "string",
+            "nullable": true
+          },
+          "product": {
+            "type": "string",
+            "nullable": true
+          },
+          "http_proxy": {
+            "type": "string",
+            "nullable": true
+          },
+          "wifi_on": {
+            "type": "boolean"
+          },
+          "bt_on": {
+            "type": "boolean"
+          },
+          "uptime_ms": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Devices": {
+        "type": "object",
+        "properties": {
+          "carrier": {
+            "$ref": "#/components/schemas/Carrier"
+          },
+          "disk": {
+            "$ref": "#/components/schemas/Disk"
+          },
+          "device": {
+            "$ref": "#/components/schemas/DeviceInside"
+          },
+          "battery": {
+            "$ref": "#/components/schemas/Batterys"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Disk": {
+        "type": "object",
+        "properties": {
+          "mobile_network_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "free_space_root": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "errorCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "httpCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Fingerprint": {
+        "type": "object",
+        "properties": {
+          "signals": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "profiling_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "attempt_reference": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_date": {
+            "type": "string",
+            "nullable": true
+          },
+          "ip": {
+            "type": "string",
+            "nullable": true
+          },
+          "network": {
+            "$ref": "#/components/schemas/Network"
+          },
+          "device": {
+            "$ref": "#/components/schemas/Devices"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FlagsNethoneConfirm": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "flags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FlagsNethoneProperties"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FlagsNethoneProperties": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpStatusCode": {
+        "enum": [
+          100,
+          101,
+          102,
+          103,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          226,
+          300,
+          301,
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          308,
+          400,
+          401,
+          402,
+          403,
+          404,
+          405,
+          406,
+          407,
+          408,
+          409,
+          410,
+          411,
+          412,
+          413,
+          414,
+          415,
+          416,
+          417,
+          421,
+          422,
+          423,
+          424,
+          426,
+          428,
+          429,
+          431,
+          451,
+          500,
+          501,
+          502,
+          503,
+          504,
+          505,
+          506,
+          507,
+          508,
+          510,
+          511
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Info": {
+        "type": "object",
+        "properties": {
+          "fingerprint": {
+            "$ref": "#/components/schemas/Fingerprint"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Rule"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LatestTaCResponse": {
+        "required": [
+          "acceptDate",
+          "version"
+        ],
+        "type": "object",
+        "properties": {
+          "acceptDate": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Date accepted Tac Version",
+            "example": "21/03/2023"
+          },
+          "version": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Version TaC",
+            "example": "V1.0"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginRequest": {
+        "required": [
+          "deviceId",
+          "password",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "maxLength": 50,
+            "minLength": 10,
+            "type": "string",
+            "description": "The username can be a phone number or an email.",
+            "example": "+515555555555"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The current password.",
+            "example": "thisIsA%%pwd0"
+          },
+          "deviceId": {
+            "minLength": 1,
+            "type": "string",
+            "example": "a3f3a772-f9af-4162-8ac3-8d79ad"
+          },
+          "attemptReference": {
+            "type": "string",
+            "nullable": true,
+            "example": "A1B2C3D4E5"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NethoneResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "id_str": {
+            "type": "string",
+            "nullable": true
+          },
+          "advice": {
+            "type": "string",
+            "nullable": true
+          },
+          "info": {
+            "$ref": "#/components/schemas/Info"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NethoneResponseConfirm": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "id_str": {
+            "type": "string",
+            "nullable": true
+          },
+          "reference": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NethoneTransactionRequest": {
+        "type": "object",
+        "properties": {
+          "reference": {
+            "type": "string",
+            "nullable": true
+          },
+          "merchant_reference": {
+            "type": "string",
+            "nullable": true
+          },
+          "payment_method": {
+            "type": "string",
+            "nullable": true
+          },
+          "user_reference": {
+            "type": "string",
+            "nullable": true
+          },
+          "profiling_reference": {
+            "type": "string",
+            "nullable": true
+          },
+          "timestamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "string",
+            "nullable": true
+          },
+          "card_token": {
+            "type": "string",
+            "nullable": true
+          },
+          "flags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FlagsNethoneProperties"
+            },
+            "nullable": true
+          },
+          "inquiry_id": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Network": {
+        "type": "object",
+        "properties": {
+          "link_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "user_declared_ip": {
+            "$ref": "#/components/schemas/DeclaredIp"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NewNethoneRequest": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "attemptReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "inquiryType": {
+            "type": "string",
+            "nullable": true
+          },
+          "eventType": {
+            "type": "string",
+            "nullable": true
+          },
+          "deviceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "requiredEvent": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PerfilUsuario": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "User identifier.",
+            "nullable": true,
+            "example": "auth0|63b477d3b85540fe7e870500"
+          },
+          "name": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "description": "Name.",
+            "nullable": true,
+            "example": "Juan Antonio"
+          },
+          "surname": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "description": "User surname.",
+            "nullable": true,
+            "example": "Peréz Pérez"
+          },
+          "birthday": {
+            "type": "string",
+            "description": "User birthday.",
+            "nullable": true,
+            "example": "01/01/0001"
+          },
+          "email": {
+            "type": "string",
+            "description": "User email.",
+            "nullable": true,
+            "example": "examplemail@cool.domain.com"
+          },
+          "zipCode": {
+            "type": "string",
+            "description": "User zipCode.",
+            "nullable": true,
+            "example": "64000"
+          },
+          "secondLastName": {
+            "type": "string",
+            "description": "User second last name.",
+            "nullable": true,
+            "example": "Peréz"
+          },
+          "gender": {
+            "pattern": "[M|W]",
+            "type": "string",
+            "description": "User gender.",
+            "nullable": true,
+            "example": "M (for Men) or W (for Woman)"
+          },
+          "attemptReference": {
+            "type": "string",
+            "description": "User attempt reference.",
+            "nullable": true,
+            "example": "A1B2C3D4E5"
+          },
+          "deviceId": {
+            "type": "string",
+            "description": "User device identifier.",
+            "nullable": true,
+            "example": "x1234ABCD"
+          }
+        },
+        "additionalProperties": false,
+        "description": ""
+      },
+      "RecuperarContrasena": {
+        "required": [
+          "newPassword"
+        ],
+        "type": "object",
+        "properties": {
+          "phoneNumber": {
+            "type": "string",
+            "description": "User phone number.",
+            "nullable": true,
+            "example": "+525544332211"
+          },
+          "newPassword": {
+            "maxLength": 50,
+            "minLength": 8,
+            "type": "string",
+            "description": "User new password to update.",
+            "example": "th1sIsANew%%pwd"
+          },
+          "deviceId": {
+            "type": "string",
+            "description": "User device identifier.",
+            "nullable": true,
+            "example": "a3f3a772-f9af-4162-8ac3-8d79ad"
+          },
+          "attemptReference": {
+            "type": "string",
+            "description": "User attempt reference.",
+            "nullable": true,
+            "example": "A1B2C3D4E5"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RefreshRequest": {
+        "required": [
+          "refreshToken"
+        ],
+        "type": "object",
+        "properties": {
+          "refreshToken": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Refresh access token given.",
+            "example": "v1.McGUUd_CL7lc4UjVa2jlAgAG7lCyif14ItPqa_VyqXbeLfR1IpHdqu02QT3XuSsGekr0zfh3PJBszwsWGnC8lJw"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RefreshResponse": {
+        "required": [
+          "refreshToken"
+        ],
+        "type": "object",
+        "properties": {
+          "refreshToken": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Refresh access token given.",
+            "example": "v1.McGUUd_CL7lc4UjVa2jlAgAG7lCyif14ItPqa_VyqXbeLfR1IpHdqu02QT3XuSsGekr0zfh3PJBszwsWGnC8lJw"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Rule": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "id_str": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "advice": {
+            "type": "string",
+            "nullable": true
+          },
+          "mode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SignupRequest": {
+        "required": [
+          "birthday",
+          "deviceId",
+          "name",
+          "password",
+          "phoneNumber",
+          "surname"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string",
+            "example": "Juan Antonio"
+          },
+          "surname": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string",
+            "example": "Peréz Pérez"
+          },
+          "phoneNumber": {
+            "maxLength": 14,
+            "minLength": 10,
+            "type": "string",
+            "example": "+525555555555"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "nullable": true,
+            "example": "examplemail@cool.domain.com"
+          },
+          "birthday": {
+            "minLength": 1,
+            "type": "string",
+            "example": "01/04/1993"
+          },
+          "password": {
+            "maxLength": 50,
+            "minLength": 8,
+            "type": "string",
+            "example": "thisIsA%%pwd0"
+          },
+          "deviceId": {
+            "minLength": 1,
+            "type": "string",
+            "example": "a3f3a772-f9af-4162-8ac3-8d79ad"
+          },
+          "attemptReference": {
+            "type": "string",
+            "nullable": true,
+            "example": "A1B2C3D4E5"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdatePasswordRequest": {
+        "required": [
+          "newPassword",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User Id Auth0",
+            "example": "auth0|63b477d3b85540fe7e870500"
+          },
+          "newPassword": {
+            "maxLength": 50,
+            "minLength": 8,
+            "type": "string",
+            "description": "User New password",
+            "example": "th1sIsANew%%pwd"
+          },
+          "currentPassword": {
+            "maxLength": 50,
+            "minLength": 8,
+            "type": "string",
+            "description": "User Current password",
+            "nullable": true,
+            "example": "th1sIsAOld%%pwd"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateUserRequest": {
+        "required": [
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User Id Auth0",
+            "example": "auth0|63b477d3b85540fe7e870500"
+          },
+          "email": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "description": "User email.",
+            "nullable": true,
+            "example": "examplemail@cool.domain.com"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "description": "User phone number.",
+            "nullable": true,
+            "example": "+521234567890"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserChangeResponse": {
+        "required": [
+          "birthday",
+          "emailVerified",
+          "firstName",
+          "lastName",
+          "loyaltyId",
+          "phoneNumber",
+          "zipCode"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "User email.",
+            "nullable": true,
+            "example": "+521234567890"
+          },
+          "userName": {
+            "type": "string",
+            "description": "User Name of user",
+            "nullable": true,
+            "example": "+521234567890"
+          },
+          "firstName": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User first Name",
+            "example": "Juan Antonio"
+          },
+          "lastName": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User last Name.",
+            "example": "Peréz Pérez"
+          },
+          "birthday": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User birthday.",
+            "example": "01/01/2000"
+          },
+          "phoneNumber": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User phone number.",
+            "example": "+525555555555"
+          },
+          "zipCode": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User zip code",
+            "example": "64000"
+          },
+          "loyaltyId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Loyalty Id of the user",
+            "example": "P1ATYGR"
+          },
+          "emailVerified": {
+            "type": "boolean",
+            "description": "Check if the user's email is verified",
+            "example": "False"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserDataResponse": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "description": "User first Name",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "description": "User last Name.",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "description": "User email.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserValidationResponse": {
+        "required": [
+          "codeUserStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "codeUserStatus": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User Status",
+            "example": "0"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "Auth controller description goes here."
+    },
+    {
+      "name": "Health",
+      "description": "Health controller description goes here."
+    },
+    {
+      "name": "Nethone",
+      "description": "Nethone controller description goes here."
+    },
+    {
+      "name": "User",
+      "description": "User controller description goes here."
+    },
+    {
+      "name": "Auth",
+      "description": "Auth controller description goes here."
+    },
+    {
+      "name": "Health",
+      "description": "Health controller description goes here."
+    },
+    {
+      "name": "Nethone",
+      "description": "Nethone controller description goes here."
+    },
+    {
+      "name": "User",
+      "description": "User controller description goes here."
+    }
+  ]
+}

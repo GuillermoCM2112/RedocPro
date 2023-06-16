@@ -127,9 +127,6 @@ namespace RedocPro.Models
         public string CancellationReason { get; set; } = string.Empty;
     }
 
-    /// <summary>
-    /// holaaaaaaaaa
-    /// </summary>
     public class CancelarCuentaRespuesta
     {
         /// <summary>
