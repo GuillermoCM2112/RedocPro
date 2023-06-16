@@ -1,3 +1,5 @@
+- Update RedocDocumentacion.yml
+- [SPPP-000]: Actualización de recursos
 - [SPPP-625]: local merge main
 - [SPPP-625]: varios cambios
 - [SPPP-000]: Actualización de recursos
