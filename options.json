@@ -4,7 +4,5 @@
     { "title": "Version 1.1", "id": "v1.1", "url": "swagger.json", "isDefault": true },
     { "title": "Version 2.1", "id": "v2.1", "url": "swagger.json" } 
     ]
-  },
-  // examples of additional options
-  "requiredPropsFirst": "true"
+  }
 }
