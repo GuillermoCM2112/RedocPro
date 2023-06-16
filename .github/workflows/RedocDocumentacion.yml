@@ -78,7 +78,3 @@ jobs:
         branch: gh-pages
         folder: ./docs
         clean: true
-    - name: Set Latest Version as Homepage
-      run: |
-        latest_version=$(find ./docs -type d -name "latest")
-        cp -r "$latest_version"/* ./docs/
