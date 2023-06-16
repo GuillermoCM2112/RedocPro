@@ -65,11 +65,11 @@ jobs:
     - name: Instalacion de Redoc CLI y Deploy
       run: |
         npm install -g redoc-cli@latest
-        files=$(find ./swagger_files -name "swaggerv*.json")
-        for file in $files; do
+        files=$(find ./docs -type d -name "swagger*")
+        for folder  in $folder; do
           version=$(basename "$file" .json | sed 's/swagger_//')
           echo "Building and deploying Version $version"
-          redoc-cli bundle "$file" --output "./docs/$version/index.html"
+          redoc-cli bundle "$folder/swagger.json" --output "./docs/$version/index.html"
 
           echo "Deploying Version $version to GitHub Pages."
           echo "PUBLISH_DIR=./docs/$version"
