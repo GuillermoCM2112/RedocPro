@@ -71,7 +71,7 @@ jobs:
           echo "Building and deploying Version $version"
           redoc-cli bundle "$folder/swagger.json" --output "./docs/$version/index.html"
 
-          echo "Deploying Version $version to GitHub Pages."
+          echo "Deploying Version $version to GitHub Pages"
           echo "PUBLISH_DIR=./docs/$version"
           echo "EXCLUDE_ASSETS=.github,.vs,RedocPro,RedocPro.sln,.gitignore"
           echo "FORCE_ORPHAN=true" >> $GITHUB_ENV
