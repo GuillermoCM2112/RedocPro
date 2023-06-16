@@ -1,3 +1,5 @@
+- Update RedocDocumentacion.yml
+- [SPPP-000]: Actualización de recursos
 - Merge pull request #5 from GuillermoCM2112/varios-cambios
 - Merge branch 'main' into varios-cambios
 - [SPPP-000]: Actualización de recursos
