@@ -1,4 +1,6 @@
 - Update RedocDocumentacion.yml
+- [SPPP-000]: Actualización de recursos
+- Update RedocDocumentacion.yml
 - Update RedocDocumentacion.yml
 - Delete swaggerv1.1.json
 - Create swaggerv1.1.json
