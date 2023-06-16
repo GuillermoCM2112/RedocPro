@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Interfaces;
 using Microsoft.OpenApi.Models;
+using RedocPro.Entities;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
 using System.Text;
@@ -37,7 +38,6 @@ namespace RedocPro.Redoc
               }
             }
         };
-        
 
         private string GetAllFilesInDocumentation(string routeDocs = "../docs", string routeReadme = "../README.md")
         {
@@ -54,7 +54,7 @@ namespace RedocPro.Redoc
         new()
         {
             Title = $"Redopro - {desc.GroupName}",
-            Version = desc.ApiVersion.ToString(),
+            Version = desc.GroupName.Replace('v', ' '),
             Description = desc.IsDeprecated ? " This API version has been deprecated. Please use one of the new APIs available from the explorer." : files,
             Contact = new OpenApiContact
             {
@@ -76,6 +76,6 @@ namespace RedocPro.Redoc
                 options.IncludeXmlComments(xmlPath);
                 options.EnableAnnotations();
             }
-        }   
+        }
     }
 }

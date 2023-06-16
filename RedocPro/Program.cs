@@ -1,8 +1,7 @@
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
-using Microsoft.Extensions.Options;
+using RedocPro.Entities;
 using RedocPro.Redoc;
-
 
 public class Program
 {
@@ -26,7 +25,6 @@ public class Program
             options.AssumeDefaultVersionWhenUnspecified = true;
             options.DefaultApiVersionParameterDescription = "Do NOT modify api-version!";
         });
-
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
@@ -38,12 +36,7 @@ public class Program
             BuildRedoc.GenerateSwaggerEndpoint(app, versions.ApiVersionDescriptions);
         }
 
-
-        foreach (var description in versions.ApiVersionDescriptions)
-        {
-            BuildRedoc.GenerateSwagger(app, description);
-            BuildRedoc.GenerateEnvironmentPostman();
-        }
+        BuildRedoc.GenerateResources(app, versions);
 
         app.UseHttpsRedirection();
         app.UseAuthorization();

@@ -1,24 +1,17 @@
 ﻿using Asp.Versioning.ApiExplorer;
-using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Any;
-using Microsoft.OpenApi.Interfaces;
-using Microsoft.OpenApi.Models;
 using Microsoft.OpenApi.Writers;
 using RedocPro.Environments;
 using Swashbuckle.AspNetCore.Swagger;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using System.Reflection;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
+using System;
 
 namespace RedocPro.Redoc
 {
     public static class BuildRedoc
     {
-        public static void GenerateSwagger(WebApplication app, ApiVersionDescription desc , string filePath = "../swaggerVER.json")
+        private static void GenerateSwagger(WebApplication app, ApiVersionDescription desc, string filePath = "../docs/Versions/#VER#/swagger.json")
         {
             var stringWriter = new StringWriter();
-            filePath = filePath.Replace("VER", desc.GroupName);
+            filePath = filePath.Replace("#VER#", desc.GroupName);
             app.Services.GetRequiredService<ISwaggerProvider>().GetSwagger(desc.GroupName).SerializeAsV3(new OpenApiJsonWriter(stringWriter));
             if (!File.Exists(filePath))
             {
@@ -27,13 +20,23 @@ namespace RedocPro.Redoc
             File.WriteAllText(filePath, stringWriter.ToString());
         }
 
-        public static void GenerateEnvironmentPostman(string filePath = "../test_environment.json")
+        private static void GenerateEnvironmentPostman(string filePath = "../test_environment.json")
         {
             if (!File.Exists(filePath))
             {
                 File.Create(filePath).Close();
             }
             File.WriteAllText(filePath, TestEnvironment.GenerateTestEnvironment());
+        }
+
+        public static void GenerateResources(WebApplication app, IApiVersionDescriptionProvider versions)
+        {
+            foreach (var description in versions.ApiVersionDescriptions)
+            {
+                GenerateSwagger(app, description);
+            }
+
+            GenerateEnvironmentPostman();
         }
 
         public static void GenerateSwaggerEndpoint(WebApplication app, IReadOnlyList<ApiVersionDescription> versions)
