@@ -1,8 +1,6 @@
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
 using RedocPro.Redoc;
-using RedocPro.Service;
-using RedocPro.Service.Interface;
 
 public class Program
 {
