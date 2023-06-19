@@ -1,17 +1,19 @@
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
-using RedocPro.Entities;
 using RedocPro.Redoc;
+using RedocPro.Service;
+using RedocPro.Service.Interface;
 
 public class Program
 {
+    public const int DEFAULT_VERSION = 1;
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
         builder.Services.AddControllers();
         builder.Services.AddApiVersioning(options =>
         {
-            options.DefaultApiVersion = new ApiVersion(1, 0);
+            options.DefaultApiVersion = new ApiVersion(DEFAULT_VERSION, 0);
             options.AssumeDefaultVersionWhenUnspecified = true;
             options.ReportApiVersions = true;
             options.ApiVersionReader = ApiVersionReader.Combine(
@@ -21,7 +23,7 @@ public class Program
         {
             options.GroupNameFormat = "'v'VVV";
             options.SubstituteApiVersionInUrl = false;
-            options.DefaultApiVersion = new ApiVersion(1, 0);
+            options.DefaultApiVersion = new ApiVersion(DEFAULT_VERSION, 0);
             options.AssumeDefaultVersionWhenUnspecified = true;
             options.DefaultApiVersionParameterDescription = "Do NOT modify api-version!";
         });

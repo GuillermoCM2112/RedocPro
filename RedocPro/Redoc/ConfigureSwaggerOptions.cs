@@ -1,9 +1,10 @@
-﻿using Asp.Versioning.ApiExplorer;
+﻿using Asp.Versioning;
+using Asp.Versioning.ApiExplorer;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Interfaces;
 using Microsoft.OpenApi.Models;
-using RedocPro.Entities;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
 using System.Text;
@@ -13,6 +14,7 @@ namespace RedocPro.Redoc
     public class ConfigureSwaggerOptions : IConfigureNamedOptions<SwaggerGenOptions>
     {
         private readonly string files = string.Empty;
+        private readonly string deprecatedMessage = " This API version has been deprecated. Please use one of the new APIs available from the explorer.";
         private readonly Dictionary<string, IOpenApiExtension> extensions = new Dictionary<string, IOpenApiExtension>();
         private readonly IApiVersionDescriptionProvider _provider;
 
@@ -27,6 +29,9 @@ namespace RedocPro.Redoc
         {
             Configure(options);
         }
+
+        private string ValidateVersion(ApiVersion apiVersion)
+        => apiVersion.MajorVersion == Program.DEFAULT_VERSION && apiVersion.MinorVersion == 0 ? files : string.Empty;
 
         private Dictionary<string, IOpenApiExtension> GetExtensions() =>
         new()
@@ -50,12 +55,13 @@ namespace RedocPro.Redoc
             return baseFiles;
         }
 
+
         private OpenApiInfo CreateVersionInfo(ApiVersionDescription desc) =>
         new()
         {
             Title = $"Redopro - {desc.GroupName}",
             Version = desc.GroupName.Replace('v', ' '),
-            Description = desc.IsDeprecated ? " This API version has been deprecated. Please use one of the new APIs available from the explorer." : files,
+            Description = desc.IsDeprecated ? deprecatedMessage : ValidateVersion(desc.ApiVersion),
             Contact = new OpenApiContact
             {
                 Name = "test",
