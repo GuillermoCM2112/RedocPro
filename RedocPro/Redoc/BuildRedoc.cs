@@ -5,7 +5,7 @@ using Swashbuckle.AspNetCore.Swagger;
 
 namespace RedocPro.Redoc
 {
-	public static class BuildRedoc
+    public static class BuildRedoc
     {
         private static void GenerateSwagger(WebApplication app, ApiVersionDescription desc, string filePath = "../swagger_files/swagger#VER#.json")
         {
@@ -40,13 +40,14 @@ namespace RedocPro.Redoc
 
         public static void GenerateSwaggerEndpoint(WebApplication app, IReadOnlyList<ApiVersionDescription> versions)
         {
-			string urlVersions = string.Empty;
-			app.UseSwaggerUI(options =>
+            string urlVersions = string.Empty;
+            app.UseSwaggerUI(options =>
             {
                 foreach (var description in versions)
                 {
                     app.UseSwagger();
                     options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName);
+                    options.DefaultModelsExpandDepth(-1);
 
                     app.UseReDoc(options =>
                     {
@@ -62,15 +63,15 @@ namespace RedocPro.Redoc
             GenerateApiVersionsMarkdown(urlVersions);
         }
 
-		public static void GenerateApiVersionsMarkdown(string urlVersions)
-		{
-			var filePath = "../docs/04 Versions.md";
-			if (!File.Exists(filePath))
-			{
-				File.Create(filePath).Close();
-			}
+        public static void GenerateApiVersionsMarkdown(string urlVersions)
+        {
+            var filePath = "../docs/04 Versions.md";
+            if (!File.Exists(filePath))
+            {
+                File.Create(filePath).Close();
+            }
             string content = string.Format("# API Versions \n{0} ", urlVersions);
-			File.WriteAllText(filePath, content);
-		}
-	}
+            File.WriteAllText(filePath, content);
+        }
+    }
 }
