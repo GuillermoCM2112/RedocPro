@@ -16,15 +16,13 @@ Hasta el momento, se cuentan con los siguientes endpoints:
 
 Para descargar la colección de Postman puede hacer <a href="postman_collection.json" download>click aquí</a>
 
-
-
 Para descargar las variables de entorno de Postman puede hacer <a href="test_environment.json" download>click aquí</a>
 
 ## Ejecución local
 Para ejecutar de forma local, se pueden seguir los siguientes pasos:
 1. Instalar la versión más reciente de Visual Studio.
 2. Descargar el `.zip` de la rama `main` del repositorio.
-3. Abrir el proyecto
+3. Abrir el proyecto.
 4. Instalar las depencias de Node con ```npm install```
 5. Agregar en el [`appsettings.Development.json`]
 6. Ahora, puedes hacer click en la ejecutar el proyecto, o bien, en "Depurar > Iniciar depuración".

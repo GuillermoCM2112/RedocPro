@@ -61,16 +61,20 @@ jobs:
           else
             echo "No hay cambios para actualizar en la rama main"
           fi
-    
     - name: Instalacion de Redoc CLI y Deploy
+      run: npm install -g redoc-cli@latest
+    - name: Build and Deploy Versions
       run: |
-        npm install -g redoc-cli@latest
-        redoc-cli bundle ./swagger.json --output ./index.html
+        files=$(find ./swagger_files -name "swaggerv*.json")
+          for file in $files; do
+          version=$(basename "$file" .json | sed 's/swagger_//')
+          echo "Building and deploying Version $version"
+          redoc-cli bundle "$file" --output "./docs/$version/index.html"
+        done
 
-    - name: Deploy en GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@4.1.1
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: .
-        exclude_assets: '.github,.vs,RedocPro,RedocPro.sln,.gitignore'
-        force_orphan: true
+        branch: gh-pages
+        folder: ./docs
+        clean: true

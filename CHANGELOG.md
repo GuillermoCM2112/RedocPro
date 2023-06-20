@@ -1,4 +1,69 @@
+- [SPPP-625]: local merge
+- Update README.md
+- [SPPP-625]: mensaje
+- Punto para correr action
+- [SPPP-625]: se remueve schemas
+- [SPPP-625]: test
+- [SPPP-625]: se delimita documentación por solo versión 1.0
+- [SPPP-000]: Actualización de recursos
+- [SPPP-625]: markdown de versiones
+- [SPPP-000]: Actualización de recursos
+- Update RedocDocumentacion.yml
+- [SPPP-000]: Actualización de recursos
+- [SPPP-625]: local merge main
+- [SPPP-625]: varios cambios
+- [SPPP-000]: Actualización de recursos
+- Update RedocDocumentacion.yml
+- [SPPP-000]: Actualización de recursos
+- Update RedocDocumentacion.yml
+- [SPPP-000]: Actualización de recursos
+- Update RedocDocumentacion.yml
+- [SPPP-000]: Actualización de recursos
+- Update RedocDocumentacion.yml
+- [SPPP-000]: Actualización de recursos
+- Update RedocDocumentacion.yml
+- [SPPP-000]: Actualización de recursos
+- Update RedocDocumentacion.yml
+- [SPPP-000]: Actualización de recursos
+- Update RedocDocumentacion.yml
+- [SPPP-000]: Actualización de recursos
+- Update RedocDocumentacion.yml
+- [SPPP-000]: Actualización de recursos
+- Update RedocDocumentacion.yml
+- Update RedocDocumentacion.yml
+- [SPPP-000]: Actualización de recursos
+- Update RedocDocumentacion.yml
+- [SPPP-000]: Actualización de recursos
+- Update RedocDocumentacion.yml
+- [SPPP-000]: Actualización de recursos
+- Update RedocDocumentacion.yml
+- [SPPP-000]: Actualización de recursos
+- Update RedocDocumentacion.yml
+- [SPPP-000]: Actualización de recursos
+- Merge pull request #5 from GuillermoCM2112/varios-cambios
+- Merge branch 'main' into varios-cambios
+- [SPPP-000]: Actualización de recursos
+- [SPPP-625]: local merge main
+- Update RedocDocumentacion.yml
+- [SPPP-625]: ajustes de versionamiento
+- [SPPP-000]: Actualización de recursos
+- Update RedocDocumentacion.yml
+- Update RedocDocumentacion.yml
+- Delete swaggerv1.1.json
+- Create swaggerv1.1.json
+- Rename swaggerv1.0.json to swagger.json
+- Update and rename s.json to swaggerv1.0.json
+- Create s.json
+- Rename swagger.json to swaggerv1.0.json
+- Rename swaggerv1.1 to swaggerv1.1.json
+- Create swaggerv1.1
+- [SPPP-625]: merge
+- Delete options.json
+- Update RedocDocumentacion.yml
+- [SPPP-625]: se agrega ruta de swagger
+- [SPPP-000]: Actualización de recursos
 - Update options.json
+- [SPPP-625]: varios cambios
 - [SPPP-000]: Actualización de recursos
 - Update RedocDocumentacion.yml
 - Create options.json

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Mvc;
 using RedocPro.Descriptions;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net.Mime;
@@ -7,6 +8,7 @@ namespace RedocPro.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [ApiVersion(1.0)]
     [Consumes(MediaTypeNames.Application.Json)]
     [Produces(MediaTypeNames.Application.Json)]
     [SwaggerTag(ControllersDescriptions.HealthController)]

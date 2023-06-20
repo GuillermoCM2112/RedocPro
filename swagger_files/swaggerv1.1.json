@@ -1,0 +1,153 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Redopro - v1.1",
+    "description": "",
+    "contact": {
+      "name": "test",
+      "email": "someemail@somedomain.com"
+    },
+    "version": " 1.1",
+    "x-logo": {
+      "url": "https://img.freepik.com/vector-premium/diseno-logotipo-agua-hexagonal-listo-usar_94202-237.jpg?w=360",
+      "altText": "Your logo alt text here"
+    }
+  },
+  "paths": {
+    "/api/Auth/CancelUserAccount": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "Recovery an user's password, based on the requested data.",
+        "operationId": "CancelUserAccount",
+        "parameters": [
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CancelarCuenta"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The account is close correctly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CancelarCuentaRespuesta"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "- The username or password is incorrect (SPCI-401-1): incorrect data (wrong email or password).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "- CancelUserAccount User Not Found in Auth0 (SPCI-500): error.\n- CancelUserAccount invalid grant.(SPCI-500): error.\n- Generic error from Auth0 Service.(SPCI-500): error.\n- Unhandled error, is necesary validate the log.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CancelarCuenta": {
+        "required": [
+          "cancellationReason",
+          "password",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User identifier.",
+            "example": "auth0|63b477d3b85540fe7e870500"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string",
+            "description": "User password.",
+            "example": "th1sIsANew%%pwd"
+          },
+          "cancellationReason": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string",
+            "description": "Reason to cancel the account."
+          }
+        },
+        "additionalProperties": false
+      },
+      "CancelarCuentaRespuesta": {
+        "required": [
+          "successfulCancellation"
+        ],
+        "type": "object",
+        "properties": {
+          "successfulCancellation": {
+            "type": "boolean",
+            "description": "Property to know if the cancellation is successful."
+          }
+        },
+        "additionalProperties": false
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "errorCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "Auth controller description goes here."
+    },
+    {
+      "name": "Auth",
+      "description": "Auth controller description goes here."
+    }
+  ]
+}

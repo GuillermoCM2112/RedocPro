@@ -1,95 +1,77 @@
-﻿using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Any;
-using Microsoft.OpenApi.Interfaces;
-using Microsoft.OpenApi.Models;
+﻿using Asp.Versioning.ApiExplorer;
 using Microsoft.OpenApi.Writers;
 using RedocPro.Environments;
 using Swashbuckle.AspNetCore.Swagger;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using System.IO;
-using System.Reflection;
-using System.Text;
-using System.Xml.XPath;
 
 namespace RedocPro.Redoc
 {
     public static class BuildRedoc
     {
-        public static void GenerateSwagger(WebApplication app, string filePath = "../swagger.json")
+        private static void GenerateSwagger(WebApplication app, ApiVersionDescription desc, string filePath = "../swagger_files/swagger#VER#.json")
         {
             var stringWriter = new StringWriter();
-            app.Services.GetRequiredService<ISwaggerProvider>().GetSwagger("v1").SerializeAsV3(new OpenApiJsonWriter(stringWriter));
-            var swaggerJson = stringWriter.ToString();
+            filePath = filePath.Replace("#VER#", desc.GroupName);
+            app.Services.GetRequiredService<ISwaggerProvider>().GetSwagger(desc.GroupName).SerializeAsV3(new OpenApiJsonWriter(stringWriter));
             if (!File.Exists(filePath))
             {
                 File.Create(filePath).Close();
             }
-            File.WriteAllText(filePath, swaggerJson);
+            File.WriteAllText(filePath, stringWriter.ToString());
         }
-        public static void GenerateEnvironmentPostman()
-        {
-            var filePath = "../test_environment.json";
-            if (!File.Exists(filePath))
-            {
-                File.Create(filePath).Close();
-            }
-            File.WriteAllText("../test_environment.json", TestEnvironment.GenerateTestEnvironment());
-        }
-        public static void GenerateDocumentation(SwaggerGenOptions options)
-        {
-            options.SwaggerDoc("v1",
-                new OpenApiInfo
-                {
-                    Title = "CIAM Demo Documentation",
-                    Version = "v1",
-                    Description = GetAllFilesInDocumentation(),
-                    Contact = new OpenApiContact
-                    {
-                        Name = "test",
-                        Email = "someemail@somedomain.com"
-                    },
-                    Extensions = new Dictionary<string, IOpenApiExtension>
-                    {
-                      {"x-logo", new OpenApiObject
-                        {
-                           {"url", new OpenApiString("https://img.freepik.com/vector-premium/diseno-logotipo-agua-hexagonal-listo-usar_94202-237.jpg?w=360")},
-                           { "altText", new OpenApiString("Your logo alt text here")}
-                        }
-                      }
-                    }
-                });
-            options.SchemaFilter<SwaggerSchemaExampleFilter>();
-            var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-            options.IncludeXmlComments(xmlPath);
-            options.EnableAnnotations();
 
-        }
-        public static void GenerateSwaggerEndpoint(WebApplication app)
+        private static void GenerateEnvironmentPostman(string filePath = "../test_environment.json")
         {
+            if (!File.Exists(filePath))
+            {
+                File.Create(filePath).Close();
+            }
+            File.WriteAllText(filePath, TestEnvironment.GenerateTestEnvironment());
+        }
+
+        public static void GenerateResources(WebApplication app, IApiVersionDescriptionProvider versions)
+        {
+            foreach (var description in versions.ApiVersionDescriptions)
+            {
+                GenerateSwagger(app, description);
+            }
+
+            GenerateEnvironmentPostman();
+        }
+
+        public static void GenerateSwaggerEndpoint(WebApplication app, IReadOnlyList<ApiVersionDescription> versions)
+        {
+            string urlVersions = string.Empty;
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "CIAM Demo Documentation");
+                foreach (var description in versions)
+                {
+                    app.UseSwagger();
+                    options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName);
+                    options.DefaultModelsExpandDepth(-1);
+
+                    app.UseReDoc(options =>
+                    {
+                        options.DocumentTitle = $"CIAM Demo Documentation {description.GroupName}";
+                        options.RoutePrefix = $"api-docs-{description.GroupName}";
+                        options.HideDownloadButton();
+                        options.ExpandResponses(description.GroupName == "v1" ? "200" : string.Empty);
+                        urlVersions += string.Format("* [{0}]({1}{0})\n", description.GroupName, "https://guillermocm2112.github.io/RedocPro/swagger");
+                    });
+                }
             });
 
-            app.UseReDoc(options =>
-            {
-                options.DocumentTitle = "CIAM Demo Documentation";
-                options.HideDownloadButton();
-                options.ExpandResponses("200");
-            });
+            GenerateApiVersionsMarkdown(urlVersions);
         }
 
-
-        public static string GetAllFilesInDocumentation(string routeDocs = "../docs", string routeReadme = "../README.md")
+        public static void GenerateApiVersionsMarkdown(string urlVersions)
         {
-            string fileBase = File.ReadAllText(routeReadme, Encoding.UTF8);
-            if (Directory.Exists(routeDocs) && Directory.GetFiles(routeDocs).Any())
+            var filePath = "../docs/04 Versions.md";
+            if (!File.Exists(filePath))
             {
-                Directory.GetFiles(routeDocs).Select(k => fileBase += File.ReadAllText(k, Encoding.UTF8)).ToList();
+                File.Create(filePath).Close();
             }
-
-            return fileBase;
+            string content = string.Format("# API Versions \n{0} ", urlVersions);
+            File.WriteAllText(filePath, content);
         }
     }
 }
