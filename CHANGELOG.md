@@ -1,3 +1,12 @@
+- Update RedocDocumentacion.yml
+- [SPPP-625]: Merge
+- [SPPP-625]: Generación de archivo de Powershell
+- Delete package-lock.json
+- Delete package.json
+- Delete commitlint.config.js
+- Delete gitmessage.txt
+- Merge branch 'main' into ciam/endpoints
+- [SPPP-000]: Actualización de recursos
 - [SPPP-625]: local merge
 - Update README.md
 - [SPPP-625]: mensaje
@@ -57,6 +66,7 @@
 - Rename swagger.json to swaggerv1.0.json
 - Rename swaggerv1.1 to swaggerv1.1.json
 - Create swaggerv1.1
+- Merge branch 'main' into ciam/endpoints
 - [SPPP-625]: merge
 - Delete options.json
 - Update RedocDocumentacion.yml
@@ -67,6 +77,7 @@
 - [SPPP-000]: Actualización de recursos
 - Update RedocDocumentacion.yml
 - Create options.json
+- Added gitignore for swagger and test_environment
 - [SPPP-625]: se regresa código de commit-msg para node
 - [SPPP-000]: Actualización de recursos
 - Update 02 FAQ.md
