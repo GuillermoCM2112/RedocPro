@@ -1,3 +1,11 @@
+- [SPPP-625]: local merge
+- Update README.md
+- [SPPP-625]: mensaje
+- Punto para correr action
+- [SPPP-625]: se remueve schemas
+- [SPPP-625]: test
+- [SPPP-625]: se delimita documentación por solo versión 1.0
+- [SPPP-000]: Actualización de recursos
 - [SPPP-625]: markdown de versiones
 - [SPPP-000]: Actualización de recursos
 - Update RedocDocumentacion.yml
