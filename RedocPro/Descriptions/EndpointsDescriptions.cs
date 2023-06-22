@@ -26,7 +26,7 @@
 
 
         public const string UpdateUserProfileDescription = @"Updates the partial information of user.";
-        public const string UpdateUserProfile200Description = @"The information is updated correctly";
+        public const string UpdateUserProfile200Description = @"The information is updated correctly.";
         public const string UpdateUserProfile400Description = @"- The information is wrong (SPCI-400): the email provided is not valid.";
         public const string UpdateUserProfile401Description = @"" +
             "- Invalid token (SPCI-401-7): the given token is not valid.\n" +
