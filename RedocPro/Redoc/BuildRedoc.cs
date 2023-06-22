@@ -7,6 +7,20 @@ namespace RedocPro.Redoc
 {
     public static class BuildRedoc
     {
+
+        private static string BuildComboBox(string urlVersions, string content = "<select onchange=\"window.location=this.options[this.selectedIndex].value\">\r\n")
+        {
+            foreach (var url in urlVersions.Split(','))
+            {
+                if (!string.IsNullOrEmpty(url))
+                {
+                    string[] contents = url.Split('_');
+                    content += $"<option value='{contents[0]}'>{contents[1]}</option>\r\n";
+                }
+            }
+
+            return content + "</select>\r\n";
+        }
         private static void GenerateSwagger(WebApplication app, ApiVersionDescription desc, string filePath = "../swagger_files/swagger#VER#.json")
         {
             var stringWriter = new StringWriter();
@@ -55,7 +69,7 @@ namespace RedocPro.Redoc
                         options.RoutePrefix = $"api-docs-{description.GroupName}";
                         options.HideDownloadButton();
                         options.ExpandResponses(description.GroupName == "v1" ? "200" : string.Empty);
-                        urlVersions += string.Format("* [{0}]({1}{0})\n", description.GroupName, "https://guillermocm2112.github.io/RedocPro/swagger");
+                        urlVersions += $"https://guillermocm2112.github.io/RedocPro/swagger{description.GroupName}_{description.GroupName},";
                     });
                 }
             });
@@ -63,15 +77,14 @@ namespace RedocPro.Redoc
             GenerateApiVersionsMarkdown(urlVersions);
         }
 
-        public static void GenerateApiVersionsMarkdown(string urlVersions)
+        public static void GenerateApiVersionsMarkdown(string urlVersions, string filePath = "../docs/04 Versions.md")
         {
-            var filePath = "../docs/04 Versions.md";
             if (!File.Exists(filePath))
             {
                 File.Create(filePath).Close();
             }
-            string content = string.Format("# API Versions \n{0} ", urlVersions);
-            File.WriteAllText(filePath, content);
+
+            File.WriteAllText(filePath, string.Format("# API Versions \n{0} ", BuildComboBox(urlVersions)));
         }
     }
 }
