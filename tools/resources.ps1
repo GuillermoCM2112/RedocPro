@@ -3,7 +3,7 @@ git log --pretty=format:"- %s" > CHANGELOG.md
 
 # Generación de Postman
 npm i -g openapi-to-postmanv2
-openapi2postmanv2 -s ./swagger.json -o ./postman_collection.json
+openapi2postmanv2 -s ./swagger_files/swagger.json -o ./postman_collection.json
 (Get-Content -Raw -Path "./postman_collection.json") | ForEach-Object {
     $_ -replace '^', '{"collection":'
 } | Set-Content -Path "./postman_collection.json"
@@ -15,8 +15,8 @@ curl -X PUT -H "Content-Type: application/json" -H "X-Api-Key: $env:POSTMAN_API_
 
 # Creación de Snippets
 npm install -g openapi-snippet-cli
-openapi-snippet ./swagger.json -o ./swagger.yaml
-openapi-snippet ./swagger.yaml -t java -o ./swagger.json
+openapi-snippet ./swagger_files/swagger.json -o ./swagger.yaml
+openapi-snippet ./swagger.yaml -t java -o ./swagger_files/swagger.json
 
 # Actualizar de rama
 git checkout main
