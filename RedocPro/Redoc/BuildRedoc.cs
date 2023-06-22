@@ -8,7 +8,7 @@ namespace RedocPro.Redoc
     public static class BuildRedoc
     {
 
-        private static string BuildComboBox(string urlVersions, string content = "<select onchange=\"window.location=this.options[this.selectedIndex].value\">\r\n")
+        private static string BuildComboBox(string urlVersions, string content = "<select onchange=\"window.open(this.options[this.selectedIndex].value)\">\r\n")
         {
             foreach (var url in urlVersions.Split(','))
             {
@@ -84,7 +84,7 @@ namespace RedocPro.Redoc
                 File.Create(filePath).Close();
             }
 
-            File.WriteAllText(filePath, string.Format("# API Versions \n{0} ", BuildComboBox(urlVersions)));
+            File.WriteAllText(filePath, string.Format("# API Versions \n Avaibles: {0} ", BuildComboBox(urlVersions)));
         }
     }
 }
