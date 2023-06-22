@@ -31,7 +31,7 @@ jobs:
       with:
         node-version: '16'
         
-    - name: Resources in Powershell and push to Main
+    - name: Resources in Powershell and commit to Main
       run: pwsh -File ./tools/resources.ps1
   
     - name: Instalacion de Redoc CLI y Deploy
