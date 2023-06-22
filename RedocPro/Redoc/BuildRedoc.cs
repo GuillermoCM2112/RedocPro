@@ -84,7 +84,7 @@ namespace RedocPro.Redoc
                 File.Create(filePath).Close();
             }
 
-            File.WriteAllText(filePath, string.Format("# API Versions \n Avaibles: {0} ", BuildComboBox(urlVersions)));
+            File.WriteAllText(filePath, string.Format("# API Versions \n Available: {0} ", BuildComboBox(urlVersions)));
         }
     }
 }
