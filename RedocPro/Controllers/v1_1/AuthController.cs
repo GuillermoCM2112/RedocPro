@@ -1,11 +1,7 @@
 ﻿using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
 using RedocPro.Descriptions;
-using RedocPro.Entities.RequestPayloads;
-using RedocPro.Entities.ResponsePayloads;
 using RedocPro.Models;
-using RedocPro.Models.Requests;
-using RedocPro.Models.Responses;
 using RedocPro.Redoc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net.Mime;

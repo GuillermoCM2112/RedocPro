@@ -31,36 +31,9 @@ jobs:
       with:
         node-version: '16'
         
-    - name: Generate Changelog
-      run: git log --pretty=format:"- %s" > CHANGELOG.md
-      
-    - name: Generacion de Postman
-      run: |
-         npm i -g openapi-to-postmanv2
-         openapi2postmanv2 -s ./swagger.json -o ./postman_collection.json
-         sed -i '1s/^/{"collection":/' postman_collection.json
-         echo '}' >> postman_collection.json
-        
-    - name: Update Postman Collection
-      run: |
-          sudo apt-get install curl
-          npm install -g newman
-          curl -X PUT -H "Content-Type: application/json" -H "X-Api-Key: ${{ secrets.POSTMAN_API_KEY }}" -d @postman_collection.json "https://api.postman.com/collections/27712020-db7469c0-0df4-4bb8-bf0f-c04c59dde495"
-    
-    - name: Actualizar rama main
-      run: |
-          git checkout main
-           git checkout main
-          if [[ -n $(git status -s) ]]; then
-            git stash
-            git pull origin main
-            git stash apply
-            git add .
-            git -c user.name="Guillermo Coba Montoya" -c user.email="guillermo.coba@digitalfemsa.com" commit -m "[SPPP-000]: Actualización de recursos"
-            git push origin main
-          else
-            echo "No hay cambios para actualizar en la rama main"
-          fi
+    - name: Resources in Powershell and push to Main
+      run: pwsh -File ./tools/resources.ps1
+  
     - name: Instalacion de Redoc CLI y Deploy
       run: npm install -g redoc-cli@latest
     - name: Build and Deploy Versions
