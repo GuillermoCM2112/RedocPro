@@ -1,3 +1,9 @@
+- [SPPP-625]: Prueba
+- [SPPP-625]: Se agrega LA a available
+- [SPPP-625]: Se ajusta combo box de versiones
+- [SPPP-625]: Merge
+- [SPPP-625]: Se agrega combo box para mostrar las versiones
+- [SPPP-000]: Actualización de recursos
 - Update RedocDocumentacion.yml
 - [SPPP-625]: Merge
 - [SPPP-625]: Generación de archivo de Powershell
