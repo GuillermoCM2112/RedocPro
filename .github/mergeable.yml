@@ -17,8 +17,5 @@ mergeable:
       - do: comment
         payload:
           body: >
-            :warning:
-      - do: labels
-        add: 'Non-Compliant'
-      - do: close
+            The following problems were found with this issue:
 
