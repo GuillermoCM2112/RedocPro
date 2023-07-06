@@ -7,7 +7,7 @@
         public const string GetUserProfileDescription = @"Some endpoint description goes here.";
         public const string NethoneTransactionConfirm = @"Validates Nethone transaction integrity.";
         public const string NethoneTransaction = @"Process Nethone transaction.";
-        public const string NethoneRecommendation = @"Process Nethone recommendation.";
+        public const string NethoneRecommendation = @"Process Nethone recommendation";
 
 
 
