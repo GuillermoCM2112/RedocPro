@@ -13,9 +13,4 @@ mergeable:
         must_include:
           regex: '^(develop|feature|hotfix|release)\/[a-zA-Z]+-[0-9]+-.*'
           message: 'Your branch name should be like feature/SOME-TICKET-NUMBER-some-description'
-    fail:
-      - do: comment
-        payload:
-          body: >
-            The following problems were found with this issue:
 
