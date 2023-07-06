@@ -1,8 +1,6 @@
 # RedocPro
 
 Implementación del servicio Customer Identity and Access Management (CIAM)  
- <!---![Alt text](image.png)-->
-
 
 Para descargar la colección de Postman puede hacer <a href="postman_collection.json" download>click aquí</a>
 
