@@ -3,16 +3,6 @@
 Implementación del servicio Customer Identity and Access Management (CIAM)  
  <!---![Alt text](image.png)-->
 
-## Endpoints
-
-Hasta el momento, se cuentan con los siguientes endpoints:
-- `Login`: 
-- `Signup`:
-- `RefreshToken`: 
-- `ChangeUserPassword`: 
-- `ChangeUserProperty`: 
-- `UserValidation`: 
-- `RevokeRefreshToken`:
 
 Para descargar la colección de Postman puede hacer <a href="postman_collection.json" download>click aquí</a>
 
