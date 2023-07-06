@@ -7,7 +7,7 @@ aaa
 Para descargar las variables de entorno de Postman puede hacer <a href="test_environment.json" download>click aquí</a>
 
 ## Ejecución local
-Para ejecutar de forma local, se pueden seguir los siguientes pasos:
+Para ejecutar de forma local, se pueden seguir los siguientes pasos
 1. Instalar la versión más reciente de Visual Studio.
 2. Descargar el `.zip` de la rama `main` del repositorio.
 3. Abrir el proyecto.
