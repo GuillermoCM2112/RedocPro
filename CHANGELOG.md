@@ -1,5 +1,4 @@
-- Create mergeable.yml
-- [SPPP-000]: Actualización de recursos
+
 - [SPPP-625]: merge
 - [SPPP-625]: Ajuste de rutq
 - [SPPP-000]: Actualización de recursos
