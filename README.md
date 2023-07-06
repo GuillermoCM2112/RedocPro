@@ -22,7 +22,7 @@ Para contribuir al repositorio se te deben otorgar permisos de escritura y segui
 
 1. Asociar un nuevo SSH con tu cuenta de GitHub institucional.
 
-    En esta ocasión, no basta con descargar el `.zip` del repositorio. Debes configurar tu dispositivo para conectar tu cuenta de GitHub mediante SSH, puedes seguir el siguiente [tutorial de GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) para añadir una SSH a tu cuenta. Además, debes darle permisos para acceder a `digitaltitransversal`, sigue el siguiente [tutorial](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on) para dar dichos permisos.
+    En esta ocasión, no basta con descargar el `.zip` del repositorio. Debes configurar tu dispositivo para conectar tu cuenta de GitHub mediante SSH, puedes seguir el siguiente [tutorial de GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) para añadir una SSH a tu cuenta. Además, debes darle permisos para acceder a `digitaltitransversal`, sigue el siguiente [tutorial](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on) para dar dichos permisos
 
 2. Teniendo ya el SSH configurado, debes clonar el repositorio en la carpeta de tu preferencia. Como sugerencia, puedes crear una carpeta `~/Projects` para mantener todos los proyectos en un sólo lugar.
 
