@@ -70,7 +70,7 @@ namespace RedocPro.Controllers
 
         [HttpPost]
         [SwaggerOperation(OperationId = nameof(ChangeUserProperty), Description = EndpointsDescriptions.ChangeUserProperty)]
-        [SwaggerResponse(200, "Returns a 200 if the user property change.")]
+        [SwaggerResponse(200, "Returns a 200 if the user property change")]
         [SwaggerResponse(404, "SPCI-404: User not found", type: typeof(Error))]
         public IActionResult ChangeUserProperty([FromBody] UpdateUserRequest request)
         {
