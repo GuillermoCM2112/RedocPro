@@ -1,18 +1,15 @@
 version: 2
 mergeable:
-  - when: pull_request.*, pull_request_review.*
-    name: 'Draft check'
+  - when: pull_request.*
     validate:
-      - do: payload
-        pull_request:
-          draft:
-            boolean:
-              match: false
-    pass:
-      - do: comment
-        payload:
-          body: This PR is NOT a draft!
-    fail:
-      - do: comment
-        payload:
-          body: This PR is STILL a draft!
+      - do: description
+        no_empty:
+          enabled: true
+          message: Description matter and should not be empty. Provide detail with **what** was changed, **why** it was changed, and **how** it was changed.
+      - do: title
+        must_include:
+          regex: ^(\[DEVELOP\]|\[FEATURE\]|\[HOTFIX\]|\[RELEASE\]) [a-zA-Z0-9]+.*
+      - do: headRef
+        must_include:
+          regex: '^(develop|feature|hotfix|release)\/[a-zA-Z]+-[0-9]+-.*'
+          message: 'Your branch name should be like feature/SOME-TICKET-NUMBER-some-description'
