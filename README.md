@@ -43,7 +43,7 @@ Para contribuir al repositorio se te deben otorgar permisos de escritura y segui
 
 3. En este punto, se pueden seguir los pasos que se describieron para la ejecución local.
 
-4. Si se quiere agregar nuevos cambios, debes crear tu propia rama.
+4. Si se quiere agregar nuevos cambios, debes crear tu propia rama
     ```
     git branch rama-de-ejemplo
     ```
