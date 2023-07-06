@@ -13,4 +13,7 @@ mergeable:
         must_include:
           regex: '^(develop|feature|hotfix|release)\/[a-zA-Z]+-[0-9]+-.*'
           message: 'Your branch name should be like feature/SOME-TICKET-NUMBER-some-description'
+    actions:
+      - when: pull_request.*
+        do: block_merge
 
