@@ -1,21 +1,28 @@
+version: 2
 mergeable:
-  pull_requests:
-    label:
-      and:
-        - must_exclude:
-            regex: '^disposition/DO NOT MERGE'
-            message: 'Pull request marked not mergeable'
-        - must_exclude:
-            regex: '^disposition/Needs Internal Changes'
-            message: 'Pull request must be cherrypicked. Remove this label when ready to merge.'
-        - or:
-          - and:
-            - must_include:
-                regex: '^release notes: yes'
-                message: 'Please add the label (release notes: yes)'
-            - must_include:
-                regex: '^lang\/'
-                message: 'Please add a language label (lang/...)'
-          - must_include:
-              regex: '^release notes: no'
-              message: 'Please add the label (release notes: no)'
+  - when: 'pull_request.*'
+    name: check name A
+    filter:
+     - do: title
+  no_empty:
+     enabled: true # Cannot be empty when true. A bit redundant in this case since GitHub don't really allow it. :-)
+     message: 'Custom message...'
+  must_include:
+     regex: 'doc|feat|fix|chore'
+     regex_flag: 'none' # Optional. Specify the flag for Regex. default is 'i', to disable default use 'none'
+     message: 'Custom message...'
+  must_exclude:
+     regex: 'DO NOT MERGE|WIP'
+     regex_flag: 'none' # Optional. Specify the flag for Regex. default is 'i', to disable default use 'none'
+     message: 'Custom message...'
+  begins_with:
+     match: ['doc','feat','fix','chore']
+     message: 'Some message...'
+  ends_with:
+     match: 'A String' # or array of strings
+     message: 'Come message...'
+     # all of the message sub-option is optional
+  jira:
+    regex: '[A-Z][A-Z0-9]+-\d+'
+    regex_flag: none
+    message: 'The Jira ticket does not exist'
