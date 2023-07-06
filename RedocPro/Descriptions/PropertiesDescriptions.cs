@@ -18,7 +18,7 @@ namespace RedocPro.Descriptions
         public const string CodeUserStatusDescription = @"User Status";
         public const string DeviceIdDescription = @"User Device identifier";
         public const string AttemptReferenceDescription = @"User Attempt Reference";
-        public const string Password = @"The current password.";
+        public const string Password = @"The current password";
         public const string UsernameRequestDescription = @"The username can be a phone number or an email.";
     }
 }
