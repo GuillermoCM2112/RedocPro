@@ -1,3 +1,7 @@
+## Ejecutar
+# docker build -t redoc-api .
+# docker run -it --name redoc-api redoc-api
+
 # base
 FROM mcr.microsoft.com/dotnet/sdk:7.0-alpine
 
