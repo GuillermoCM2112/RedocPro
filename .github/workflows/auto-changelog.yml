@@ -26,7 +26,7 @@ jobs:
         auto-changelog --output CHANGELOG.md --handlebars-setup auto-changelog/setup.js --template auto-changelog/commits-template.hbs
         
      - name: Commit files # commit the output folder
-       if: steps.install-auto-changelog.outputs.changed == 'true'
+       #if: steps.install-auto-changelog.outputs.changed == 'true'
        run: |
          git config --local user.email "emir.tapia@digitalfemsa.com"
          git config --local user.name "emirtapiamendez"
@@ -34,7 +34,7 @@ jobs:
          git commit -m "Auto changelog update"
          
      - name: Push changes # push the output folder to your repo
-       if: steps.install-auto-changelog.outputs.changed == 'true'
+       #if: steps.install-auto-changelog.outputs.changed == 'true'
        uses: ad-m/github-push-action@master
        with:
          branch: main #ignore if your branch is master
