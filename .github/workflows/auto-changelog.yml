@@ -1,0 +1,42 @@
+name: changelog
+on:
+  push:
+    branches:
+    - main
+jobs:
+  build:  
+    name: changelog
+    runs-on: ubuntu-latest
+    steps:
+     - name: Checkout
+       uses: actions/checkout@v3
+       with:
+        ref: ${{ github.event.pull_request.head.sha }}
+        fetch-depth: 0
+        
+     - name: node
+       uses: actions/setup-node@v2
+       with:
+        node-version: '16'
+        
+     - name: Instalacion de auto-changelog
+       id: install-auto-changelog
+       run: |
+        npm install -g auto-changelog
+        auto-changelog --output AUTO-CHANGELOG.md --handlebars-setup auto-changelog/setup.js --template auto-changelog/commits-template.hbs
+        
+     - name: Commit files # commit the output folder
+       if: steps.install-auto-changelog.outputs.changed == 'true'
+       run: |
+         git config --local user.email "emir.tapia@digitalfemsa.com"
+         git config --local user.name "emirtapiamendez"
+         git add AUTO-CHANGELOG.md
+         git commit -m "Auto changelog update"
+         
+     - name: Push changes # push the output folder to your repo
+       if: steps.install-auto-changelog.outputs.changed == 'true'
+       uses: ad-m/github-push-action@master
+       with:
+         branch: main #ignore if your branch is master
+         github_token: ${{ secrets.GITHUB_TOKEN }}
+         force: true
