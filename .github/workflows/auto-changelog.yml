@@ -23,14 +23,14 @@ jobs:
        id: install-auto-changelog
        run: |
         npm install -g auto-changelog
-        auto-changelog --output AUTO-CHANGELOG.md --handlebars-setup auto-changelog/setup.js --template auto-changelog/commits-template.hbs
+        auto-changelog --output CHANGELOG.md --handlebars-setup auto-changelog/setup.js --template auto-changelog/commits-template.hbs
         
      - name: Commit files # commit the output folder
        if: steps.install-auto-changelog.outputs.changed == 'true'
        run: |
          git config --local user.email "emir.tapia@digitalfemsa.com"
          git config --local user.name "emirtapiamendez"
-         git add AUTO-CHANGELOG.md
+         git add CHANGELOG.md
          git commit -m "Auto changelog update"
          
      - name: Push changes # push the output folder to your repo
